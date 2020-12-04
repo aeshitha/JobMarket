@@ -15,7 +15,7 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Text layoutX="32.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ID" wrappingWidth="56.13671875">
+      <Text layoutX="32.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="90.13671875">
          <font>
             <Font size="20.0" />
          </font>
@@ -45,14 +45,9 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <Text layoutX="51.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="University Management System" wrappingWidth="354.919921875">
+      <Text layoutX="164.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Job Market" wrappingWidth="128.919921875">
          <font>
             <Font size="25.0" />
-         </font>
-      </Text>
-      <Text layoutX="217.0" layoutY="361.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Eshitha Aluthwala 艾西塔 191864124" wrappingWidth="224.13671875">
-         <font>
-            <Font size="20.0" />
          </font>
       </Text>
       <JFXButton fx:id="btnCreatAccount" layoutX="32.0" layoutY="368.0" onKeyReleased="#btnCreatAccountOnKeyRelease" onMouseClicked="#btnCreatAccountOnMouseClicked" prefHeight="44.0" prefWidth="167.0" style="-fx-background-color: white;" text="Creat Account">
@@ -60,10 +55,5 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <Text layoutX="217.0" layoutY="434.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kenny Pierrot  严瑞 191864119" wrappingWidth="224.13671875">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
    </children>
 </AnchorPane>
