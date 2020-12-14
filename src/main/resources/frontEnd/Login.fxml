@@ -20,7 +20,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID" layoutX="137.0" layoutY="149.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="44.0" prefWidth="288.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtUserName" layoutX="137.0" layoutY="149.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="44.0" prefWidth="288.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
