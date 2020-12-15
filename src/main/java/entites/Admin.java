@@ -1,7 +1,8 @@
 package entites;
 
+import com.google.cloud.firestore.DocumentSnapshot;
+
 import java.util.HashMap;
-import java.util.List;
 
 public class Admin {
     private String Id;
@@ -55,6 +56,16 @@ public class Admin {
         data.put("type", getType());
         data.put("password", getPassword());
         return data;
+    }
+
+
+    public static Admin docToAdmin(DocumentSnapshot doc) throws NullPointerException {
+        Admin admin = new Admin(doc.getId(), doc.getString("name"), doc.getString("type"), doc.getString("password"));
+
+        if (null == admin.getName()) {
+            throw new NullPointerException();
+        }
+        return admin;
     }
 
 
