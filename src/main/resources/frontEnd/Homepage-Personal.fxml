@@ -14,27 +14,27 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <JFXButton fx:id="btnCrAc" buttonType="RAISED" layoutX="1029.0" layoutY="89.0" onKeyReleased="#btnCrAcOnKeyReleased" onMouseClicked="#btnCrAcOnMouseClicked" prefHeight="50.0" prefWidth="306.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="CREATE ACCOUNT" textAlignment="JUSTIFY" textFill="WHITE">
+      <JFXButton fx:id="btnCrAd" buttonType="RAISED" layoutX="1029.0" layoutY="89.0" onKeyReleased="#btnCrAdOnKeyReleased" onMouseClicked="#btnCrAdOnMouseClicked" prefHeight="50.0" prefWidth="306.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="CREATE ADVERTISEMENT" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnJoPo" buttonType="RAISED" layoutX="1027.0" layoutY="151.0" onKeyReleased="#btnJoPoOnKeyReleased" onMouseClicked="#btnJoPoOnMouseClicked" prefHeight="50.0" prefWidth="308.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="JOB POSTINGS" textAlignment="JUSTIFY" textFill="WHITE">
+      <JFXButton fx:id="btnMaAd" buttonType="RAISED" layoutX="1027.0" layoutY="151.0" onKeyReleased="#btnMaAdOnKeyReleased" onMouseClicked="#btnMaAdOnMouseClicked" prefHeight="50.0" prefWidth="308.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="MANAGE ADVERTISEMENT" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnAn" buttonType="RAISED" layoutX="1025.0" layoutY="216.0" onKeyReleased="#btnAnOnKeyReleased" onMouseClicked="#btnAnOnMouseClicked" prefHeight="50.0" prefWidth="310.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="ANNOUNCEMENTS" textAlignment="JUSTIFY" textFill="WHITE">
+      <JFXButton fx:id="btnSeAd" buttonType="RAISED" layoutX="1025.0" layoutY="216.0" onKeyReleased="#btnSeAdOnKeyReleased" onMouseClicked="#btnSeAdOnMouseClicked" prefHeight="50.0" prefWidth="310.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="SEARCH ADVERTISEMENT" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnInWiEm" buttonType="RAISED" layoutX="1024.0" layoutY="281.0" onKeyReleased="#btnInWiEmOnKeyReleased" onMouseClicked="#btnInWiEmOnMouseClicked" prefHeight="50.0" prefWidth="311.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="INTERACTION WITH EMPLOYERS" textAlignment="JUSTIFY" textFill="WHITE">
+      <JFXButton fx:id="btnMe" buttonType="RAISED" layoutX="1024.0" layoutY="281.0" onKeyReleased="#btnMeOnKeyReleased" onMouseClicked="#btnMeOnMouseClicked" prefHeight="50.0" prefWidth="311.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="MESSAGE" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnEdPr" buttonType="RAISED" layoutX="1024.0" layoutY="350.0" onKeyReleased="#btnEdPrOnKeyReleased" onMouseClicked="#btnEdPrOnMouseClicked" prefHeight="50.0" prefWidth="311.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="EDIT PROFILE" textAlignment="JUSTIFY" textFill="WHITE">
+      <JFXButton fx:id="btnEdAc" buttonType="RAISED" layoutX="1024.0" layoutY="350.0" onKeyReleased="#btnEdAcOnKeyReleased" onMouseClicked="#btnEdAcOnMouseClicked" prefHeight="50.0" prefWidth="311.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="EDIT ACCOUNT" textAlignment="JUSTIFY" textFill="WHITE">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -44,5 +44,10 @@
             <Image url="@../../../../../../UNIVERSITY/0.png" />
          </image>
       </ImageView>
+      <JFXButton fx:id="btnEx" buttonType="RAISED" layoutX="1025.0" layoutY="615.0" onKeyReleased="#btnExOnKeyReleased" onMouseClicked="#btnExOnMouseClicked" prefHeight="50.0" prefWidth="311.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="EXIT" textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
