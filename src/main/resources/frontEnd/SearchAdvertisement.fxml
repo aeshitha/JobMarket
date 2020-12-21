@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxWidth="1920.0" prefHeight="900.0" prefWidth="900.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.SearchAdvertisementController">
+   <children>
+      <Label fx:id="lblMain" alignment="CENTER" layoutX="-2.0" layoutY="20.0" prefHeight="30.0" prefWidth="900.0" style="-fx-background-color: royalblue;" textFill="#2f3640">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btn_cancel" layoutX="683.0" layoutY="835.0" onKeyReleased="#btn_cancel_onKeyReleased" onMouseClicked="#btn_cancel_onMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Cancel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="58.0" layoutY="105.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Advertisement Type" wrappingWidth="181.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmb_advertisementType" layoutX="300.0" layoutY="75.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <Text layoutX="59.0" layoutY="165.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service" wrappingWidth="90.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmb_service" layoutX="300.0" layoutY="135.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <Text layoutX="55.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" wrappingWidth="90.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmb_province" layoutX="300.0" layoutY="195.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <Text layoutX="200.0" layoutY="225.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Province" wrappingWidth="90.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmb_city" layoutX="300.0" layoutY="255.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <Text layoutX="199.0" layoutY="285.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="90.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXComboBox fx:id="cmb_area" layoutX="300.0" layoutY="315.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <Text layoutX="199.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area" wrappingWidth="90.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXListView fx:id="lView_advertisement" layoutX="10.0" layoutY="375.0" onKeyReleased="#lView_advertisement_onKeyReleased" onMouseClicked="#lView_advertisement_onMouseClicked" prefHeight="450.0" prefWidth="880.0" />
+      <JFXButton fx:id="btn_next" layoutX="523.0" layoutY="835.0" onKeyReleased="#btn_next_onKeyReleased" onMouseClicked="#btn_next_onMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Next">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_prev" layoutX="363.0" layoutY="835.0" onKeyReleased="#btn_prev_onKeyReleased" onMouseClicked="#btn_prev_onMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Previous">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+   </children>
+</AnchorPane>

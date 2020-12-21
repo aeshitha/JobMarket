@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxWidth="1920.0" prefHeight="500.0" prefWidth="700.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.ApplyAdvertisementController">
+   <children>
+      <Label fx:id="lblMain" alignment="CENTER" layoutX="-2.0" layoutY="20.0" prefHeight="30.0" prefWidth="700.0" style="-fx-background-color: royalblue;" textFill="#2f3640">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <JFXButton fx:id="btn_cancel" layoutX="523.0" layoutY="425.0" onKeyReleased="#btn_cancel_onKeyReleased" onMouseClicked="#btn_cancel_onMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Cancel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_apply" layoutX="363.0" layoutY="425.0" onKeyReleased="#btn_apply_onKeyReleased" onMouseClicked="#btn_apply_onMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Apply">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <Text layoutX="35.0" layoutY="99.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Message" wrappingWidth="102.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txt_message" layoutX="143.0" layoutY="71.0" onKeyReleased="#txt_message_onKeyReleased" onMouseClicked="#txt_message_onMouseClicked" prefHeight="331.0" prefWidth="531.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>

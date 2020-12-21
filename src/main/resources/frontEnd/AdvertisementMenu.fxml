@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import com.jfoenix.controls.JFXButton?>
 <?import com.jfoenix.controls.JFXCheckBox?>
 <?import com.jfoenix.controls.JFXComboBox?>
 <?import com.jfoenix.controls.JFXTextField?>
@@ -7,7 +8,6 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
 
 <AnchorPane maxWidth="1920.0" prefHeight="900.0" prefWidth="900.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.AdvertisementMenu">
    <children>
@@ -21,19 +21,19 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXComboBox layoutX="297.0" layoutY="66.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <JFXComboBox fx:id="cmb_advertisementType" layoutX="297.0" layoutY="66.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
       <Text layoutX="49.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Service" wrappingWidth="90.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXComboBox layoutX="297.0" layoutY="130.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <JFXComboBox fx:id="cmb_service" layoutX="297.0" layoutY="130.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
       <Text layoutX="49.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countact Number" wrappingWidth="166.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID" layoutX="297.0" layoutY="199.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_contactNumber" layoutX="297.0" layoutY="199.0" onKeyReleased="#txt_contactNumber_onKeyReleased" onMouseClicked="#txt_contactNumber_onMouseClicked" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
@@ -43,7 +43,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID1" layoutX="297.0" layoutY="260.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_emailAddress" layoutX="297.0" layoutY="260.0" onKeyReleased="#txt_emailAddress_onKeyReleased" onMouseClicked="#txt_emailAddress_onMouseClicked" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
@@ -53,7 +53,7 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID11" layoutX="297.0" layoutY="321.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_charges" layoutX="297.0" layoutY="321.0" onKeyReleased="#txt_charges_onKeyReleased" onMouseClicked="#txt_charges_onMouseClicked" prefHeight="44.0" prefWidth="143.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
@@ -63,12 +63,12 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID111" layoutX="499.0" layoutY="321.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="44.0" prefWidth="198.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_chargesPer" layoutX="499.0" layoutY="321.0" onKeyReleased="#txt_chargesPer_onKeyReleased" onMouseClicked="#txt_chargesPer_onMouseClicked" prefHeight="44.0" prefWidth="198.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXCheckBox checkedColor="#f8f8f8" layoutX="297.0" layoutY="364.0" prefHeight="44.0" prefWidth="400.0" text="Negotiable" unCheckedColor="BLACK">
+      <JFXCheckBox fx:id="cBox_negotiable" checkedColor="#f8f8f8" layoutX="297.0" layoutY="364.0" onKeyReleased="#cBox_negotiable_onKeyReleased" onMouseClicked="#cBox_negotiable_onMouseClicked" prefHeight="44.0" prefWidth="400.0" text="Negotiable" unCheckedColor="BLACK">
          <font>
             <Font size="20.0" />
          </font>
@@ -78,33 +78,48 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXComboBox layoutX="293.0" layoutY="408.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <JFXComboBox fx:id="cmb_province" layoutX="293.0" layoutY="408.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
       <Text layoutX="190.0" layoutY="439.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Province" wrappingWidth="90.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXComboBox layoutX="292.0" layoutY="463.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <JFXComboBox fx:id="cmb_city" layoutX="292.0" layoutY="463.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
       <Text layoutX="189.0" layoutY="494.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="90.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXComboBox layoutX="292.0" layoutY="516.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
+      <JFXComboBox fx:id="cmb_area" layoutX="292.0" layoutY="516.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" />
       <Text layoutX="189.0" layoutY="547.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area" wrappingWidth="90.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="45.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countact Number" wrappingWidth="166.13671875">
+      <Text layoutX="45.0" layoutY="601.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description" wrappingWidth="166.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID2" layoutX="292.0" layoutY="571.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="266.0" prefWidth="400.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_description" layoutX="292.0" layoutY="571.0" onKeyReleased="#txt_description_onKeyReleased" onMouseClicked="#txt_description_onMouseClicked" prefHeight="184.0" prefWidth="400.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
+      <JFXButton fx:id="btn_submit" layoutX="534.0" layoutY="771.0" onKeyReleased="#btn_submit_onKeyReleased" onMouseClicked="#btn_submit_onMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Submit">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_refresh" layoutX="370.0" layoutY="770.0" onKeyReleased="#btn_refresh_onKeyReleased" onMouseClicked="#btn_refresh_onMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Refresh">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
+      <JFXButton fx:id="btn_cancel" layoutX="683.0" layoutY="835.0" onKeyReleased="#btn_cancel_onKeyReleased" onMouseClicked="#btn_cancel_onMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Cancel">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
