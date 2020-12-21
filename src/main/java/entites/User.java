@@ -1,14 +1,19 @@
 package entites;
 
+import com.google.cloud.firestore.DocumentSnapshot;
+
 import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
 
 public class User {
 
-    private String ID;
+    private String id;
+    private String type;
     private String name;
     private String email;
     private Long tellNo;
-    private Calendar dob;
+    private Date dob;
     private String province;
     private String city;
     private String area;
@@ -16,8 +21,9 @@ public class User {
     private String description;
 
 
-    public User(String ID, String name, String email, Long tellNo, Calendar dob, String province, String city, String area, String password, String description) {
-        this.ID = ID;
+    public User(String id, String type, String name, String email, Long tellNo, Date dob, String province, String city, String area, String password, String description) {
+        this.id = id;
+        this.type = type;
         this.name = name;
         this.email = email;
         this.tellNo = tellNo;
@@ -30,12 +36,20 @@ public class User {
     }
 
 
-    public String getID() {
-        return ID;
+    public String getId() {
+        return id;
     }
 
-    public void setID(String ID) {
-        this.ID = ID;
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getName() {
@@ -62,11 +76,11 @@ public class User {
         this.tellNo = tellNo;
     }
 
-    public Calendar getDob() {
+    public Date getDob() {
         return dob;
     }
 
-    public void setDob(Calendar dob) {
+    public void setDob(Date dob) {
         this.dob = dob;
     }
 
@@ -111,4 +125,37 @@ public class User {
     }
 
 
+    public HashMap toMap() {
+        HashMap<String, Object> data = new HashMap<String, Object>();
+        data.put("type", getType());
+        data.put("name", getName());
+        data.put("email", getEmail());
+        data.put("tellNo", getTellNo());
+        data.put("dob", getDob());
+        data.put("province", getProvince());
+        data.put("city", getCity());
+        data.put("area", getArea());
+        data.put("password", getPassword());
+        data.put("description", getDescription());
+        return data;
+
+    }
+
+
+
+
+
+    public static User docToUser(DocumentSnapshot doc) throws NullPointerException {
+        User user = new User(doc.getId(), doc.getString("type"), doc.getString("name"), doc.getString("email"), doc.getLong("tellNo"), doc.getDate("dob"), doc.getString("province"), doc.getString("city"),doc.getString("area"),doc.getString("password"),doc.getString("description"));
+
+        if (null == user.getName()) {
+            throw new NullPointerException();
+        }
+        return user;
+    }
+
+
+
 }
+
+
