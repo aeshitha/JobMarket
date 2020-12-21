@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1360.0" style="-fx-background-color: #4d3d39;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1360.0" style="-fx-background-color: #4d3d39;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.HomepageAdminController">
    <children>
       <Label fx:id="lblMain" alignment="CENTER" layoutX="-3.0" layoutY="29.0" prefHeight="30.0" prefWidth="1360.0" style="-fx-background-color: royalblue;" textFill="#2f3640">
          <font>
@@ -39,15 +39,15 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </JFXButton>
-      <ImageView fitHeight="350.0" fitWidth="350.0" layoutX="59.0" layoutY="208.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../../../../../UNIVERSITY/0.png" />
-         </image>
-      </ImageView>
       <ImageView fitHeight="658.0" fitWidth="1015.0" layoutX="1.0" layoutY="60.0">
          <image>
-            <Image url="@../../../../../company-profile-presentation-tips.jpg" />
+            <Image url="@admin-background.jpg" />
          </image>
       </ImageView>
+      <JFXButton fx:id="btn_publishNotice" buttonType="RAISED" layoutX="1035.0" layoutY="356.0" onKeyReleased="#btn_publishNotice_onKeyReleased" onMouseClicked="#btn_publishNotice_onMouseClicked" prefHeight="50.0" prefWidth="300.0" style="-fx-border-radius: 5; -fx-background-radius: 5; -fx-background-color: null; -fx-border-color: green; -fx-border-width: 3;" text="PUBLISH NOTICE" textAlignment="JUSTIFY" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
    </children>
 </AnchorPane>
