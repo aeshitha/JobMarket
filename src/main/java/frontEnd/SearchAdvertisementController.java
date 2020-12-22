@@ -5,8 +5,11 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.Pane;
+import javafx.stage.Stage;
 
 public class SearchAdvertisementController {
 
@@ -17,22 +20,22 @@ public class SearchAdvertisementController {
     private JFXButton btn_cancel;
 
     @FXML
-    private JFXComboBox<?> cmb_advertisementType;
+    private JFXComboBox<String> cmb_advertisementType;
 
     @FXML
-    private JFXComboBox<?> cmb_service;
+    private JFXComboBox<String> cmb_service;
 
     @FXML
-    private JFXComboBox<?> cmb_province;
+    private JFXComboBox<String> cmb_province;
 
     @FXML
-    private JFXComboBox<?> cmb_city;
+    private JFXComboBox<String> cmb_city;
 
     @FXML
-    private JFXComboBox<?> cmb_area;
+    private JFXComboBox<String> cmb_area;
 
     @FXML
-    private JFXListView<?> lView_advertisement;
+    private JFXListView<Pane> lView_advertisement;
 
     @FXML
     private JFXButton btn_next;
@@ -42,7 +45,9 @@ public class SearchAdvertisementController {
 
     @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
-
+        if (event.getCode().equals(KeyCode.ENTER)){
+//            stage.close();
+        }
     }
 
     @FXML
