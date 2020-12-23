@@ -4,6 +4,7 @@
 <?import com.jfoenix.controls.JFXTextField?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
@@ -55,5 +56,6 @@
             <Font size="20.0" />
          </font>
       </JFXButton>
+      <RadioButton fx:id="rb_admin" layoutX="369.0" layoutY="445.0" mnemonicParsing="false" onKeyReleased="#rb_admin_onKeyReleased" onMouseClicked="#rb_admin_onMouseClicked" style="-fx-text-fill: black;" text="Admin" />
    </children>
 </AnchorPane>

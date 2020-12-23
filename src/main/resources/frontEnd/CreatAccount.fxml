@@ -10,8 +10,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-
-<AnchorPane prefHeight="900.0" prefWidth="900.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.CreatAccount">
+<AnchorPane prefHeight="900.0" prefWidth="900.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.CreatAccountController">
    <children>
       <Label fx:id="lblMain" alignment="CENTER" layoutY="28.0" prefWidth="900.0" style="-fx-background-color: royalblue;" textFill="#2f3640">
          <font>
@@ -66,16 +65,6 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID12" layoutX="312.0" layoutY="290.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </JFXTextField>
-      <Text layoutX="25.0" layoutY="314.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email Address" wrappingWidth="179.13671875">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
       <Text layoutX="25.0" layoutY="363.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" wrappingWidth="179.13671875">
          <font>
             <Font size="20.0" />
@@ -99,46 +88,81 @@
       <JFXComboBox fx:id="cbMajor" layoutX="312.0" layoutY="340.0" onKeyReleased="#cbMajorOnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;" />
       <JFXComboBox fx:id="cbMajor1" layoutX="312.0" layoutY="390.0" onKeyReleased="#cbMajorOnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;" />
       <JFXComboBox fx:id="cbMajor2" layoutX="312.0" layoutY="439.0" onKeyReleased="#cbMajorOnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;" />
-      <JFXTextField fx:id="txtID121" layoutX="312.0" layoutY="489.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtID121" layoutX="312.0" layoutY="488.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <Text layoutX="25.0" layoutY="513.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="179.13671875">
+      <Text layoutX="25.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="179.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txtID122" layoutX="312.0" layoutY="538.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txtID122" layoutX="312.0" layoutY="537.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <Text layoutX="25.0" layoutY="562.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat Password" wrappingWidth="179.13671875">
+      <Text layoutX="25.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat Password" wrappingWidth="179.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXButton fx:id="btnCancel" layoutX="574.0" layoutY="751.0" onKeyReleased="#btnCancelOnKeyRelease" onMouseClicked="#btnCancelOnMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Submit">
+      <JFXButton fx:id="btnCancel" layoutX="574.0" layoutY="750.0" onKeyReleased="#btnCancelOnKeyRelease" onMouseClicked="#btnCancelOnMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Submit">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnCancel1" layoutX="410.0" layoutY="750.0" onKeyReleased="#btnCancelOnKeyRelease" onMouseClicked="#btnCancelOnMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Refresh">
+      <JFXButton fx:id="btnCancel1" layoutX="410.0" layoutY="749.0" onKeyReleased="#btnCancelOnKeyRelease" onMouseClicked="#btnCancelOnMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Refresh">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btnCancel2" layoutX="723.0" layoutY="815.0" onKeyReleased="#btnCancelOnKeyRelease" onMouseClicked="#btnCancelOnMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Cancel">
+      <JFXButton fx:id="btnCancel2" layoutX="731.0" layoutY="818.0" onKeyReleased="#btnCancelOnKeyRelease" onMouseClicked="#btnCancelOnMouseClicked" prefHeight="50.0" prefWidth="149.0" style="-fx-background-color: white;" text="Cancel">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <Text layoutX="25.0" layoutY="610.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discription" wrappingWidth="179.13671875">
+      <Text layoutX="25.0" layoutY="609.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Discription" wrappingWidth="179.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextArea layoutX="312.0" layoutY="588.0" prefHeight="145.0" prefWidth="419.0" style="-fx-background-color: white;" />
+      <JFXTextArea layoutX="312.0" layoutY="587.0" prefHeight="145.0" prefWidth="419.0" style="-fx-background-color: white;" />
+      <Text layoutX="25.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date Of Birth" wrappingWidth="179.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtID1211" layoutX="371.0" layoutY="292.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="39.0" prefWidth="43.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <Text layoutX="312.0" layoutY="320.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date" wrappingWidth="52.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtID12111" layoutX="507.0" layoutY="294.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="39.0" prefWidth="43.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <Text layoutX="426.0" layoutY="319.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mounth" wrappingWidth="80.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <JFXTextField fx:id="txtID12112" layoutX="616.0" layoutY="294.0" onKeyReleased="#txtIDOnKeyRelease" prefHeight="39.0" prefWidth="115.0" style="-fx-background-color: white;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+      <Text layoutX="567.0" layoutY="322.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Year" wrappingWidth="52.13671875">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
