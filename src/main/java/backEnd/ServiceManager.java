@@ -16,7 +16,7 @@ public class ServiceManager {
 
     public static boolean addService(Service service) throws IOException, InterruptedException, ExecutionException {
         Firestore db = DBHandler.makeConnection();
-        List<String> ids = getUserIds(db);
+        List<String> ids = getServiceIds(db);
         if (ids.contains(service.getId())) {
             return false;
         }
@@ -34,7 +34,7 @@ public class ServiceManager {
 
     public static boolean updateService(Service service) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
-        List<String> ids = getUserIds(db);
+        List<String> ids = getServiceIds(db);
         if (!ids.contains(service.getId())) {
             return false;
         }
@@ -42,7 +42,7 @@ public class ServiceManager {
         DBHandler.saveData(service.toMap(), ref);
         return true;
     }
-    public static Service getUser(String userId) throws ExecutionException, InterruptedException, IOException {
+    public static Service getService(String userId) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
         DocumentReference ref = db.collection("services").document(userId);
@@ -58,18 +58,18 @@ public class ServiceManager {
         return service;
     }
 
-    public static List<String> getUserIds() throws IOException, ExecutionException, InterruptedException {
+    public static List<String> getServiceIds() throws IOException, ExecutionException, InterruptedException {
         Firestore db = DBHandler.makeConnection();
         CollectionReference ref = db.collection("services");
         List<DocumentSnapshot> docs = DBHandler.getCollection(ref);
-        List<String> userIds = new ArrayList<>();
+        List<String> ServiceIds = new ArrayList<>();
         for (int i = 0; i < docs.size(); i++) {
             DocumentSnapshot doc = docs.get(i);
-            userIds.add(doc.getId());
+            ServiceIds.add(doc.getId());
         }
-        return userIds;
+        return ServiceIds;
     }
-    public static List<String> getUserIds(Firestore db) throws IOException, ExecutionException, InterruptedException {
+    public static List<String> getServiceIds(Firestore db) throws IOException, ExecutionException, InterruptedException {
         CollectionReference ref = db.collection("services");
         List<DocumentSnapshot> docs = DBHandler.getCollection(ref);
         List<String> service = new ArrayList<>();
