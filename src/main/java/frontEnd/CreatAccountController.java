@@ -115,7 +115,9 @@ public class CreatAccountController {
             try {
                 User user = UserManager.getUser(txt_id.getText());
                 System.out.println(user);
-//                MessageManager.giveAWarning("dsf");
+                MessageManager.giveAWarning(lblMain,"User Id Already Exists", windowName);
+                txt_id.clear();
+                txt_id.requestFocus();
             }catch (NullPointerException e){
                 System.out.println(e);
                 if (txt_password.getText().equals(txt_rePassword.getText())) {
@@ -124,9 +126,11 @@ public class CreatAccountController {
                         UserManager.addUser(new User(txt_id.getText(), "company", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
                         MessageManager.giveSuccessMessage(lblMain, "Company AccountCreated Successfully", windowName);
                     } else if (rbTypeP.isSelected()) {
+                        System.out.println(cb_province.getSelectionModel().getSelectedItem());
                         Date dob = new Date(Integer.parseInt(txt_year.getText()), Integer.parseInt(txt_Mounth.getText()), Integer.parseInt(txt_Day.getText()));
-                        UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
+                        UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, "gemba","gemba","gemba"/*cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString()*/, txt_password.getText(), txt_discription.getText()));
                         MessageManager.giveSuccessMessage(lblMain, "Personal AccountCreated Successfully", windowName);
+
                     } else {
                         MessageManager.giveAWarning(lblMain, "Select Account Type", windowName);
                         rbTypeC.requestFocus();
@@ -148,7 +152,9 @@ public class CreatAccountController {
         try {
             User user = UserManager.getUser(txt_id.getText());
             System.out.println(user);
-//                MessageManager.giveAWarning("dsf");
+            MessageManager.giveAWarning(lblMain,"User Id Already Exists", windowName);
+            txt_id.clear();
+            txt_id.requestFocus();
         }catch (NullPointerException e){
             System.out.println(e);
             if (txt_password.getText().equals(txt_rePassword.getText())) {
@@ -156,12 +162,13 @@ public class CreatAccountController {
                     Date dob = new Date(Integer.parseInt(txt_year.getText()), Integer.parseInt(txt_Mounth.getText()), Integer.parseInt(txt_Day.getText()));
                     UserManager.addUser(new User(txt_id.getText(), "company", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
                     MessageManager.giveSuccessMessage(lblMain, "Company AccountCreated Successfully", windowName);
+                    refreshUI();
                 } else if (rbTypeP.isSelected()) {
                     System.out.println(cb_province.getSelectionModel().getSelectedItem());
                     Date dob = new Date(Integer.parseInt(txt_year.getText()), Integer.parseInt(txt_Mounth.getText()), Integer.parseInt(txt_Day.getText()));
                     UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, "gemba","gemba","gemba"/*cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString()*/, txt_password.getText(), txt_discription.getText()));
                     MessageManager.giveSuccessMessage(lblMain, "Personal AccountCreated Successfully", windowName);
-
+                    refreshUI();
                 } else {
                     MessageManager.giveAWarning(lblMain, "Select Account Type", windowName);
                     rbTypeC.requestFocus();
@@ -213,7 +220,9 @@ public class CreatAccountController {
 
     @FXML
     void txt_Password_OnKeyRelease(KeyEvent event) {
-        txt_rePassword.requestFocus();
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            txt_rePassword.requestFocus();
+        }
     }
 
     @FXML
