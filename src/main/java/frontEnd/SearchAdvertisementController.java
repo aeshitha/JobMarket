@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -11,9 +12,13 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
-public class SearchAdvertisementController {
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class SearchAdvertisementController implements Initializable {
 
     public static Stage stage;
+
     @FXML
     private Label lblMain;
 
@@ -86,4 +91,8 @@ public class SearchAdvertisementController {
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+    }
 }
