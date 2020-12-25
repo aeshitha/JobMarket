@@ -14,7 +14,7 @@ import java.util.concurrent.ExecutionException;
 
 public class ServiceManager {
 
-    public static boolean addUser(Service service) throws IOException, InterruptedException, ExecutionException {
+    public static boolean addService(Service service) throws IOException, InterruptedException, ExecutionException {
         Firestore db = DBHandler.makeConnection();
         List<String> ids = getUserIds(db);
         if (ids.contains(service.getId())) {
@@ -25,14 +25,14 @@ public class ServiceManager {
         return true;
     }
 
-    public static boolean deleteUser(String profile) throws ExecutionException, InterruptedException, IOException {
+    public static boolean deleteService(String profile) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         DocumentReference ref = db.collection("services").document(profile);
         DBHandler.deleteDocument(ref);
         return true;
     }
 
-    public static boolean updateUser(Service service) throws ExecutionException, InterruptedException, IOException {
+    public static boolean updateService(Service service) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         List<String> ids = getUserIds(db);
         if (!ids.contains(service.getId())) {
@@ -46,16 +46,16 @@ public class ServiceManager {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
         DocumentReference ref = db.collection("services").document(userId);
-        Service user;
+        Service service;
 
         DocumentSnapshot doc = DBHandler.getDocument(ref);
         List<Integer> l = new ArrayList<>();
 
 
-        user = new Service(userId, doc.getString("type"), doc.getString("name"), doc.getString("email"), doc.getLong("tellNo"), doc.getDate("dob"), doc.getString("province"), doc.getString("city"),doc.getString("area"),doc.getString("password"),doc.getString("description"));
-        if(user.getName()==null) throw new NullPointerException();
+        service = new Service(userId, doc.getString("service"));
+        if(service.getService()==null) throw new NullPointerException();
 
-        return user;
+        return service;
     }
 
     public static List<String> getUserIds() throws IOException, ExecutionException, InterruptedException {
@@ -82,14 +82,14 @@ public class ServiceManager {
 
 
 
-    public static List<Service> getUsers() throws ExecutionException, InterruptedException, IOException {
+    public static List<Service> getServices() throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         CollectionReference ref = db.collection("services");
         List<DocumentSnapshot> docs = DBHandler.getCollection(ref);
         List<Service> service = new ArrayList<>();
         for (int i = 0; i < docs.size(); i++) {
             DocumentSnapshot doc = docs.get(i);
-            service.add(Service.docToUser(doc));
+            service.add(Service.docToService(doc));
         }
         return service;
     }
