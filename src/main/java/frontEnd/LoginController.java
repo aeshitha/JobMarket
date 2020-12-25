@@ -11,7 +11,6 @@ import entites.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.RadioButton;
@@ -23,7 +22,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-public class  LoginController {
+public class LoginController {
 
 
     public static Stage stage;
@@ -37,12 +36,12 @@ public class  LoginController {
     public JFXButton btnCreatAccount;
 
     public void txtIDOnKeyRelease(KeyEvent keyEvent) {
-        if (keyEvent.getCode().equals(KeyCode.ENTER)){
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
             User user;
             Admin admin;
-            try{
+            try {
                 user = UserManager.getUser(txtUserName.getText());
-                MessageManager.giveSuccessMessage(lblMain,"Welcome! " + user.getName(),windowName);
+                MessageManager.giveSuccessMessage(lblMain, "Welcome! " + user.getName(), windowName);
                 txtPassword.requestFocus();
 
             } catch (InterruptedException e) {
@@ -116,7 +115,7 @@ public class  LoginController {
     }
 
     public void btnLoginOnKeyRelease(KeyEvent keyEvent) throws InterruptedException, ExecutionException, IOException {
-        if (keyEvent.getCode().equals(KeyCode.ENTER)){
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
 
             if (keyEvent.getCode().equals(KeyCode.ENTER)) {
 
@@ -197,10 +196,10 @@ public class  LoginController {
                     txtPassword.requestFocus();
                 }
 
-            } else {
+            }else {
                 user = UserManager.getUser(txtUserName.getText());
-                DataHolder.user = user;
-                type = user.getType();
+
+
                 if (user.getPassword().equals(txtPassword.getText())) {
                     if (type.equals("personal")) {
                         CompanyMenuController.stage = new Stage();

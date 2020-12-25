@@ -17,6 +17,8 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.concurrent.ExecutionException;
 
@@ -156,17 +158,26 @@ public class CreatAccountController {
             txt_id.clear();
             txt_id.requestFocus();
         }catch (NullPointerException e){
-            System.out.println(e);
             if (txt_password.getText().equals(txt_rePassword.getText())) {
                 if (rbTypeC.isSelected()) {
-                    Date dob = new Date(Integer.parseInt(txt_year.getText()), Integer.parseInt(txt_Mounth.getText()), Integer.parseInt(txt_Day.getText()));
+                    Date dob = null;
+                    try {
+                        dob = new SimpleDateFormat("dd/MM/yyyy").parse(txt_Day.getText() + "/" + txt_Mounth.getText() + "/" + txt_year.getText());
+                    } catch (ParseException ex) {
+                        ex.printStackTrace();
+                    }
                     UserManager.addUser(new User(txt_id.getText(), "company", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
                     MessageManager.giveSuccessMessage(lblMain, "Company AccountCreated Successfully", windowName);
                     refreshUI();
                 } else if (rbTypeP.isSelected()) {
-                    System.out.println(cb_province.getSelectionModel().getSelectedItem());
-                    Date dob = new Date(Integer.parseInt(txt_year.getText()), Integer.parseInt(txt_Mounth.getText()), Integer.parseInt(txt_Day.getText()));
-                    UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, "gemba","gemba","gemba"/*cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString()*/, txt_password.getText(), txt_discription.getText()));
+//                    System.out.println(cb_province.getSelectionModel().getSelectedItem());
+                    Date dob = null;
+                    try {
+                        dob = new SimpleDateFormat("dd/MM/yyyy").parse(txt_Day.getText() + "/" + txt_Mounth.getText() + "/" + txt_year.getText());
+                    } catch (ParseException ex) {
+                        ex.printStackTrace();
+                    }
+                    UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, "gemba", "gemba", "gemba"/*cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString()*/, txt_password.getText(), txt_discription.getText()));
                     MessageManager.giveSuccessMessage(lblMain, "Personal AccountCreated Successfully", windowName);
                     refreshUI();
                 } else {
