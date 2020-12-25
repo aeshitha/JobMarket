@@ -1,9 +1,11 @@
 package frontEnd;
 
+import backEnd.AdminManager;
 import backEnd.MessageManager;
 import backEnd.UserManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import entites.Admin;
 import entites.User;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,6 +13,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -19,10 +22,11 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.concurrent.ExecutionException;
 
-public class LoginController {
+public class  LoginController {
 
 
     public static Stage stage;
+    public RadioButton rb_admin;
     String windowName = "Loging Menu";
     public Label lblMain;
     public JFXTextField txtUserName;
@@ -30,11 +34,11 @@ public class LoginController {
     public JFXButton btnLogin;
     public JFXButton btnExite;
     public JFXButton btnCreatAccount;
-    public Hyperlink hl_admin;
 
     public void txtIDOnKeyRelease(KeyEvent keyEvent) {
         if (keyEvent.getCode().equals(KeyCode.ENTER)){
             User user;
+            Admin admin;
             try{
                 user = UserManager.getUser(txtUserName.getText());
                 MessageManager.giveSuccessMessage(lblMain,"Welcome! " + user.getName(),windowName);
@@ -53,88 +57,166 @@ public class LoginController {
 
     public void txtPasswordOnKeyRelease(KeyEvent keyEvent) throws InterruptedException, ExecutionException, IOException {
 
-        if (keyEvent.getCode().equals(KeyCode.ENTER)){
-            User user = UserManager.getUser(txtUserName.getText());
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            if (keyEvent.getCode().equals(KeyCode.ENTER)) {
 
-            if (user.getPassword().equals(txtPassword.getText())){
-                MessageManager.giveSuccessMessage(lblMain,"Login Successful",windowName);
-                if (user.getType().equals("personal")) {
-                    CompanyMenuController.stage = new Stage();
-                    Parent root = FXMLLoader.load(CompanyMenuController.class.getResource("studentMenu.fxml"));
-                    CompanyMenuController.stage.setScene(new Scene(root));
-                    CompanyMenuController.stage.show();
-                    stage.close();
+                String type;
+                Admin admin;
+                User user;
+                user = UserManager.getUser(txtUserName.getText());
+                type = user.getType();
+                if (rb_admin.isSelected()) {
+
+                    admin = AdminManager.getAdmin(txtUserName.getId());
+                    if (admin.getPassword().equals(txtPassword)) {
+
+                        HomepageAdminController.stage = new Stage();
+                        Parent root = FXMLLoader.load(HomepageAdminController.class.getResource("Homepage-Admin.fxml"));
+                        HomepageAdminController.stage.setScene(new Scene(root));
+                        HomepageAdminController.stage.show();
+                        stage.close();
+
+                    } else {
+                        MessageManager.giveAWarning(lblMain, "Incorrect Password", windowName);
+                        txtPassword.clear();
+                        txtPassword.requestFocus();
+                    }
+
+                } else {
+                    user = UserManager.getUser(txtUserName.getText());
 
 
-                }else {
-                    PersonalAccountMenuController.stage = new Stage();
-                    Parent root = FXMLLoader.load(PersonalAccountMenuController.class.getResource("PersonalAccountMenu.fxml"));
-                    PersonalAccountMenuController.stage.setScene(new Scene(root));
-                    PersonalAccountMenuController.stage.show();
-                    stage.close();
+                    if (user.getPassword().equals(txtPassword.getText())) {
+                        if (type.equals("personal")) {
+                            CompanyMenuController.stage = new Stage();
+                            Parent root = FXMLLoader.load(CompanyMenuController.class.getResource("studentMenu.fxml"));
+                            CompanyMenuController.stage.setScene(new Scene(root));
+                            CompanyMenuController.stage.show();
+                            stage.close();
+
+
+                        } else {
+                            PersonalAccountMenuController.stage = new Stage();
+                            Parent root = FXMLLoader.load(PersonalAccountMenuController.class.getResource("PersonalAccountMenu.fxml"));
+                            PersonalAccountMenuController.stage.setScene(new Scene(root));
+                            PersonalAccountMenuController.stage.show();
+                            stage.close();
+                        }
+                    } else {
+                        MessageManager.giveAWarning(lblMain, "Incorrect Password", windowName);
+                        txtPassword.clear();
+                        txtPassword.requestFocus();
+                    }
                 }
-            }else {
-                MessageManager.giveAWarning(lblMain,"Incorrect Password",windowName);
-                txtPassword.clear();
-                txtPassword.requestFocus();
             }
+
+
         }
-
-
     }
 
     public void btnLoginOnKeyRelease(KeyEvent keyEvent) throws InterruptedException, ExecutionException, IOException {
         if (keyEvent.getCode().equals(KeyCode.ENTER)){
-            User user = UserManager.getUser(txtUserName.getText());
 
-            if (user.getPassword().equals(txtPassword.getText())){
-                if (user.getType().equals("personal")) {
-                    CompanyMenuController.stage = new Stage();
-                    Parent root = FXMLLoader.load(CompanyMenuController.class.getResource("studentMenu.fxml"));
-                    CompanyMenuController.stage.setScene(new Scene(root));
-                    CompanyMenuController.stage.show();
+            String type;
+            Admin admin;
+            User user;
+            user = UserManager.getUser(txtUserName.getText());
+            type = user.getType();
+            if (rb_admin.isSelected()){
+
+                admin = AdminManager.getAdmin(txtUserName.getId());
+                if (admin.getPassword().equals(txtPassword)){
+
+                    HomepageAdminController.stage = new Stage();
+                    Parent root = FXMLLoader.load(HomepageAdminController.class.getResource("Homepage-Admin.fxml"));
+                    HomepageAdminController.stage.setScene(new Scene(root));
+                    HomepageAdminController.stage.show();
                     stage.close();
 
-
-                }else {
-                    PersonalAccountMenuController.stage = new Stage();
-                    Parent root = FXMLLoader.load(PersonalAccountMenuController.class.getResource("PersonalAccountMenu.fxml"));
-                    PersonalAccountMenuController.stage.setScene(new Scene(root));
-                    PersonalAccountMenuController.stage.show();
-                    stage.close();
+                } else {
+                    MessageManager.giveAWarning(lblMain, "Incorrect Password", windowName);
+                    txtPassword.clear();
+                    txtPassword.requestFocus();
                 }
+
             }else {
-                MessageManager.giveAWarning(lblMain,"Incorrect Password",windowName);
-                txtPassword.clear();
-                txtPassword.requestFocus();
+                user = UserManager.getUser(txtUserName.getText());
+
+
+                if (user.getPassword().equals(txtPassword.getText())) {
+                    if (type.equals("personal")) {
+                        CompanyMenuController.stage = new Stage();
+                        Parent root = FXMLLoader.load(CompanyMenuController.class.getResource("studentMenu.fxml"));
+                        CompanyMenuController.stage.setScene(new Scene(root));
+                        CompanyMenuController.stage.show();
+                        stage.close();
+
+
+                    } else {
+                        PersonalAccountMenuController.stage = new Stage();
+                        Parent root = FXMLLoader.load(PersonalAccountMenuController.class.getResource("PersonalAccountMenu.fxml"));
+                        PersonalAccountMenuController.stage.setScene(new Scene(root));
+                        PersonalAccountMenuController.stage.show();
+                        stage.close();
+                    }
+                } else {
+                    MessageManager.giveAWarning(lblMain, "Incorrect Password", windowName);
+                    txtPassword.clear();
+                    txtPassword.requestFocus();
+                }
             }
         }
     }
 
     public void btnLoginOnMouseClicked(MouseEvent mouseEvent) throws InterruptedException, ExecutionException, IOException {
-        User user = UserManager.getUser(txtUserName.getText());
+            String type;
+            Admin admin;
+            User user;
+            user = UserManager.getUser(txtUserName.getText());
+            type = user.getType();
+            if (rb_admin.isSelected()){
 
-        if (user.getPassword().equals(txtPassword.getText())){
-            if (user.getType().equals("personal")) {
-                CompanyMenuController.stage = new Stage();
-                Parent root = FXMLLoader.load(CompanyMenuController.class.getResource("studentMenu.fxml"));
-                CompanyMenuController.stage.setScene(new Scene(root));
-                CompanyMenuController.stage.show();
-                stage.close();
+                admin = AdminManager.getAdmin(txtUserName.getId());
+                if (admin.getPassword().equals(txtPassword)){
 
+                    HomepageAdminController.stage = new Stage();
+                    Parent root = FXMLLoader.load(HomepageAdminController.class.getResource("Homepage-Admin.fxml"));
+                    HomepageAdminController.stage.setScene(new Scene(root));
+                    HomepageAdminController.stage.show();
+                    stage.close();
+
+                } else {
+                    MessageManager.giveAWarning(lblMain, "Incorrect Password", windowName);
+                    txtPassword.clear();
+                    txtPassword.requestFocus();
+                }
 
             }else {
-                PersonalAccountMenuController.stage = new Stage();
-                Parent root = FXMLLoader.load(PersonalAccountMenuController.class.getResource("PersonalAccountMenu.fxml"));
-                PersonalAccountMenuController.stage.setScene(new Scene(root));
-                PersonalAccountMenuController.stage.show();
-                stage.close();
+                user = UserManager.getUser(txtUserName.getText());
+
+
+                if (user.getPassword().equals(txtPassword.getText())) {
+                    if (type.equals("personal")) {
+                        CompanyMenuController.stage = new Stage();
+                        Parent root = FXMLLoader.load(CompanyMenuController.class.getResource("studentMenu.fxml"));
+                        CompanyMenuController.stage.setScene(new Scene(root));
+                        CompanyMenuController.stage.show();
+                        stage.close();
+
+
+                    } else {
+                        PersonalAccountMenuController.stage = new Stage();
+                        Parent root = FXMLLoader.load(PersonalAccountMenuController.class.getResource("PersonalAccountMenu.fxml"));
+                        PersonalAccountMenuController.stage.setScene(new Scene(root));
+                        PersonalAccountMenuController.stage.show();
+                        stage.close();
+                    }
+                } else {
+                    MessageManager.giveAWarning(lblMain, "Incorrect Password", windowName);
+                    txtPassword.clear();
+                    txtPassword.requestFocus();
+                }
             }
-        }else {
-            MessageManager.giveAWarning(lblMain,"Incorrect Password",windowName);
-            txtPassword.clear();
-            txtPassword.requestFocus();
-        }
     }
 
     public void btnExiteOnKeyRelease(KeyEvent keyEvent) {
@@ -158,13 +240,35 @@ public class LoginController {
         }
     }
 
-    public void btnCreatAccountOnMouseClicked(MouseEvent mouseEvent) {
+    public void btnCreatAccountOnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        CreatAccountController.stage = new Stage();
+        Parent root = FXMLLoader.load(CreatAccountController.class.getResource("CreatAccount.fxml"));
+        CreatAccountController.stage.setScene(new Scene(root));
+        CreatAccountController.stage.show();
+        stage.close();
+    }
+
+
+
+    public void rb_admin_onKeyReleased(KeyEvent keyEvent) {
+
+        if (keyEvent.getCode().equals(KeyCode.ENTER)){
+
+            if (rb_admin.isSelected()){
+                btnCreatAccount.setDisable(true);
+            }else{
+                btnCreatAccount.setDisable(false);
+            }
+
+        }
 
     }
 
-    public void hl_admin_onKeyReleased(KeyEvent keyEvent) {
-    }
-
-    public void hl_admin_onMouseClicked(MouseEvent mouseEvent) {
+    public void rb_admin_onMouseClicked(MouseEvent mouseEvent) {
+        if (rb_admin.isSelected()){
+            btnCreatAccount.setDisable(true);
+        }else{
+            btnCreatAccount.setDisable(false);
+        }
     }
 }

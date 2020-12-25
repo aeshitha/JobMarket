@@ -6,9 +6,11 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.stage.Stage;
 
 public class SelectAdvertisementController {
 
+    public static Stage stage;
     @FXML
     private Label lblMain;
 

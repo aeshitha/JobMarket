@@ -13,6 +13,7 @@ import javafx.stage.Stage;
 
 public class SearchAdvertisementController {
 
+    public static Stage stage;
     @FXML
     private Label lblMain;
 
