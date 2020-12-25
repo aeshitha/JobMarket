@@ -1,14 +1,24 @@
 package frontEnd;
 
+import backEnd.AdvertisementManager;
+import backEnd.DBHandler;
+import backEnd.DataHolder;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
+import entites.Advertisement;
+import entites.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 public class AdvertisementMenuController {
 
@@ -60,27 +70,34 @@ public class AdvertisementMenuController {
 
     @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
-
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            stage.close();
+        }
     }
 
     @FXML
     void btn_cancel_onMouseClicked(MouseEvent event) {
-
+        stage.close();
     }
 
     @FXML
     void btn_refresh_onKeyReleased(KeyEvent event) {
-
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            refreshUi();
+        }
     }
 
     @FXML
     void btn_refresh_onMouseClicked(MouseEvent event) {
-
+        refreshUi();
     }
 
     @FXML
-    void btn_submit_onKeyReleased(KeyEvent event) {
-
+    void btn_submit_onKeyReleased(KeyEvent event) throws InterruptedException, ExecutionException, IOException {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            User user = DataHolder.user;
+            AdvertisementManager.addAdvertisement(new Advertisement());
+        }
     }
 
     @FXML
@@ -146,6 +163,21 @@ public class AdvertisementMenuController {
     @FXML
     void txt_emailAddress_onMouseClicked(MouseEvent event) {
 
+    }
+
+
+    public void refreshUi(){
+        cmb_advertisementType.getSelectionModel().clearSelection();
+        cmb_service.getSelectionModel().clearSelection();
+        txt_contactNumber.clear();
+        txt_emailAddress.clear();
+        txt_charges.clear();
+        txt_chargesPer.clear();
+        cBox_negotiable.setSelected(false);
+        cmb_province.getSelectionModel().clearSelection();
+        cmb_area.getSelectionModel().clearSelection();
+        cmb_city.getSelectionModel().clearSelection();
+        cmb_advertisementType.requestFocus();
     }
 
 }

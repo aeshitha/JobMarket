@@ -51,7 +51,7 @@ public class AdvertisementManager {
         List<Integer> l = new ArrayList<>();
 
 
-        advertisement = new Advertisement(advertisementId, doc.getString("type"), doc.getString("service"), doc.getString("contactNo"), doc.getString("email"), doc.getString("charges"), doc.getString("cPer"), doc.getBoolean("negotiable"),doc.getString("province"),doc.getString("city"),doc.getString("area"),doc.getString("description"));
+        advertisement = new Advertisement(advertisementId, doc.getString("type"), doc.getString("service"), doc.getString("contactNo"), doc.getString("email"), doc.getString("charges"), doc.getString("cPer"), doc.getBoolean("negotiable"),doc.getString("province"),doc.getString("city"),doc.getString("area"),doc.getString("description"),doc.getString("userId"));
         if(advertisement.getService()==null) throw new NullPointerException();
 
         return advertisement;

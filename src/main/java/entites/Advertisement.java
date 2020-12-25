@@ -18,9 +18,10 @@ public class Advertisement {
     private String city;
     private String area;
     private String description;
+    private String UserId;
 
 
-    public Advertisement(String id, String type, String service, String contactNo, String email, String charges, String cPer, Boolean negotiable, String province, String city, String area, String description) {
+    public Advertisement(String id, String type, String service, String contactNo, String email, String charges, String cPer, Boolean negotiable, String province, String city, String area, String description, String userId) {
         this.id = id;
         this.type = type;
         this.service = service;
@@ -33,8 +34,8 @@ public class Advertisement {
         this.city = city;
         this.area = area;
         this.description = description;
+        UserId = userId;
     }
-
 
     public String getId() {
         return id;
@@ -132,6 +133,14 @@ public class Advertisement {
         this.description = description;
     }
 
+    public String getUserId() {
+        return UserId;
+    }
+
+    public void setUserId(String userId) {
+        UserId = userId;
+    }
+
     public HashMap toMap() {
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("type", getType());
@@ -145,19 +154,19 @@ public class Advertisement {
         data.put("city", getCity());
         data.put("area", getArea());
         data.put("description", getDescription());
+        data.put("userId", getUserId());
         return data;
 
     }
 
 
     public static Advertisement docToAdvertisement(DocumentSnapshot doc) throws NullPointerException {
-        Advertisement profile = new Advertisement(doc.getId(), doc.getString("type"), doc.getString("service"), doc.getString("contactNo"), doc.getString("email"), doc.getString("charges"), doc.getString("cPer"), doc.getBoolean("negotiable"),doc.getString("province"),doc.getString("city"),doc.getString("area"),doc.getString("description"));
+        Advertisement profile = new Advertisement(doc.getId(), doc.getString("type"), doc.getString("service"), doc.getString("contactNo"), doc.getString("email"), doc.getString("charges"), doc.getString("cPer"), doc.getBoolean("negotiable"),doc.getString("province"),doc.getString("city"),doc.getString("area"),doc.getString("description"),doc.getString("userId"));
 
         if (null == profile.getService()) {
             throw new NullPointerException();
         }
         return profile;
     }
-
 
 }
