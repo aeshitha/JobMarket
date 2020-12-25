@@ -198,7 +198,7 @@ public class  LoginController {
                 if (user.getPassword().equals(txtPassword.getText())) {
                     if (type.equals("personal")) {
                         CompanyMenuController.stage = new Stage();
-                        Parent root = FXMLLoader.load(CompanyMenuController.class.getResource("studentMenu.fxml"));
+                        Parent root = FXMLLoader. load(CompanyMenuController.class.getResource("studentMenu.fxml"));
                         CompanyMenuController.stage.setScene(new Scene(root));
                         CompanyMenuController.stage.show();
                         stage.close();

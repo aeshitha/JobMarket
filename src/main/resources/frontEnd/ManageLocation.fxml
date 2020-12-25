@@ -9,99 +9,94 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxWidth="1920.0" prefHeight="900.0" prefWidth="900.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.AdvertisementMenuController">
+<AnchorPane maxWidth="1920.0" prefHeight="900.0" prefWidth="900.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.ManageLocationController">
    <children>
       <Label fx:id="lblMain" alignment="CENTER" layoutX="-2.0" layoutY="20.0" prefHeight="30.0" prefWidth="900.0" style="-fx-background-color: royalblue;" textFill="#2f3640">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Text layoutX="25.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Province" wrappingWidth="166.13671875">
+      <Text layoutX="25.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Province" wrappingWidth="166.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txt_contactNumber" layoutX="175.0" layoutY="96.0" onKeyReleased="#txt_contactNumber_onKeyReleased" onMouseClicked="#txt_contactNumber_onMouseClicked" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_provinceId" layoutX="200.0" layoutY="210.0" onKeyReleased="#txt_provinceId_onKeyReleased" onMouseClicked="#txt_provinceId_onMouseClicked" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <TableView layoutX="27.0" layoutY="291.0" prefHeight="477.0" prefWidth="841.0">
+      <TableView fx:id="tbl_location" layoutX="27.0" layoutY="291.0" prefHeight="477.0" prefWidth="841.0">
         <columns>
           <TableColumn prefWidth="277.5999946594238" text="Province" />
           <TableColumn prefWidth="263.1999816894531" text="City" />
             <TableColumn prefWidth="257.6000061035156" text="Area" />
         </columns>
       </TableView>
-      <Text layoutX="25.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="166.13671875">
+      <Text layoutX="25.0" layoutY="186.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="166.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="25.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area" wrappingWidth="166.13671875">
+      <Text layoutX="27.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area" wrappingWidth="70.0">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXButton fx:id="btn_refresh" layoutX="627.0" layoutY="96.0" onKeyReleased="#btn_refresh_onKeyReleased" onMouseClicked="#btn_refresh_onMouseClicked" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: white;" text="Add">
+      <JFXButton fx:id="btn_add" layoutX="660.0" layoutY="210.0" onKeyReleased="#btn_add_onKeyReleased" onMouseClicked="#btn_add_onMouseClicked" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: white;" text="Add">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btn_refresh1" layoutX="627.0" layoutY="158.0" onKeyReleased="#btn_refresh_onKeyReleased" onMouseClicked="#btn_refresh_onMouseClicked" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: white;" text="Add">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </JFXButton>
-      <JFXButton fx:id="btn_refresh11" layoutX="630.0" layoutY="223.0" onKeyReleased="#btn_refresh_onKeyReleased" onMouseClicked="#btn_refresh_onMouseClicked" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: white;" text="Add">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </JFXButton>
-      <JFXTextField fx:id="txt_contactNumber1" layoutX="175.0" layoutY="159.0" onKeyReleased="#txt_contactNumber_onKeyReleased" onMouseClicked="#txt_contactNumber_onMouseClicked" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_cityId" layoutX="200.0" layoutY="157.0" onKeyReleased="#txt_cityId_onKeyReleased" onMouseClicked="#txt_cityId_onMouseClicked" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txt_contactNumber11" layoutX="175.0" layoutY="223.0" onKeyReleased="#txt_contactNumber_onKeyReleased" onMouseClicked="#txt_contactNumber_onMouseClicked" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_areId" layoutX="200.0" layoutY="105.0" onKeyReleased="#txt_areId_onKeyReleased" onMouseClicked="#txt_areId_onMouseClicked" prefHeight="44.0" prefWidth="70.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txt_contactNumber12" layoutX="266.0" layoutY="96.0" onKeyReleased="#txt_contactNumber_onKeyReleased" onMouseClicked="#txt_contactNumber_onMouseClicked" prefHeight="44.0" prefWidth="323.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_provinceName" layoutX="291.0" layoutY="210.0" onKeyReleased="#txt_provinceName_onKeyReleased" onMouseClicked="#txt_provinceName_onMouseClicked" prefHeight="44.0" prefWidth="323.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <Text layoutX="185.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="36.53675842285156">
+      <Text layoutX="217.0" layoutY="78.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Id" wrappingWidth="36.53675842285156">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="344.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="166.13671875">
+      <Text layoutX="369.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name" wrappingWidth="166.13671875">
          <font>
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXTextField fx:id="txt_contactNumber121" layoutX="265.0" layoutY="159.0" onKeyReleased="#txt_contactNumber_onKeyReleased" onMouseClicked="#txt_contactNumber_onMouseClicked" prefHeight="44.0" prefWidth="323.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_cityName" layoutX="290.0" layoutY="157.0" onKeyReleased="#txt_cityName_onKeyReleased" onMouseClicked="#txt_cityName_onMouseClicked" prefHeight="44.0" prefWidth="323.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXTextField fx:id="txt_contactNumber1211" layoutX="265.0" layoutY="223.0" onKeyReleased="#txt_contactNumber_onKeyReleased" onMouseClicked="#txt_contactNumber_onMouseClicked" prefHeight="44.0" prefWidth="323.0" style="-fx-background-color: white;">
+      <JFXTextField fx:id="txt_areaName" layoutX="290.0" layoutY="105.0" onKeyReleased="#txt_areaName_onKeyReleased" onMouseClicked="#txt_areaName_onMouseClicked" prefHeight="44.0" prefWidth="323.0" style="-fx-background-color: white;">
          <font>
             <Font size="20.0" />
          </font>
       </JFXTextField>
-      <JFXButton fx:id="btn_refresh111" layoutX="749.0" layoutY="819.0" onKeyReleased="#btn_refresh_onKeyReleased" onMouseClicked="#btn_refresh_onMouseClicked" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: white;" text="Cancel">
+      <JFXButton fx:id="btn_cancle" layoutX="749.0" layoutY="819.0" onKeyReleased="#btn_cancle_onKeyReleased" onMouseClicked="#btn_cancle_onMouseClicked" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: white;" text="Cancel">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
-      <JFXButton fx:id="btn_refresh112" layoutX="627.0" layoutY="819.0" onKeyReleased="#btn_refresh_onKeyReleased" onMouseClicked="#btn_refresh_onMouseClicked" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: white;" text="Save">
+      <JFXButton fx:id="btn_save" layoutX="627.0" layoutY="819.0" onKeyReleased="#btn_save_onKeyReleased" onMouseClicked="#btn_save_onMouseClicked" prefHeight="30.0" prefWidth="106.0" style="-fx-background-color: white;" text="Save">
          <font>
             <Font size="20.0" />
          </font>
       </JFXButton>
+      <Text layoutX="108.0" layoutY="135.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zip code" wrappingWidth="80.0">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
    </children>
 </AnchorPane>
