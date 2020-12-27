@@ -1,9 +1,7 @@
 package backEnd;
 
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.*;
+import entites.City;
 import entites.Message;
 
 import java.io.IOException;
@@ -16,11 +14,7 @@ public class MailManager {
 
     public static boolean addMessage(Message mail) throws IOException, InterruptedException, ExecutionException {
         Firestore db = DBHandler.makeConnection();
-        List<String> ids = getMessageIds(db);
-        if (ids.contains(mail.getId())) {
-            return false;
-        }
-        DocumentReference ref = db.collection("messages").document(mail.getId());
+        DocumentReference ref = db.collection("messages").document();
         DBHandler.saveData(mail.toMap(), ref);
         return true;
     }
@@ -54,7 +48,7 @@ public class MailManager {
 
 
         mail = Message.docToMessage(doc);
-        if (mail.getMessage() == null) throw new NullPointerException();
+        if (mail.getBody() == null) throw new NullPointerException();
 
         return mail;
     }
@@ -93,6 +87,31 @@ public class MailManager {
             mail.add(Message.docToMessage(doc));
         }
         return mail;
+    }
+
+
+    public static List<City> getMessages(String to) throws ExecutionException, InterruptedException, IOException {
+        Firestore db = DBHandler.makeConnection();
+        Query query = db.collection("messages").whereEqualTo("to", to);
+        List<DocumentSnapshot> docs = DBHandler.getCollection(query);
+        List<City> city = new ArrayList<>();
+        for (int i = 0; i < docs.size(); i++) {
+            DocumentSnapshot doc = docs.get(i);
+            city.add(City.docToCity(doc));
+        }
+        return city;
+    }
+
+    public static List<City> getUnReadedMessages(String to) throws ExecutionException, InterruptedException, IOException {
+        Firestore db = DBHandler.makeConnection();
+        Query query = db.collection("messages").whereEqualTo("to", to).whereEqualTo("isViewed", false);
+        List<DocumentSnapshot> docs = DBHandler.getCollection(query);
+        List<City> city = new ArrayList<>();
+        for (int i = 0; i < docs.size(); i++) {
+            DocumentSnapshot doc = docs.get(i);
+            city.add(City.docToCity(doc));
+        }
+        return city;
     }
 
 
