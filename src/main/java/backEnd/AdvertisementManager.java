@@ -1,9 +1,6 @@
 package backEnd;
 
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.*;
 import entites.Advertisement;
 
 import java.io.IOException;
@@ -95,6 +92,17 @@ public class AdvertisementManager {
         Firestore db = DBHandler.makeConnection();
         CollectionReference ref = db.collection("advertisement");
         List<DocumentSnapshot> docs = DBHandler.getCollection(ref);
+        List<Advertisement> advertisement = new ArrayList<>();
+        for (int i = 0; i < docs.size(); i++) {
+            DocumentSnapshot doc = docs.get(i);
+            advertisement.add(Advertisement.docToAdvertisement(doc));
+        }
+        return advertisement;
+    }
+    public static List<Advertisement> getAdvertisements(String type,String service,String area,String locationUnit) throws ExecutionException, InterruptedException, IOException {
+        Firestore db = DBHandler.makeConnection();
+        Query q = db.collection("advertisement").whereEqualTo("type",type).whereEqualTo("service", service).whereEqualTo(locationUnit,area);
+        List<DocumentSnapshot> docs = DBHandler.getCollection(q);
         List<Advertisement> advertisement = new ArrayList<>();
         for (int i = 0; i < docs.size(); i++) {
             DocumentSnapshot doc = docs.get(i);
