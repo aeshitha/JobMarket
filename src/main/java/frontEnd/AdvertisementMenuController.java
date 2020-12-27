@@ -253,7 +253,7 @@ public class AdvertisementMenuController implements Initializable {
     public void btn_add_onMouseClicked(MouseEvent mouseEvent) {
     }
     private void add_service(){
-        ServiceManager.
-        ServiceManager.addService(new Service())
+       /* ServiceManager.
+        ServiceManager.addService(new Service())*/
     }
 }

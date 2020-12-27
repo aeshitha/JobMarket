@@ -90,7 +90,10 @@ public class HomepagePersonalController {
 
     @FXML
     void btnExOnKeyReleased(KeyEvent event) {
-        stage.close();
+
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            stage.close();
+        }
     }
 
     @FXML

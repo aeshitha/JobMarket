@@ -44,6 +44,11 @@ public class LoginController {
                 MessageManager.giveSuccessMessage(lblMain, "Welcome! " + user.getName(), windowName);
                 txtPassword.requestFocus();
 
+            } catch (NullPointerException e) {
+                e.printStackTrace();
+                MessageManager.giveAWarning(lblMain, "Invalid User ID!", windowName);
+                txtUserName.clear();
+                txtUserName.requestFocus();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             } catch (ExecutionException e) {
