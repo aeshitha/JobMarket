@@ -24,6 +24,7 @@ import java.util.concurrent.ExecutionException;
 public class AdvertisementMenuController implements Initializable {
 
     public static Stage stage;
+    public JFXButton btn_add;
     @FXML
     private Label lblMain;
 
@@ -244,5 +245,15 @@ public class AdvertisementMenuController implements Initializable {
 
 
 
+    }
+
+    public void btn_add_onKeyReleased(KeyEvent keyEvent) {
+    }
+
+    public void btn_add_onMouseClicked(MouseEvent mouseEvent) {
+    }
+    private void add_service(){
+        ServiceManager.
+        ServiceManager.addService(new Service())
     }
 }
