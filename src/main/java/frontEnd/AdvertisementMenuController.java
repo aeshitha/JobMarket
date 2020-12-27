@@ -117,8 +117,8 @@ public class AdvertisementMenuController implements Initializable {
     }
 
     @FXML
-    void btn_submit_onMouseClicked(MouseEvent event) throws InterruptedException, ExecutionException, IOException {
-        AdvertisementManager.getNextAdvertisementId();
+    void btn_submit_onMouseClicked(MouseEvent event){
+        addAdvertisement();
     }
 
     @FXML
@@ -198,7 +198,7 @@ public class AdvertisementMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cmb_advertisementType.setItems((ObservableList<String>) AdvertisementManager.types);
+        cmb_advertisementType.getItems().addAll(AdvertisementManager.types);
         try {
             List<Service> services = ServiceManager.getServices();
             for (Service service:services) {
@@ -248,12 +248,24 @@ public class AdvertisementMenuController implements Initializable {
     }
 
     public void btn_add_onKeyReleased(KeyEvent keyEvent) {
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            try {
+                add_service();
+            } catch (InterruptedException | ExecutionException | IOException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     public void btn_add_onMouseClicked(MouseEvent mouseEvent) {
+        try {
+            add_service();
+        } catch (InterruptedException | ExecutionException | IOException e) {
+            e.printStackTrace();
+        }
     }
-    private void add_service(){
-       /* ServiceManager.
-        ServiceManager.addService(new Service())*/
+    private void add_service() throws InterruptedException, ExecutionException, IOException {
+        ServiceManager.addService(new Service(ServiceManager.getNextServiceId(),cmb_service.getEditor().getText()));
+        cmb_service.getItems().add(cmb_service.getEditor().getText());
     }
 }

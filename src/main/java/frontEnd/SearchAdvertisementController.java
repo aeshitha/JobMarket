@@ -7,7 +7,10 @@ import com.jfoenix.controls.JFXListView;
 import entites.*;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
@@ -103,7 +106,7 @@ public class SearchAdvertisementController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        cmb_advertisementType.setItems((ObservableList<String>) AdvertisementManager.types);
+        cmb_advertisementType.getItems().addAll(AdvertisementManager.types);
         try {
             List<Service> services = ServiceManager.getServices();
             for (Service service:services) {
@@ -139,6 +142,11 @@ public class SearchAdvertisementController implements Initializable {
                 e.printStackTrace();
             }
         });
+        try {
+            search();
+        } catch (InterruptedException | ExecutionException | IOException e) {
+            e.printStackTrace();
+        }
 //        cmb_area.setOnAction(actionEvent -> {
 //
 //        });
@@ -148,66 +156,99 @@ public class SearchAdvertisementController implements Initializable {
     private void search() throws InterruptedException, ExecutionException, IOException {
         List<Advertisement> advertisements = new ArrayList<>();
         if (!(null==cmb_area.getSelectionModel().getSelectedItem() || cmb_area.getSelectionModel().getSelectedItem().equals(""))){
+            System.out.println("case 1");
             advertisements = AdvertisementManager.getAdvertisements(cmb_advertisementType.getSelectionModel().getSelectedItem(),
                     cmb_service.getSelectionModel().getSelectedItem(),cmb_area.getSelectionModel().getSelectedItem(),"area");
         }
         else if (!(null==cmb_city.getSelectionModel().getSelectedItem() || cmb_city.getSelectionModel().getSelectedItem().equals(""))){
+            System.out.println("case 2");
             advertisements = AdvertisementManager.getAdvertisements(cmb_advertisementType.getSelectionModel().getSelectedItem(),
                     cmb_service.getSelectionModel().getSelectedItem(),cmb_area.getSelectionModel().getSelectedItem(),"city");
         }
         else if (!(null==cmb_province.getSelectionModel().getSelectedItem() || cmb_province.getSelectionModel().getSelectedItem().equals(""))){
+            System.out.println("case 3");
             advertisements = AdvertisementManager.getAdvertisements(cmb_advertisementType.getSelectionModel().getSelectedItem(),
                     cmb_service.getSelectionModel().getSelectedItem(), cmb_area.getSelectionModel().getSelectedItem(), "province");
         }
         else {
+            System.out.println("case 4");
             advertisements = AdvertisementManager.getAdvertisements();
         }
+        System.out.println(advertisements.size());
         if (advertisements.size()!=0) {
             for (Advertisement a : advertisements) {
                 Pane p = new AnchorPane();
                 p.setMaxWidth(lView_advertisement.getPrefWidth());
                 Label lbl = new Label("ADD Type : "+ a.getType());
                 lbl.setLayoutX(10);
-                lbl.setLayoutY(10);
+                lbl.setLayoutY(0);
+                p.getChildren().add(lbl);
                 Label lbl2 = new Label("Service : "+ a.getService());
                 lbl2.setLayoutX(10);
-                lbl2.setLayoutY(25);
+                lbl2.setLayoutY(15);
                 p.getChildren().add(lbl2);
                 Label lbl3 = new Label("Charges per "+ a.getcPer() + " : "+ a.getCharges());
                 lbl3.setLayoutX(10);
-                lbl3.setLayoutY(40);
+                lbl3.setLayoutY(30);
                 p.getChildren().add(lbl3);
                 Label lbl4 = new Label("Location : "+ a.getProvince());
                 lbl4.setLayoutX(10);
-                lbl4.setLayoutY(55);
+                lbl4.setLayoutY(45);
                 p.getChildren().add(lbl4);
                 Label lbl5 = new Label("Description : "+ a.getDescription());
                 lbl5.setLayoutX(10);
-                lbl5.setLayoutY(70);
+                lbl5.setLayoutY(60);
                 p.getChildren().add(lbl5);
                 Label lbl6 = new Label("Username : "+ a.getUserId());
+                lbl6.setLayoutX(10);
+                lbl6.setLayoutY(75);
                 Label lbl7 = new Label("Contact No : "+ a.getContactNo());
+                lbl7.setLayoutX(10);
+                lbl7.setLayoutY(90);
                 Label lbl8 = new Label("Mail : "+ a.getEmail());
+                lbl8.setLayoutX(10);
+                lbl8.setLayoutY(105);
                 Button b = new Button();
                 b.setText("Message");
-                b.setLayoutX(70);
-                b.setLayoutY(150);
+                b.setLayoutX(300);
+                b.setLayoutY(100);
+                b.setOnAction(actionEvent -> {
+                    try {
+                        message(a.getUserId());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                p.setOnMouseReleased(mouseEvent -> {
+                    p.requestFocus();
+                });
                 p.focusedProperty().addListener((observableValue, aBoolean, t1) -> {
+                    System.out.println("focus : " + t1);
                     if (t1){
                         lbl4.setText("Location : "+ a.getProvince() +","+a.getCity()+","+a.getArea());
                         p.getChildren().add(b);
+                        p.getChildren().addAll(lbl6,lbl7,lbl8);
                     }
-                    else{
+                    else if(!b.isFocused()){
                         lbl4.setText("Location : "+ a.getProvince());
-                        if(p.getChildren().contains(b)){
-                            p.getChildren().remove(b);
-                        }
+                        p.getChildren().remove(b);
+                        p.getChildren().removeAll(lbl6,lbl7,lbl8);
+
 
                     }
                 });
                 lView_advertisement.getItems().add(p);
+                lView_advertisement.refresh();
             }
         }
+    }
+
+    private void message(String to) throws IOException {
+        ApplyAdvertisementController.stage = new Stage();
+        ApplyAdvertisementController.messageTo = to;
+        Parent root = FXMLLoader.load(ApplyAdvertisementController.class.getResource("ApplyAdvertisement.fxml"));
+        ApplyAdvertisementController.stage.setScene(new Scene(root));
+        ApplyAdvertisementController.stage.show();
     }
 
     private void listItemClicked() {

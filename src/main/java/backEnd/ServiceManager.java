@@ -80,6 +80,13 @@ public class ServiceManager {
         return service;
     }
 
+    public static String getNextServiceId() throws IOException, InterruptedException, ExecutionException {
+        Firestore db = DBHandler.makeConnection();
+        CollectionReference ref = db.collection("services");
+        List<DocumentSnapshot> collection = DBHandler.getCollection(ref);
+        return String.valueOf(collection.size());
+    }
+
 
 
     public static List<Service> getServices() throws ExecutionException, InterruptedException, IOException {

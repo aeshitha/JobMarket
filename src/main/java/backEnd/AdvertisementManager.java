@@ -41,7 +41,7 @@ public class AdvertisementManager {
         DBHandler.saveData(advertisement.toMap(), ref);
         return true;
     }
-    public static Advertisement getadvertisement(String advertisementId) throws ExecutionException, InterruptedException, IOException {
+    public static Advertisement getAdvertisement(String advertisementId) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
         DocumentReference ref = db.collection("advertisements").document(advertisementId);
@@ -84,13 +84,13 @@ public class AdvertisementManager {
         Firestore db = DBHandler.makeConnection();
         CollectionReference ref = db.collection("advertisements");
         List<DocumentSnapshot> collection = DBHandler.getCollection(ref);
-        System.out.println(collection);
-        return null;
+//        System.out.println(collection);
+        return String.valueOf(collection.size());
     }
 
     public static List<Advertisement> getAdvertisements() throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
-        CollectionReference ref = db.collection("advertisement");
+        CollectionReference ref = db.collection("advertisements");
         List<DocumentSnapshot> docs = DBHandler.getCollection(ref);
         List<Advertisement> advertisement = new ArrayList<>();
         for (int i = 0; i < docs.size(); i++) {
@@ -101,7 +101,7 @@ public class AdvertisementManager {
     }
     public static List<Advertisement> getAdvertisements(String type,String service,String area,String locationUnit) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
-        Query q = db.collection("advertisement").whereEqualTo("type",type).whereEqualTo("service", service).whereEqualTo(locationUnit,area);
+        Query q = db.collection("advertisements").whereEqualTo("type",type).whereEqualTo("service", service).whereEqualTo(locationUnit,area);
         List<DocumentSnapshot> docs = DBHandler.getCollection(q);
         List<Advertisement> advertisement = new ArrayList<>();
         for (int i = 0; i < docs.size(); i++) {

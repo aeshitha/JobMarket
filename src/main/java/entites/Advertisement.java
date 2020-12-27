@@ -161,7 +161,7 @@ public class Advertisement {
 
 
     public static Advertisement docToAdvertisement(DocumentSnapshot doc) throws NullPointerException {
-        Advertisement profile = new Advertisement(doc.getId(), doc.getString("type"), doc.getString("service"), doc.getString("contactNo"), doc.getString("email"), doc.getString("charges"), doc.getString("cPer"), doc.getBoolean("negotiable"),doc.getString("province"),doc.getString("city"),doc.getString("area"),doc.getString("description"),doc.getString("userId"));
+        Advertisement profile = new Advertisement(doc.getId(), doc.getString("type"), doc.getString("service"), doc.getString("contactNO"), doc.getString("email"), doc.getString("charges"), doc.getString("cPer"), doc.getBoolean("negotiable"),doc.getString("province"),doc.getString("city"),doc.getString("area"),doc.getString("description"),doc.getString("userId"));
 
         if (null == profile.getService()) {
             throw new NullPointerException();
