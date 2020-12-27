@@ -11,7 +11,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-public class MessageManager {
+public class MailManager {
 
 
     public static boolean addMessage(Message mail) throws IOException, InterruptedException, ExecutionException {
