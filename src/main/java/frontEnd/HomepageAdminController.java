@@ -73,14 +73,26 @@ public class HomepageAdminController {
     }
 
     @FXML
-    void btnMaLoOnKeyReleased(KeyEvent event) {
+    void btnMaLoOnKeyReleased(KeyEvent event) throws IOException {
 
-
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            ManageLocationController.stage = new Stage();
+            Parent root = FXMLLoader.load(ManageLocationController.class.getResource("ManageLocation.fxml"));
+            ManageLocationController.stage.setScene(new Scene(root));
+            ManageLocationController.stage.show();
+            stage.close();
+        }
 
     }
 
     @FXML
-    void btnMaLoOnMouseClicked(MouseEvent event) {
+    void btnMaLoOnMouseClicked(MouseEvent event) throws IOException {
+
+        ManageLocationController.stage = new Stage();
+        Parent root = FXMLLoader.load(ManageLocationController.class.getResource("ManageLocation.fxml"));
+        ManageLocationController.stage.setScene(new Scene(root));
+        ManageLocationController.stage.show();
+        stage.close();
 
     }
 
