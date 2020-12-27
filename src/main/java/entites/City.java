@@ -36,8 +36,8 @@ public class City {
         return data;
     }
 
-    public static City docToArea(DocumentSnapshot doc) throws NullPointerException {
-        City city = new City(doc.getId(),doc.getString("city"));
+    public static City docToCity(DocumentSnapshot doc) throws NullPointerException {
+        City city = new City(doc.getId(), doc.getString("city"));
 
         if (null == city.getCity()) {
             throw new NullPointerException();

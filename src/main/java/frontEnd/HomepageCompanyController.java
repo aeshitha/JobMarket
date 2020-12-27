@@ -1,6 +1,5 @@
 package frontEnd;
 
-import backEnd.MessageManager;
 import com.jfoenix.controls.JFXButton;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -17,7 +16,7 @@ import java.io.IOException;
 public class HomepageCompanyController {
 
 
-    Stage stage;
+    public static Stage stage;
     @FXML
     private Label lblMain;
 

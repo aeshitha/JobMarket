@@ -15,7 +15,7 @@ import java.io.IOException;
 
 public class HomepagePersonalController {
 
-    Stage stage;
+    public static Stage stage;
     @FXML
     private Label lblMain;
 
