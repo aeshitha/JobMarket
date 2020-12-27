@@ -68,6 +68,7 @@ public class AdvertisementManager {
         }
         return advertisementIds;
     }
+
     public static List<String> getAdvertisementIds(Firestore db) throws IOException, ExecutionException, InterruptedException {
         CollectionReference ref = db.collection("advertisements");
         List<DocumentSnapshot> docs = DBHandler.getCollection(ref);
@@ -79,7 +80,13 @@ public class AdvertisementManager {
         return advertisementIds;
     }
 
-
+    public static String getNextAdvertisementId() throws IOException, InterruptedException, ExecutionException {
+        Firestore db = DBHandler.makeConnection();
+        CollectionReference ref = db.collection("advertisements");
+        List<DocumentSnapshot> collection = DBHandler.getCollection(ref);
+        System.out.println(collection);
+        return null;
+    }
 
     public static List<Advertisement> getAdvertisements() throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();

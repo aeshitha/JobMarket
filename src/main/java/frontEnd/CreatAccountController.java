@@ -89,7 +89,7 @@ public class CreatAccountController {
 
     @FXML
     void btnCancelOnKeyRelease(KeyEvent event) {
-        if (event.getCode().equals(KeyCode.ENTER)){
+        if (event.getCode().equals(KeyCode.ENTER)) {
             stage.close();
         }
     }
@@ -101,7 +101,7 @@ public class CreatAccountController {
 
     @FXML
     void btn_refresh_OnKeyRelease(KeyEvent event) {
-        if (event.getCode().equals(KeyCode.ENTER)){
+        if (event.getCode().equals(KeyCode.ENTER)) {
             refreshUI();
         }
     }
@@ -117,10 +117,10 @@ public class CreatAccountController {
             try {
                 User user = UserManager.getUser(txt_id.getText());
                 System.out.println(user);
-                MessageManager.giveAWarning(lblMain,"User Id Already Exists", windowName);
+                MessageManager.giveAWarning(lblMain, "User Id Already Exists", windowName);
                 txt_id.clear();
                 txt_id.requestFocus();
-            }catch (NullPointerException e){
+            } catch (NullPointerException e) {
                 System.out.println(e);
                 if (txt_password.getText().equals(txt_rePassword.getText())) {
                     if (rbTypeC.isSelected()) {
@@ -130,14 +130,14 @@ public class CreatAccountController {
                     } else if (rbTypeP.isSelected()) {
                         System.out.println(cb_province.getSelectionModel().getSelectedItem());
                         Date dob = new Date(Integer.parseInt(txt_year.getText()), Integer.parseInt(txt_Mounth.getText()), Integer.parseInt(txt_Day.getText()));
-                        UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, "gemba","gemba","gemba"/*cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString()*/, txt_password.getText(), txt_discription.getText()));
+                        UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, "gemba", "gemba", "gemba"/*cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString()*/, txt_password.getText(), txt_discription.getText()));
                         MessageManager.giveSuccessMessage(lblMain, "Personal AccountCreated Successfully", windowName);
 
                     } else {
                         MessageManager.giveAWarning(lblMain, "Select Account Type", windowName);
                         rbTypeC.requestFocus();
                     }
-                }else {
+                } else {
                     MessageManager.giveAWarning(lblMain, "Password Doesn't Match, Please Re Enter Your Password", windowName);
                     txt_password.clear();
                     txt_rePassword.clear();
@@ -149,15 +149,13 @@ public class CreatAccountController {
 
     @FXML
     void btn_submit_OnMouseClicked(MouseEvent event) throws InterruptedException, ExecutionException, IOException {
-
-
         try {
             User user = UserManager.getUser(txt_id.getText());
             System.out.println(user);
-            MessageManager.giveAWarning(lblMain,"User Id Already Exists", windowName);
+            MessageManager.giveAWarning(lblMain, "User Id Already Exists", windowName);
             txt_id.clear();
             txt_id.requestFocus();
-        }catch (NullPointerException e){
+        } catch (NullPointerException e) {
             if (txt_password.getText().equals(txt_rePassword.getText())) {
                 if (rbTypeC.isSelected()) {
                     Date dob = null;
@@ -184,14 +182,13 @@ public class CreatAccountController {
                     MessageManager.giveAWarning(lblMain, "Select Account Type", windowName);
                     rbTypeC.requestFocus();
                 }
-            }else {
+            } else {
                 MessageManager.giveAWarning(lblMain, "Password Doesn't Match, Please Re Enter Your Password", windowName);
                 txt_password.clear();
                 txt_rePassword.clear();
                 txt_password.requestFocus();
             }
         }
-
     }
 
     @FXML
@@ -281,7 +278,7 @@ public class CreatAccountController {
     @FXML
     void txt_name_OnKeyRelease(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
-         txt_email.requestFocus();
+            txt_email.requestFocus();
         }
     }
 
@@ -299,7 +296,7 @@ public class CreatAccountController {
         }
     }
 
-    public  void refreshUI(){
+    public void refreshUI() {
         rbTypeC.setSelected(false);
         rbTypeP.setSelected(false);
         txt_name.clear();

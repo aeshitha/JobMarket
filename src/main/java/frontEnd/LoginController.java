@@ -93,8 +93,6 @@ public class LoginController {
                             CompanyMenuController.stage.setScene(new Scene(root));
                             CompanyMenuController.stage.show();
                             stage.close();
-
-
                         } else {
                             PersonalAccountMenuController.stage = new Stage();
                             Parent root = FXMLLoader.load(PersonalAccountMenuController.class.getResource("PersonalAccountMenu.fxml"));
@@ -174,8 +172,8 @@ public class LoginController {
     public void btnLoginOnMouseClicked(MouseEvent mouseEvent) throws InterruptedException, ExecutionException, IOException {
 
 
-            String type;
-            Admin admin;
+            String type = null;
+        Admin admin;
             User user;
 
             if (rb_admin.isSelected()) {
@@ -198,9 +196,11 @@ public class LoginController {
 
             }else {
                 user = UserManager.getUser(txtUserName.getText());
-
+                type = user.getType();
 
                 if (user.getPassword().equals(txtPassword.getText())) {
+                    System.out.println("LoginController.btnLoginOnMouseClicked");
+                    System.out.println(type);
                     if (type.equals("personal")) {
                         CompanyMenuController.stage = new Stage();
                         Parent root = FXMLLoader.load(CompanyMenuController.class.getResource("studentMenu.fxml"));

@@ -1,13 +1,11 @@
 package frontEnd;
 
 import backEnd.AdvertisementManager;
-import backEnd.DBHandler;
 import backEnd.DataHolder;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import entites.Advertisement;
 import entites.User;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
@@ -17,7 +15,6 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.concurrent.ExecutionException;
 
 public class AdvertisementMenuController {
@@ -96,13 +93,14 @@ public class AdvertisementMenuController {
     void btn_submit_onKeyReleased(KeyEvent event) throws InterruptedException, ExecutionException, IOException {
         if (event.getCode().equals(KeyCode.ENTER)) {
             User user = DataHolder.user;
-            AdvertisementManager.addAdvertisement(new Advertisement());
+            AdvertisementManager.getNextAdvertisementId();
+//            AdvertisementManager.addAdvertisement(new Advertisement());
         }
     }
 
     @FXML
-    void btn_submit_onMouseClicked(MouseEvent event) {
-
+    void btn_submit_onMouseClicked(MouseEvent event) throws InterruptedException, ExecutionException, IOException {
+        AdvertisementManager.getNextAdvertisementId();
     }
 
     @FXML
