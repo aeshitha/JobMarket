@@ -41,17 +41,18 @@ public class AreaManager {
         DBHandler.saveData(area.toMap(), ref);
         return true;
     }
-    public static Area getArea(String userId) throws ExecutionException, InterruptedException, IOException {
+
+    public static Area getArea(String areaId) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
-        DocumentReference ref = db.collection("areas").document(userId);
+        DocumentReference ref = db.collection("areas").document(areaId);
         Area area;
 
         DocumentSnapshot doc = DBHandler.getDocument(ref);
         List<Integer> l = new ArrayList<>();
 
 
-        area = new Area(userId, doc.getString("area"));
+        area = new Area(areaId, doc.getString("area"));
         if(area.getArea()==null) throw new NullPointerException();
 
         return area;

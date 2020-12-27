@@ -1,12 +1,18 @@
 package frontEnd;
 
+import backEnd.ProvinceManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
+import entites.Province;
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+
+import java.io.IOException;
+import java.util.concurrent.ExecutionException;
 
 public class ManageLocationController {
 
@@ -45,7 +51,10 @@ public class ManageLocationController {
 
     @FXML
     void btn_add_onKeyReleased(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
 
+
+        }
     }
 
     @FXML
@@ -114,8 +123,20 @@ public class ManageLocationController {
     }
 
     @FXML
-    void txt_provinceId_onKeyReleased(KeyEvent event) {
+    void txt_provinceId_onKeyReleased(KeyEvent event) throws InterruptedException, ExecutionException, IOException {
+        if (event.getCode().equals(KeyCode.ENTER)) {
 
+
+            try {
+                Province province = ProvinceManager.getProvince(txt_provinceId.getText());
+                txt_provinceName.setText(province.getProvince());
+                txt_cityId.requestFocus();
+            } catch (NullPointerException e) {
+                txt_provinceName.requestFocus();
+            }
+
+
+        }
     }
 
     @FXML

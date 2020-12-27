@@ -43,17 +43,17 @@ public class ProvinceManager {
         return true;
     }
 
-    public static Province getProvince(String userId) throws ExecutionException, InterruptedException, IOException {
+    public static Province getProvince(String provinceId) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
-        DocumentReference ref = db.collection("provinces").document(userId);
+        DocumentReference ref = db.collection("provinces").document(provinceId);
         Province province;
 
         DocumentSnapshot doc = DBHandler.getDocument(ref);
         List<Integer> l = new ArrayList<>();
 
 
-        province = new Province(userId, doc.getString("province"));
+        province = new Province(provinceId, doc.getString("province"));
         if (province.getProvince() == null) throw new NullPointerException();
 
         return province;

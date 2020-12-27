@@ -43,17 +43,17 @@ public class CityManager {
         return true;
     }
 
-    public static City getCity(String userId) throws ExecutionException, InterruptedException, IOException {
+    public static City getCity(String cityId) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
-        DocumentReference ref = db.collection("citys").document(userId);
+        DocumentReference ref = db.collection("citys").document(cityId);
         City city;
 
         DocumentSnapshot doc = DBHandler.getDocument(ref);
         List<Integer> l = new ArrayList<>();
 
 
-        city = new City(userId, doc.getString("city"));
+        city = new City(cityId, doc.getString("city"));
         if (city.getCity() == null) throw new NullPointerException();
 
         return city;

@@ -5,7 +5,6 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import entites.Service;
-import entites.User;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -42,17 +41,18 @@ public class ServiceManager {
         DBHandler.saveData(service.toMap(), ref);
         return true;
     }
-    public static Service getService(String userId) throws ExecutionException, InterruptedException, IOException {
+
+    public static Service getService(String serviceId) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
-        DocumentReference ref = db.collection("services").document(userId);
+        DocumentReference ref = db.collection("services").document(serviceId);
         Service service;
 
         DocumentSnapshot doc = DBHandler.getDocument(ref);
         List<Integer> l = new ArrayList<>();
 
 
-        service = new Service(userId, doc.getString("service"));
+        service = new Service(serviceId, doc.getString("service"));
         if(service.getService()==null) throw new NullPointerException();
 
         return service;
