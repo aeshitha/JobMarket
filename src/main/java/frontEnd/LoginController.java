@@ -89,7 +89,7 @@ public class LoginController {
                     if (user.getPassword().equals(txtPassword.getText())) {
                         if (type.equals("personal")) {
                             HomepagePersonalController.stage = new Stage();
-                            Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenu.fxml"));
+                            Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenue.fxml"));
                             HomepagePersonalController.stage.setScene(new Scene(root));
                             HomepagePersonalController.stage.show();
                             stage.close();
@@ -142,7 +142,7 @@ public class LoginController {
                 if (user.getPassword().equals(txtPassword.getText())) {
                     if (type.equals("personal")) {
                         HomepagePersonalController.stage = new Stage();
-                        Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenu.fxml"));
+                        Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenue.fxml"));
                         HomepagePersonalController.stage.setScene(new Scene(root));
                         HomepagePersonalController.stage.show();
                         stage.close();
@@ -194,7 +194,7 @@ public class LoginController {
             if (user.getPassword().equals(txtPassword.getText())) {
                 if (type.equals("personal")) {
                     HomepagePersonalController.stage = new Stage();
-                    Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenu.fxml"));
+                    Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenue.fxml"));
                     HomepagePersonalController.stage.setScene(new Scene(root));
                     HomepagePersonalController.stage.show();
                     stage.close();
