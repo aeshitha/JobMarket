@@ -1,8 +1,10 @@
 package frontEnd;
 
+import backEnd.AdvertisementManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -93,6 +95,9 @@ public class SearchAdvertisementController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        cmb_advertisementType.setItems((ObservableList<String>) AdvertisementManager.types);
+
+
 
     }
 }

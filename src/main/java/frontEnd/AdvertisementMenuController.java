@@ -1,13 +1,14 @@
 package frontEnd;
 
-import backEnd.AdvertisementManager;
-import backEnd.DataHolder;
+import backEnd.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
-import entites.User;
+import entites.*;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -15,19 +16,22 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
-public class AdvertisementMenuController {
+public class AdvertisementMenuController implements Initializable {
 
     public static Stage stage;
     @FXML
     private Label lblMain;
 
     @FXML
-    private JFXComboBox<?> cmb_advertisementType;
+    private JFXComboBox<String> cmb_advertisementType;
 
     @FXML
-    private JFXComboBox<?> cmb_service;
+    private JFXComboBox<String> cmb_service;
 
     @FXML
     private JFXTextField txt_contactNumber;
@@ -45,13 +49,13 @@ public class AdvertisementMenuController {
     private JFXCheckBox cBox_negotiable;
 
     @FXML
-    private JFXComboBox<?> cmb_province;
+    private JFXComboBox<String> cmb_province;
 
     @FXML
-    private JFXComboBox<?> cmb_city;
+    private JFXComboBox<String> cmb_city;
 
     @FXML
-    private JFXComboBox<?> cmb_area;
+    private JFXComboBox<String> cmb_area;
 
     @FXML
     private JFXTextField txt_description;
@@ -92,9 +96,22 @@ public class AdvertisementMenuController {
     @FXML
     void btn_submit_onKeyReleased(KeyEvent event) throws InterruptedException, ExecutionException, IOException {
         if (event.getCode().equals(KeyCode.ENTER)) {
-            User user = DataHolder.user;
-            AdvertisementManager.getNextAdvertisementId();
-//            AdvertisementManager.addAdvertisement(new Advertisement());
+            addAdvertisement();
+        }
+    }
+
+    private void addAdvertisement() {
+        try {
+            String nextAdvertisementId = AdvertisementManager.getNextAdvertisementId();
+            Advertisement a = new Advertisement(nextAdvertisementId,cmb_advertisementType.getSelectionModel().getSelectedItem(),
+                    cmb_service.getSelectionModel().getSelectedItem(),txt_contactNumber.getText(),txt_emailAddress.getText(),txt_charges.getText(),
+                    txt_chargesPer.getText(),cBox_negotiable.isSelected(),cmb_province.getSelectionModel().getSelectedItem(),
+                    cmb_city.getSelectionModel().getSelectedItem(),cmb_area.getSelectionModel().getSelectedItem(),
+                    txt_description.getText(),DataHolder.user.getId()
+            );
+            AdvertisementManager.addAdvertisement(a);
+        } catch (IOException | InterruptedException | ExecutionException e) {
+            e.printStackTrace();
         }
     }
 
@@ -178,4 +195,54 @@ public class AdvertisementMenuController {
         cmb_advertisementType.requestFocus();
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        cmb_advertisementType.setItems((ObservableList<String>) AdvertisementManager.types);
+        try {
+            List<Service> services = ServiceManager.getServices();
+            for (Service service:services) {
+                cmb_service.getItems().add(service.getService());
+            }
+
+        } catch (ExecutionException | InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+        txt_contactNumber.setText(DataHolder.user.getTellNo().toString());
+        txt_emailAddress.setText(DataHolder.user.getEmail());
+        try {
+            List<Province> provinces = ProvinceManager.getProvinces();
+            for (Province p:provinces) {
+                cmb_province.getItems().add(p.getProvince());
+            }
+        } catch (ExecutionException | IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        cmb_province.setOnAction(actionEvent -> {
+            try {
+                cmb_city.getSelectionModel().clearSelection();
+                List<City> cities = CityManager.getCitys(cmb_province.getSelectionModel().getSelectedItem());
+                for (City c:cities) {
+                    cmb_city.getItems().add(c.getCity());
+                }
+            } catch (ExecutionException | IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+        cmb_city.setOnAction(actionEvent -> {
+            try {
+                cmb_area.getSelectionModel().clearSelection();
+                List<Area> areas = AreaManager.getAreas(cmb_city.getSelectionModel().getSelectedItem());
+                for (Area a:areas) {
+                    cmb_area.getItems().add(a.getArea());
+                }
+            } catch (ExecutionException | IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+
+
+    }
 }

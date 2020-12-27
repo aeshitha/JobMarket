@@ -8,10 +8,20 @@ public class City {
 
     private String id;
     private String city;
+    private String provinceId;
 
-    public City(String id, String city) {
+    public City(String id, String city,String provinceId) {
         this.id = id;
         this.city = city;
+        this.provinceId = provinceId;
+    }
+
+    public String getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(String provinceId) {
+        this.provinceId = provinceId;
     }
 
     public String getId() {
@@ -33,11 +43,12 @@ public class City {
     public HashMap toMap() {
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("city", getCity());
+        data.put("provinceId", getProvinceId());
         return data;
     }
 
     public static City docToCity(DocumentSnapshot doc) throws NullPointerException {
-        City city = new City(doc.getId(), doc.getString("city"));
+        City city = new City(doc.getId(), doc.getString("city"),doc.getString("provinceId"));
 
         if (null == city.getCity()) {
             throw new NullPointerException();

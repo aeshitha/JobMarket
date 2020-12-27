@@ -1,9 +1,6 @@
 package backEnd;
 
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.*;
 import entites.City;
 
 import java.io.IOException;
@@ -53,7 +50,7 @@ public class CityManager {
         List<Integer> l = new ArrayList<>();
 
 
-        city = new City(cityId, doc.getString("city"));
+        city = City.docToCity(doc);
         if (city.getCity() == null) throw new NullPointerException();
 
         return city;
@@ -87,6 +84,18 @@ public class CityManager {
         Firestore db = DBHandler.makeConnection();
         CollectionReference ref = db.collection("citys");
         List<DocumentSnapshot> docs = DBHandler.getCollection(ref);
+        List<City> city = new ArrayList<>();
+        for (int i = 0; i < docs.size(); i++) {
+            DocumentSnapshot doc = docs.get(i);
+            city.add(City.docToCity(doc));
+        }
+        return city;
+    }
+
+    public static List<City> getCitys(String provinceId) throws ExecutionException, InterruptedException, IOException {
+        Firestore db = DBHandler.makeConnection();
+        Query query = db.collection("citys").whereEqualTo("provinceId",provinceId);
+        List<DocumentSnapshot> docs = DBHandler.getCollection(query);
         List<City> city = new ArrayList<>();
         for (int i = 0; i < docs.size(); i++) {
             DocumentSnapshot doc = docs.get(i);

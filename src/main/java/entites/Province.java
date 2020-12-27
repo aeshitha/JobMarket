@@ -2,12 +2,12 @@ package entites;
 
 import com.google.cloud.firestore.DocumentSnapshot;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Province {
     private String id;
     private String province;
-
 
     public Province(String id, String province) {
         this.id = id;

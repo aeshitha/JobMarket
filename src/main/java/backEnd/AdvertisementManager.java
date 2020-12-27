@@ -13,6 +13,9 @@ import java.util.concurrent.ExecutionException;
 
 public class AdvertisementManager {
 
+
+    public static List<String> types = List.of("abc","abc","abc","abc");
+
     public static boolean addAdvertisement(Advertisement advertisement) throws IOException, InterruptedException, ExecutionException {
         Firestore db = DBHandler.makeConnection();
         List<String> ids = getAdvertisementIds(db);

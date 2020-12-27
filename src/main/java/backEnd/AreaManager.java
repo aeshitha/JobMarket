@@ -1,10 +1,8 @@
 package backEnd;
 
-import com.google.cloud.firestore.CollectionReference;
-import com.google.cloud.firestore.DocumentReference;
-import com.google.cloud.firestore.DocumentSnapshot;
-import com.google.cloud.firestore.Firestore;
+import com.google.cloud.firestore.*;
 import entites.Area;
+import entites.City;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -52,7 +50,7 @@ public class AreaManager {
         List<Integer> l = new ArrayList<>();
 
 
-        area = new Area(areaId, doc.getString("area"));
+        area = Area.docToArea(doc);
         if(area.getArea()==null) throw new NullPointerException();
 
         return area;
@@ -92,6 +90,18 @@ public class AreaManager {
             area.add(Area.docToArea(doc));
         }
         return area;
+    }
+
+    public static List<Area> getAreas(String cityId) throws ExecutionException, InterruptedException, IOException {
+        Firestore db = DBHandler.makeConnection();
+        Query query = db.collection("areas").whereEqualTo("cityId",cityId);
+        List<DocumentSnapshot> docs = DBHandler.getCollection(query);
+        List<Area> a = new ArrayList<>();
+        for (int i = 0; i < docs.size(); i++) {
+            DocumentSnapshot doc = docs.get(i);
+            a.add(Area.docToArea(doc));
+        }
+        return a;
     }
 
 
