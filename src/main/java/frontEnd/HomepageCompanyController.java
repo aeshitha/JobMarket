@@ -141,13 +141,28 @@ public class HomepageCompanyController {
     }
 
     @FXML
-    void btnMesOnKeyReleased(KeyEvent event) {
+    void btnMesOnKeyReleased(KeyEvent event) throws IOException {
+
+
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            ViewMessageController.stage = new Stage();
+            Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
+            ViewMessageController.stage.setScene(new Scene(root));
+            ViewMessageController.stage.show();
+            stage.close();
+        }
 
 
     }
 
     @FXML
-    void btnMesOnMouseClicked(MouseEvent event) {
+    void btnMesOnMouseClicked(MouseEvent event) throws IOException {
+
+        ViewMessageController.stage = new Stage();
+        Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
+        ViewMessageController.stage.setScene(new Scene(root));
+        ViewMessageController.stage.show();
+        stage.close();
 
     }
 

@@ -126,12 +126,24 @@ public class HomepagePersonalController {
     }
 
     @FXML
-    void btnMeOnKeyReleased(KeyEvent event) {
-
+    void btnMeOnKeyReleased(KeyEvent event) throws IOException {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            ViewMessageController.stage = new Stage();
+            Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
+            ViewMessageController.stage.setScene(new Scene(root));
+            ViewMessageController.stage.show();
+            stage.close();
+        }
     }
 
     @FXML
-    void btnMeOnMouseClicked(MouseEvent event) {
+    void btnMeOnMouseClicked(MouseEvent event) throws IOException {
+
+        ViewMessageController.stage = new Stage();
+        Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
+        ViewMessageController.stage.setScene(new Scene(root));
+        ViewMessageController.stage.show();
+        stage.close();
 
     }
 
