@@ -24,6 +24,22 @@ public class ViewMessageController {
     private JFXButton btn_complaint;
 
     @FXML
+    private JFXButton btn_allMe;
+
+    @FXML
+    private JFXButton btn_unreadMe;
+
+    @FXML
+    void btn_allMe_onKeyReleased(KeyEvent event) {
+
+    }
+
+    @FXML
+    void btn_allMe_onMouseClicked(MouseEvent event) {
+
+    }
+
+    @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
 
     }
@@ -40,6 +56,16 @@ public class ViewMessageController {
 
     @FXML
     void btn_complaint_onMouseClicked(MouseEvent event) {
+
+    }
+
+    @FXML
+    void btn_unreadMe_onKeyReleased(KeyEvent event) {
+
+    }
+
+    @FXML
+    void btn_unreadMe_onMouseClicked(MouseEvent event) {
 
     }
 

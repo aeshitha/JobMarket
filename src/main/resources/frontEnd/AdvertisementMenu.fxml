@@ -1,14 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.jfoenix.controls.JFXButton?>
-<?import com.jfoenix.controls.JFXCheckBox?>
-<?import com.jfoenix.controls.JFXComboBox?>
-<?import com.jfoenix.controls.JFXTextField?>
+<?import com.jfoenix.controls.*?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
-
+<?import javafx.scene.text.*?>
 <AnchorPane maxWidth="1920.0" prefHeight="900.0" prefWidth="900.0" style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="frontEnd.AdvertisementMenuController">
    <children>
       <Label fx:id="lblMain" alignment="CENTER" layoutX="-2.0" layoutY="20.0" prefHeight="30.0" prefWidth="900.0" style="-fx-background-color: royalblue;" textFill="#2f3640">
@@ -27,7 +22,8 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <JFXComboBox fx:id="cmb_service" layoutX="297.0" layoutY="130.0" prefHeight="44.0" prefWidth="400.0" style="-fx-background-color: white;" editable="true" />
+       <JFXComboBox fx:id="cmb_service" editable="true" layoutX="297.0" layoutY="130.0" prefHeight="44.0"
+                    prefWidth="400.0" style="-fx-background-color: white;"/>
       <Text layoutX="49.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Countact Number" wrappingWidth="166.13671875">
          <font>
             <Font size="20.0" />
