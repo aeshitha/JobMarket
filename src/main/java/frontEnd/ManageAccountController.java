@@ -9,8 +9,6 @@ import entites.User;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -24,15 +22,6 @@ public class ManageAccountController implements Initializable {
     public static Stage stage;
     @FXML
     private Label lblMain;
-
-    @FXML
-    private RadioButton rbTypeP;
-
-    @FXML
-    private ToggleGroup accountType;
-
-    @FXML
-    private RadioButton rbTypeC;
 
     @FXML
     private JFXTextField txt_name;
@@ -84,6 +73,7 @@ public class ManageAccountController implements Initializable {
         if (event.getCode().equals(KeyCode.ENTER)) {
             stage.close();
         }
+
     }
 
     @FXML
@@ -93,11 +83,21 @@ public class ManageAccountController implements Initializable {
 
     @FXML
     void btn_refresh_OnKeyRelease(KeyEvent event) {
-
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            loadUser();
+        }
     }
 
     @FXML
     void btn_refresh_OnMouseClicked(MouseEvent event) {
+        loadUser();
+    }
+
+    @FXML
+    void btn_submit_OnKeyRelease(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+
+        }
 
     }
 
@@ -118,16 +118,6 @@ public class ManageAccountController implements Initializable {
 
     @FXML
     void cb_province_OnKeyRelease(KeyEvent event) {
-
-    }
-
-    @FXML
-    void rbTypeCOnKeyRelease(KeyEvent event) {
-
-    }
-
-    @FXML
-    void rbTypePOnKeyRelease(KeyEvent event) {
 
     }
 
@@ -176,25 +166,20 @@ public class ManageAccountController implements Initializable {
 
     }
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
+
+    public void loadUser() {
         User user = DataHolder.user;
-
-    }
-
-
-    public void loaduser() {
-        User user = DataHolder.user;
-        if (user.getType().equals("company")) {
-            rbTypeC.setSelected(true);
-        } else {
-            rbTypeP.setSelected(true);
-        }
         txt_email.setText(user.getEmail());
         txt_tenNo.setText(user.getTellNo().toString());
         txt_Day.setText(Integer.toString(user.getDob().getDay()));
-        txt_Mounth.setText((Integer.toString(user.getDob().getMonth())));
+        txt_Mounth.setText((Integer.toString(user.getDob().getMonth() + 1)));
         txt_year.setText(Integer.toString(user.getDob().getYear()));
         txt_discription.setText(user.getDescription());
+        ;
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        loadUser();
     }
 }
