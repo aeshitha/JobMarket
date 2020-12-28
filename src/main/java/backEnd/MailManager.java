@@ -90,28 +90,28 @@ public class MailManager {
     }
 
 
-    public static List<City> getMessages(String to) throws ExecutionException, InterruptedException, IOException {
+    public static List<Message> getMessages(String to) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         Query query = db.collection("messages").whereEqualTo("to", to);
         List<DocumentSnapshot> docs = DBHandler.getCollection(query);
-        List<City> city = new ArrayList<>();
+        List<Message> messages = new ArrayList<>();
         for (int i = 0; i < docs.size(); i++) {
             DocumentSnapshot doc = docs.get(i);
-            city.add(City.docToCity(doc));
+            messages.add(Message.docToMessage(doc));
         }
-        return city;
+        return messages;
     }
 
-    public static List<City> getUnReadedMessages(String to) throws ExecutionException, InterruptedException, IOException {
+    public static List<Message> getUnReadedMessages(String to) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         Query query = db.collection("messages").whereEqualTo("to", to).whereEqualTo("isViewed", false);
         List<DocumentSnapshot> docs = DBHandler.getCollection(query);
-        List<City> city = new ArrayList<>();
+        List<Message> messages = new ArrayList<>();
         for (int i = 0; i < docs.size(); i++) {
             DocumentSnapshot doc = docs.get(i);
-            city.add(City.docToCity(doc));
+            messages.add(Message.docToMessage(doc));
         }
-        return city;
+        return messages;
     }
 
 

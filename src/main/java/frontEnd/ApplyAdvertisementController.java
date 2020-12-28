@@ -5,17 +5,22 @@ import backEnd.MailManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entites.Message;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
-public class ApplyAdvertisementController {
+public class ApplyAdvertisementController implements Initializable {
     public static String messageTo;
+    public static String addId;
 
     public static Stage stage;
     @FXML
@@ -42,7 +47,7 @@ public class ApplyAdvertisementController {
 
     private void send() {
         try {
-            MailManager.addMessage(new Message(DataHolder.user.getId(),messageTo,txt_message.getText()));
+            MailManager.addMessage(new Message(DataHolder.user.getId(),messageTo,txt_message.getText(),addId));
         } catch (IOException | InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
@@ -70,5 +75,12 @@ public class ApplyAdvertisementController {
     }
 
 
-
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        if (messageTo.equals("admin")){
+            Platform.runLater(() -> {
+                lblMain.setText("Message to ADMIN");
+            });
+        }
+    }
 }

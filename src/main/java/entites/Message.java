@@ -10,22 +10,25 @@ public class Message {
     private String to;
     private String body;
     private boolean viewed;
+    private String addId;
 
-    public Message(String from, String to, String body) {
+    public Message(String from, String to, String body,String addId) {
 
         this.from = from;
         this.to = to;
         this.body = body;
         this.viewed = false;
         this.id = "not yet";
+        this.addId = addId;
     }
 
-    public Message(String id, String from, String to, String body, boolean viewed) {
+    public Message(String id, String from, String to, String body, boolean viewed, String addId) {
         this.id = id;
         this.from = from;
         this.to = to;
         this.body = body;
         this.viewed = viewed;
+        this.addId = addId;
     }
 
     public String getFrom() {
@@ -68,17 +71,26 @@ public class Message {
         this.id = id;
     }
 
+    public String getAddId() {
+        return addId;
+    }
+
+    public void setAddId(String addId) {
+        this.addId = addId;
+    }
+
     public HashMap toMap() {
         HashMap<String, Object> data = new HashMap<String, Object>();
         data.put("from", getFrom());
         data.put("to", getTo());
         data.put("body", getBody());
         data.put("isViewed", isViewed());
+        data.put("addId",getAddId());
         return data;
     }
 
     public static Message docToMessage(DocumentSnapshot doc) throws NullPointerException {
-        Message message = new Message(doc.getId(),doc.getString("from"),doc.getString("to"),doc.getString("body"),doc.getBoolean("isViewed"));
+        Message message = new Message(doc.getId(),doc.getString("from"),doc.getString("to"),doc.getString("body"),doc.getBoolean("isViewed"),doc.getString("addId"));
 
         if (null == message.getId()) {
             throw new NullPointerException();

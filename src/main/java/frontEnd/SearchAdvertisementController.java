@@ -5,6 +5,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import entites.*;
+import javafx.application.Platform;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -214,7 +215,18 @@ public class SearchAdvertisementController implements Initializable {
                 b.setLayoutY(100);
                 b.setOnAction(actionEvent -> {
                     try {
-                        message(a.getUserId());
+                        message(a.getUserId(),a.getId());
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                });
+                Button b2 = new Button();
+                b2.setText("Report");
+                b2.setLayoutX(375);
+                b2.setLayoutY(100);
+                b2.setOnAction(actionEvent -> {
+                    try {
+                        message("admin",a.getId());
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
@@ -227,11 +239,13 @@ public class SearchAdvertisementController implements Initializable {
                     if (t1){
                         lbl4.setText("Location : "+ a.getProvince() +","+a.getCity()+","+a.getArea());
                         p.getChildren().add(b);
+                        p.getChildren().add(b2);
                         p.getChildren().addAll(lbl6,lbl7,lbl8);
                     }
                     else if(!b.isFocused()){
                         lbl4.setText("Location : "+ a.getProvince());
                         p.getChildren().remove(b);
+                        p.getChildren().remove(b2);
                         p.getChildren().removeAll(lbl6,lbl7,lbl8);
 
 
@@ -243,9 +257,11 @@ public class SearchAdvertisementController implements Initializable {
         }
     }
 
-    private void message(String to) throws IOException {
+    public static void message(String to,String addId) throws IOException {
         ApplyAdvertisementController.stage = new Stage();
+
         ApplyAdvertisementController.messageTo = to;
+        ApplyAdvertisementController.addId = addId;
         Parent root = FXMLLoader.load(ApplyAdvertisementController.class.getResource("ApplyAdvertisement.fxml"));
         ApplyAdvertisementController.stage.setScene(new Scene(root));
         ApplyAdvertisementController.stage.show();

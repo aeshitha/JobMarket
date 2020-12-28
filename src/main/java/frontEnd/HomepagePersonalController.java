@@ -1,8 +1,13 @@
 package frontEnd;
 
+import backEnd.DataHolder;
+import backEnd.MailManager;
 import com.jfoenix.controls.JFXButton;
+import entites.Message;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -12,8 +17,12 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.List;
+import java.util.ResourceBundle;
+import java.util.concurrent.ExecutionException;
 
-public class HomepagePersonalController {
+public class HomepagePersonalController implements Initializable {
 
     public static Stage stage;
     @FXML
@@ -170,4 +179,20 @@ public class HomepagePersonalController {
 
     }
 
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        new Thread(() -> {
+            try {
+                List<Message> messages = MailManager.getUnReadedMessages(DataHolder.user.getId());
+                System.out.println(messages.size() + " unreaded messages");
+                if (messages.size()>0){
+                    Platform.runLater(() -> {
+                        btnMe.setText("MESSAGE ("+messages.size()+")");
+                    });
+                }
+            } catch (ExecutionException | InterruptedException | IOException e) {
+                e.printStackTrace();
+            }
+        }).start();
+    }
 }
