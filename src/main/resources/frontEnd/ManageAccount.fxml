@@ -69,7 +69,7 @@
             <Font size="18.0" />
          </font>
       </JFXTextField>
-      <Text layoutX="25.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Old Password"
+      <Text layoutX="25.0" layoutY="512.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password"
             wrappingWidth="179.13671875">
           <font>
               <Font size="20.0"/>
@@ -81,7 +81,7 @@
                <Font size="18.0"/>
            </font>
        </JFXTextField>
-       <Text layoutX="25.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="New Password"
+       <Text layoutX="25.0" layoutY="561.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Repeat password"
              wrappingWidth="179.13671875">
            <font>
                <Font size="20.0"/>
