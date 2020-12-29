@@ -17,6 +17,7 @@ public class HomepageAdminController {
 
     public static Stage stage;
     public JFXButton btn_creatAdminAccount;
+    public JFXButton btn_message;
     @FXML
     private Label lblMain;
 
@@ -148,5 +149,22 @@ public class HomepageAdminController {
         CreatAdminAccountController.stage.setScene(new Scene(root));
         CreatAdminAccountController.stage.show();
 
+    }
+
+    public void btn_message_OnKeyReleased(KeyEvent keyEvent) throws IOException {
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            ViewMessageController.stage = new Stage();
+            Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
+            ViewMessageController.stage.setScene(new Scene(root));
+            ViewMessageController.stage.show();
+
+        }
+    }
+
+    public void btn_message_OnMouseClicked(MouseEvent mouseEvent) throws IOException {
+        ViewMessageController.stage = new Stage();
+        Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
+        ViewMessageController.stage.setScene(new Scene(root));
+        ViewMessageController.stage.show();
     }
 }
