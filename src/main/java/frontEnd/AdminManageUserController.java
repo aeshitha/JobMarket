@@ -1,14 +1,11 @@
 package frontEnd;
 
 import backEnd.AdvertisementManager;
-import backEnd.DataHolder;
-import backEnd.MailManager;
 import backEnd.UserManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import entites.Advertisement;
-import entites.Message;
 import entites.User;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -30,7 +27,9 @@ import java.util.concurrent.ExecutionException;
 
 public class AdminManageUserController implements Initializable {
 
+    String windowName = "Manage User Menu";
     public static Stage stage;
+
     @FXML
     private Label lblMain;
 
@@ -120,6 +119,7 @@ public class AdminManageUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblMain.setText(windowName);
         if (function.equals("user")){
             loadUsers();
         }

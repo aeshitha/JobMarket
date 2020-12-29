@@ -122,7 +122,9 @@ public class HomepageAdminController {
 
     @FXML
     void btn_publishNotice_onKeyReleased(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
 
+        }
 
     }
 
