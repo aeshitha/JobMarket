@@ -1,0 +1,957 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="1337.1102983014723" y="5381.0">frontEnd.HomepageAdminController</node>
+    <node x="756.8602983014721" y="5436.0">frontEnd.HomepagePersonalController</node>
+    <node x="2976.4978632478633" y="1321.0">entites.City</node>
+    <node x="928.3017517887206" y="2334.0">frontEnd.ApplyAdvertisementController</node>
+    <node x="402.9722222222222" y="4513.0">frontEnd.Scaler</node>
+    <node x="16.0" y="1375.0">backEnd.AdminManager</node>
+    <node x="2652.9305555555557" y="3298.0">entites.Tables.LocationTable</node>
+    <node x="4433.288656550625" y="4128.0">frontEnd.ManageAccountController</node>
+    <node x="4307.039510755685" y="2432.0">backEnd.AreaManager</node>
+    <node x="0.0" y="231.0">entites.Admin</node>
+    <node x="3563.431196581196" y="4260.0">frontEnd.AdminManageUserController</node>
+    <node x="2158.931201178183" y="5392.0">frontEnd.HomepageCompanyController</node>
+    <node x="2193.5138888888887" y="1354.0">entites.Service</node>
+    <node x="3331.431196581196" y="3353.0">backEnd.MessageManager</node>
+    <node x="3287.6514392734216" y="2443.0">backEnd.ProvinceManager</node>
+    <node x="1295.8472222222222" y="1430.0">backEnd.DataHolder</node>
+    <node x="2043.263713334227" y="4084.0">frontEnd.AdvertisementMenuController</node>
+    <node x="1650.8472222222222" y="991.0">entites.Advertisement</node>
+    <node x="3837.66452991453" y="1321.0">entites.Area</node>
+    <node x="614.9722222222222" y="4337.0">frontEnd.CreatAdminAccountController</node>
+    <node x="3236.4978632478633" y="1354.0">entites.Province</node>
+    <node x="1837.3472222222222" y="2389.0">backEnd.AdvertisementManager</node>
+    <node x="1343.9728678448498" y="6106.0">frontEnd.LoginController</node>
+    <node x="4726.453815628815" y="0.0">entites.User</node>
+    <node x="2271.9305555555557" y="2432.0">backEnd.ServiceManager</node>
+    <node x="5203.699370836339" y="0.0">backEnd.DriveQuickstart</node>
+    <node x="4735.953815628815" y="3319.0">backEnd.UserManager</node>
+    <node x="3017.7311774223517" y="4238.0">frontEnd.ManageLocationController</node>
+    <node x="1267.3017517887206" y="3067.0">frontEnd.SearchAdvertisementController</node>
+    <node x="2717.2222222222217" y="286.0">backEnd.DBHandler</node>
+    <node x="768.7222222222222" y="165.0">entites.Message</node>
+    <node x="1144.8472222222222" y="4337.0">frontEnd.ViewMessageController</node>
+    <node x="3567.651439273421" y="2432.0">backEnd.CityManager</node>
+    <node x="1434.4728678448498" y="6794.0">Launcher</node>
+    <node x="4834.199370836339" y="4018.0">frontEnd.CreatAccountController</node>
+    <node x="1434.4728678448498" y="6669.0">Main</node>
+    <node x="583.7962954395143" y="1353.0">backEnd.MailManager</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="frontEnd.SearchAdvertisementController" target="entites.Area">
+      <point x="87.5" y="-355.5" />
+      <point x="1529.8017517887206" y="2877.0" />
+      <point x="3085.1514392734216" y="2877.0" />
+      <point x="3085.1514392734216" y="2274.0" />
+      <point x="3849.96452991453" y="2274.0" />
+      <point x="-110.69999999999982" y="146.5" />
+    </edge>
+    <edge source="frontEnd.AdminManageUserController" target="entites.User">
+      <point x="80.25" y="-344.5" />
+      <point x="3804.181196581196" y="3858.0" />
+      <point x="4543.539510755685" y="3858.0" />
+      <point x="4543.539510755685" y="951.0" />
+      <point x="4767.120482295482" y="951.0" />
+      <point x="-81.33333333333303" y="410.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="backEnd.ProvinceManager">
+      <point x="-118.46153846153811" y="-586.5" />
+      <point x="4869.737832374802" y="3798.0" />
+      <point x="4648.453815628815" y="3798.0" />
+      <point x="4648.453815628815" y="2777.0" />
+      <point x="3510.8514392734214" y="2777.0" />
+      <point x="99.19999999999982" y="92.5" />
+    </edge>
+    <edge source="frontEnd.HomepageCompanyController" target="frontEnd.ViewMessageController">
+      <point x="-73.75" y="-311.5" />
+      <point x="2232.681201178183" y="5221.0" />
+      <point x="1412.3472222222222" y="5221.0" />
+      <point x="107.0" y="267.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="entites.Province">
+      <point x="-12.5" y="-355.5" />
+      <point x="1429.8017517887206" y="2827.0" />
+      <point x="1793.8472222222222" y="2827.0" />
+      <point x="1793.8472222222222" y="2204.0" />
+      <point x="3248.5811965811963" y="2204.0" />
+      <point x="-132.91666666666652" y="113.5" />
+    </edge>
+    <edge source="frontEnd.ViewMessageController" target="backEnd.MailManager">
+      <point x="-80.25" y="-267.5" />
+      <point x="1225.0972222222222" y="3928.0" />
+      <point x="917.8017517887206" y="3928.0" />
+      <point x="917.8017517887206" y="2094.0" />
+      <point x="730.2962954395143" y="2094.0" />
+      <point x="0.0" y="114.5" />
+    </edge>
+    <edge source="backEnd.ServiceManager" target="entites.Service">
+      <point x="0.0" y="-103.5" />
+      <point x="2391.4305555555557" y="2174.0" />
+      <point x="2352.180555555555" y="2174.0" />
+      <point x="22.666666666666515" y="113.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="entites.Province">
+      <point x="20.29411764705901" y="-520.5" />
+      <point x="2236.0578309812863" y="3908.0" />
+      <point x="2570.9305555555557" y="3908.0" />
+      <point x="2570.9305555555557" y="2857.0" />
+      <point x="3063.1514392734216" y="2857.0" />
+      <point x="3063.1514392734216" y="2224.0" />
+      <point x="3296.9145299145293" y="2224.0" />
+      <point x="-84.58333333333348" y="113.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="entites.Area">
+      <point x="101.47058823529414" y="-520.5" />
+      <point x="2317.2343015695214" y="3948.0" />
+      <point x="2620.4305555555557" y="3948.0" />
+      <point x="2620.4305555555557" y="2967.0" />
+      <point x="3546.151439273421" y="2967.0" />
+      <point x="3546.151439273421" y="2294.0" />
+      <point x="3899.16452991453" y="2294.0" />
+      <point x="-61.5" y="146.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="frontEnd.CreatAccountController">
+      <point x="120.0" y="-256.5" />
+      <point x="1628.9728678448498" y="6076.0" />
+      <point x="4988.199370836339" y="6076.0" />
+      <point x="0.0" y="586.5" />
+    </edge>
+    <edge source="frontEnd.ViewMessageController" target="backEnd.AdvertisementManager">
+      <point x="133.75" y="-267.5" />
+      <point x="1439.0972222222222" y="3968.0" />
+      <point x="1627.8017517887206" y="3968.0" />
+      <point x="1627.8017517887206" y="2857.0" />
+      <point x="1991.8472222222222" y="2857.0" />
+      <point x="-51.5" y="146.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="frontEnd.Scaler">
+      <point x="-30.0" y="-256.5" />
+      <point x="1478.9728678448498" y="6046.0" />
+      <point x="1056.3602983014723" y="6046.0" />
+      <point x="1056.3602983014723" y="5271.0" />
+      <point x="474.9722222222222" y="5271.0" />
+      <point x="-24.0" y="91.5" />
+    </edge>
+    <edge source="backEnd.ProvinceManager" target="entites.Province">
+      <point x="-82.66666666666652" y="-92.5" />
+      <point x="3328.9847726067546" y="2264.0" />
+      <point x="3393.5811965811963" y="2264.0" />
+      <point x="12.083333333333485" y="113.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="backEnd.ProvinceManager">
+      <point x="81.17647058823513" y="-520.5" />
+      <point x="2296.940183922462" y="3938.0" />
+      <point x="2609.4305555555557" y="3938.0" />
+      <point x="2609.4305555555557" y="2947.0" />
+      <point x="3362.0514392734212" y="2947.0" />
+      <point x="-49.59999999999991" y="92.5" />
+    </edge>
+    <edge source="backEnd.DataHolder" target="entites.User">
+      <point x="30.5" y="-37.5" />
+      <point x="1387.3472222222222" y="941.0" />
+      <point x="4740.009371184371" y="941.0" />
+      <point x="-108.44444444444434" y="410.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="backEnd.AreaManager">
+      <point x="130.38461538461524" y="-366.5" />
+      <point x="3317.615792806967" y="3968.0" />
+      <point x="3319.3638888888886" y="3968.0" />
+      <point x="3319.3638888888886" y="3047.0" />
+      <point x="4420.039510755685" y="3047.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="backEnd.MessageManager">
+      <point x="-141.14285714285688" y="-476.5" />
+      <point x="4444.145799407768" y="3828.0" />
+      <point x="3562.431196581196" y="3828.0" />
+      <point x="84.0" y="69.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="entites.Area">
+      <point x="71.07692307692287" y="-586.5" />
+      <point x="5059.276293913263" y="3978.0" />
+      <point x="5093.843238705738" y="3978.0" />
+      <point x="5093.843238705738" y="1974.0" />
+      <point x="4046.7645299145297" y="1974.0" />
+      <point x="86.09999999999991" y="146.5" />
+    </edge>
+    <edge source="frontEnd.HomepageAdminController" target="frontEnd.CreatAdminAccountController">
+      <point x="-93.0" y="-322.5" />
+      <point x="1430.1102983014723" y="5251.0" />
+      <point x="766.9722222222222" y="5251.0" />
+      <point x="0.0" y="267.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="frontEnd.Scaler">
+      <point x="0.0" y="-267.5" />
+      <point x="901.3602983014721" y="5321.0" />
+      <point x="426.9722222222222" y="5321.0" />
+      <point x="-72.0" y="91.5" />
+    </edge>
+    <edge source="frontEnd.ViewMessageController" target="entites.Advertisement">
+      <point x="26.75" y="-267.5" />
+      <point x="1332.0972222222222" y="3948.0" />
+      <point x="1256.8017517887206" y="3948.0" />
+      <point x="1256.8017517887206" y="2144.0" />
+      <point x="1675.9900793650793" y="2144.0" />
+      <point x="-150.8571428571429" y="476.5" />
+    </edge>
+    <edge source="backEnd.ProvinceManager" target="backEnd.DBHandler">
+      <point x="82.66666666666652" y="-92.5" />
+      <point x="3494.3181059400877" y="2264.0" />
+      <point x="3586.5811965811963" y="2264.0" />
+      <point x="3586.5811965811963" y="931.0" />
+      <point x="2940.5347222222217" y="931.0" />
+      <point x="24.8125" y="124.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="entites.City">
+      <point x="-20.29411764705901" y="-520.5" />
+      <point x="2195.4695956871683" y="3888.0" />
+      <point x="2548.9305555555557" y="3888.0" />
+      <point x="2548.9305555555557" y="2837.0" />
+      <point x="3041.1514392734216" y="2837.0" />
+      <point x="3041.1514392734216" y="2114.0" />
+      <point x="3031.0433177933173" y="2114.0" />
+      <point x="-65.4545454545455" y="146.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="backEnd.UserManager">
+      <point x="141.14285714285688" y="-476.5" />
+      <point x="4726.431513693482" y="3988.0" />
+      <point x="4820.328815628815" y="3988.0" />
+      <point x="-28.125" y="103.5" />
+    </edge>
+    <edge source="backEnd.AdvertisementManager" target="entites.Advertisement">
+      <point x="-137.33333333333348" y="-146.5" />
+      <point x="1906.0138888888887" y="2154.0" />
+      <point x="1877.1329365079366" y="2154.0" />
+      <point x="50.28571428571445" y="476.5" />
+    </edge>
+    <edge source="Launcher" target="Main">
+      <point x="0.0" y="-26.5" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="backEnd.DataHolder" target="entites.Admin">
+      <point x="-30.5" y="-37.5" />
+      <point x="1326.3472222222222" y="841.0" />
+      <point x="243.0" y="841.0" />
+      <point x="108.0" y="179.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="backEnd.MessageManager">
+      <point x="-142.15384615384664" y="-586.5" />
+      <point x="4846.045524682493" y="3808.0" />
+      <point x="3604.431196581196" y="3808.0" />
+      <point x="126.0" y="69.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="entites.Admin">
+      <point x="-150.0" y="-256.5" />
+      <point x="1358.9728678448498" y="6086.0" />
+      <point x="5.5" y="6086.0" />
+      <point x="5.5" y="971.0" />
+      <point x="27.0" y="971.0" />
+      <point x="-108.0" y="179.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="backEnd.CityManager">
+      <point x="121.7647058823527" y="-520.5" />
+      <point x="2337.52841921658" y="3958.0" />
+      <point x="2631.4305555555557" y="3958.0" />
+      <point x="2631.4305555555557" y="2997.0" />
+      <point x="3634.5514392734212" y="2997.0" />
+      <point x="-44.59999999999991" y="103.5" />
+    </edge>
+    <edge source="frontEnd.HomepageCompanyController" target="frontEnd.AdvertisementMenuController">
+      <point x="24.583333333333485" y="-311.5" />
+      <point x="2331.014534511516" y="5291.0" />
+      <point x="2302.013713334227" y="5291.0" />
+      <point x="86.25" y="520.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="frontEnd.ManageAccountController">
+      <point x="128.44444444444446" y="-267.5" />
+      <point x="1029.8047427459164" y="5351.0" />
+      <point x="4509.288656550625" y="5351.0" />
+      <point x="-76.0" y="476.5" />
+    </edge>
+    <edge source="backEnd.CityManager" target="backEnd.DBHandler">
+      <point x="55.75" y="-103.5" />
+      <point x="3734.901439273421" y="2264.0" />
+      <point x="3827.1645299145293" y="2264.0" />
+      <point x="3827.1645299145293" y="921.0" />
+      <point x="2990.1597222222217" y="921.0" />
+      <point x="74.4375" y="124.5" />
+    </edge>
+    <edge source="frontEnd.ApplyAdvertisementController" target="entites.Message">
+      <point x="0.0" y="-201.5" />
+      <point x="1081.8017517887206" y="2074.0" />
+      <point x="890.7962954395143" y="2074.0" />
+      <point x="890.7962954395143" y="891.0" />
+      <point x="1022.4722222222222" y="891.0" />
+      <point x="108.75" y="245.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="frontEnd.HomepagePersonalController">
+      <point x="-60.0" y="-256.5" />
+      <point x="1448.9728678448498" y="6056.0" />
+      <point x="901.3602983014721" y="6056.0" />
+      <point x="0.0" y="267.5" />
+    </edge>
+    <edge source="backEnd.AdminManager" target="entites.Admin">
+      <point x="0.0" y="-92.5" />
+      <point x="0.0" y="179.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="backEnd.AreaManager">
+      <point x="142.0588235294117" y="-520.5" />
+      <point x="2357.8225368636386" y="3968.0" />
+      <point x="2642.4305555555557" y="3968.0" />
+      <point x="2642.4305555555557" y="3037.0" />
+      <point x="4374.839510755684" y="3037.0" />
+      <point x="-45.19999999999982" y="103.5" />
+    </edge>
+    <edge source="backEnd.AdvertisementManager" target="backEnd.DBHandler">
+      <point x="137.33333333333326" y="-146.5" />
+      <point x="2180.680555555555" y="921.0" />
+      <point x="2841.2847222222217" y="921.0" />
+      <point x="-74.4375" y="124.5" />
+    </edge>
+    <edge source="frontEnd.ApplyAdvertisementController" target="backEnd.MailManager">
+      <point x="-102.33333333333326" y="-201.5" />
+      <point x="979.4684184553873" y="2084.0" />
+      <point x="827.9629621061808" y="2084.0" />
+      <point x="97.66666666666674" y="114.5" />
+    </edge>
+    <edge source="Main" target="frontEnd.LoginController">
+      <point x="0.0" y="-37.5" />
+      <point x="0.0" y="256.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="backEnd.DataHolder">
+      <point x="-162.35294117647072" y="-520.5" />
+      <point x="2053.4107721577566" y="3948.0" />
+      <point x="1638.8017517887206" y="3948.0" />
+      <point x="1638.8017517887206" y="2134.0" />
+      <point x="1374.2757936507935" y="2134.0" />
+      <point x="17.42857142857133" y="37.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="entites.City">
+      <point x="-37.5" y="-355.5" />
+      <point x="1404.8017517887206" y="2817.0" />
+      <point x="1782.8472222222222" y="2817.0" />
+      <point x="1782.8472222222222" y="2194.0" />
+      <point x="3009.2251359751353" y="2194.0" />
+      <point x="-87.27272727272748" y="146.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="entites.User">
+      <point x="142.15384615384573" y="-586.5" />
+      <point x="5130.353216990185" y="3998.0" />
+      <point x="5126.843238705738" y="3998.0" />
+      <point x="5126.843238705738" y="961.0" />
+      <point x="4929.787148962148" y="961.0" />
+      <point x="81.33333333333303" y="410.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="frontEnd.HomepageAdminController">
+      <point x="84.75" y="366.5" />
+      <point x="3271.9811774223517" y="5311.0" />
+      <point x="1616.1102983014723" y="5311.0" />
+      <point x="93.0" y="-322.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="entites.User">
+      <point x="150.0" y="-256.5" />
+      <point x="1658.9728678448498" y="6086.0" />
+      <point x="5152.699370836339" y="6086.0" />
+      <point x="5152.699370836339" y="951.0" />
+      <point x="4956.89826007326" y="951.0" />
+      <point x="108.44444444444434" y="410.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="frontEnd.SearchAdvertisementController">
+      <point x="-32.111111111111086" y="-267.5" />
+      <point x="869.249187190361" y="5331.0" />
+      <point x="314.0" y="5331.0" />
+      <point x="314.0" y="3968.0" />
+      <point x="1325.6350851220539" y="3968.0" />
+      <point x="-116.66666666666674" y="355.5" />
+    </edge>
+    <edge source="backEnd.AreaManager" target="backEnd.DBHandler">
+      <point x="56.5" y="-103.5" />
+      <point x="4476.539510755685" y="911.0" />
+      <point x="3039.7847222222217" y="911.0" />
+      <point x="124.0625" y="124.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="backEnd.DataHolder">
+      <point x="-90.0" y="-256.5" />
+      <point x="1418.9728678448498" y="6066.0" />
+      <point x="92.87220306337713" y="6066.0" />
+      <point x="92.87220306337713" y="3998.0" />
+      <point x="292.0" y="3998.0" />
+      <point x="292.0" y="3037.0" />
+      <point x="366.4569948289768" y="3037.0" />
+      <point x="366.4569948289768" y="2104.0" />
+      <point x="1304.561507936508" y="2104.0" />
+      <point x="-52.28571428571422" y="37.5" />
+    </edge>
+    <edge source="frontEnd.CreatAdminAccountController" target="entites.Admin">
+      <point x="0.0" y="-267.5" />
+      <point x="766.9722222222222" y="3948.0" />
+      <point x="543.7097917655997" y="3948.0" />
+      <point x="543.7097917655997" y="851.0" />
+      <point x="189.0" y="851.0" />
+      <point x="54.0" y="179.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="entites.Province">
+      <point x="23.692307692307622" y="-586.5" />
+      <point x="5011.891678528647" y="3958.0" />
+      <point x="5071.843238705738" y="3958.0" />
+      <point x="5071.843238705738" y="1994.0" />
+      <point x="3490.2478632478633" y="1994.0" />
+      <point x="108.75" y="113.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="backEnd.UserManager">
+      <point x="90.0" y="-256.5" />
+      <point x="1598.9728678448498" y="6066.0" />
+      <point x="4823.699370836339" y="6066.0" />
+      <point x="4823.699370836339" y="3998.0" />
+      <point x="4876.578815628815" y="3998.0" />
+      <point x="28.125" y="103.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="backEnd.CityManager">
+      <point x="78.23076923076906" y="-366.5" />
+      <point x="3265.4619466531203" y="3878.0" />
+      <point x="3214.3888888888887" y="3878.0" />
+      <point x="3214.3888888888887" y="3007.0" />
+      <point x="3679.151439273421" y="3007.0" />
+      <point x="0.0" y="103.5" />
+    </edge>
+    <edge source="frontEnd.ApplyAdvertisementController" target="backEnd.DataHolder">
+      <point x="102.33333333333337" y="-201.5" />
+      <point x="1184.135085122054" y="2124.0" />
+      <point x="1339.4186507936508" y="2124.0" />
+      <point x="-17.42857142857133" y="37.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="backEnd.ProvinceManager">
+      <point x="112.5" y="-355.5" />
+      <point x="1554.8017517887206" y="2937.0" />
+      <point x="3312.451439273422" y="2937.0" />
+      <point x="-99.19999999999982" y="92.5" />
+    </edge>
+    <edge source="backEnd.AdminManager" target="backEnd.DBHandler">
+      <point x="79.33333333333331" y="-92.5" />
+      <point x="214.33333333333348" y="901.0" />
+      <point x="2742.0347222222217" y="901.0" />
+      <point x="-173.6875" y="124.5" />
+    </edge>
+    <edge source="frontEnd.ViewMessageController" target="backEnd.DataHolder">
+      <point x="-26.75" y="-267.5" />
+      <point x="1278.5972222222222" y="3958.0" />
+      <point x="1245.8017517887206" y="3958.0" />
+      <point x="1245.8017517887206" y="2134.0" />
+      <point x="1356.8472222222222" y="2134.0" />
+      <point x="0.0" y="37.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="frontEnd.ViewMessageController">
+      <point x="32.111111111111086" y="-267.5" />
+      <point x="933.4714094125832" y="5281.0" />
+      <point x="1198.3472222222222" y="5281.0" />
+      <point x="-107.0" y="267.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="backEnd.MessageManager">
+      <point x="156.46153846153857" y="-366.5" />
+      <point x="3343.69271588389" y="3998.0" />
+      <point x="3436.431196581196" y="3998.0" />
+      <point x="-42.0" y="69.5" />
+    </edge>
+    <edge source="frontEnd.HomepageAdminController" target="frontEnd.ManageLocationController">
+      <point x="31.0" y="-322.5" />
+      <point x="1554.1102983014723" y="5301.0" />
+      <point x="3102.4811774223517" y="5301.0" />
+      <point x="-84.75" y="366.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="entites.Area">
+      <point x="104.30769230769238" y="-366.5" />
+      <point x="3291.538869730044" y="3968.0" />
+      <point x="3308.3638888888886" y="3968.0" />
+      <point x="3308.3638888888886" y="3017.0" />
+      <point x="3801.151439273421" y="3017.0" />
+      <point x="3801.151439273421" y="2314.0" />
+      <point x="3948.3645299145296" y="2314.0" />
+      <point x="-12.300000000000182" y="146.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="backEnd.MessageManager">
+      <point x="60.0" y="-256.5" />
+      <point x="1568.9728678448498" y="6056.0" />
+      <point x="3977.1061774223513" y="6056.0" />
+      <point x="3977.1061774223513" y="3838.0" />
+      <point x="3520.431196581196" y="3838.0" />
+      <point x="42.0" y="69.5" />
+    </edge>
+    <edge source="frontEnd.HomepageAdminController" target="frontEnd.AdminManageUserController">
+      <point x="155.0" y="-322.5" />
+      <point x="1678.1102983014723" y="5331.0" />
+      <point x="3723.931196581196" y="5331.0" />
+      <point x="0.0" y="344.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="backEnd.AreaManager">
+      <point x="-47.384615384615245" y="-586.5" />
+      <point x="4940.814755451724" y="3928.0" />
+      <point x="5038.843238705738" y="3928.0" />
+      <point x="5038.843238705738" y="2757.0" />
+      <point x="4510.439510755685" y="2757.0" />
+      <point x="90.40000000000009" y="103.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="backEnd.AdvertisementManager">
+      <point x="-101.47058823529414" y="-520.5" />
+      <point x="2114.293125098933" y="3918.0" />
+      <point x="2094.847222222222" y="3918.0" />
+      <point x="51.5" y="146.5" />
+    </edge>
+    <edge source="frontEnd.ViewMessageController" target="entites.Message">
+      <point x="-133.75" y="-267.5" />
+      <point x="1171.5972222222222" y="3938.0" />
+      <point x="554.7097917655997" y="3938.0" />
+      <point x="554.7097917655997" y="871.0" />
+      <point x="877.4722222222222" y="871.0" />
+      <point x="-36.25" y="245.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="backEnd.AdvertisementManager">
+      <point x="37.5" y="-355.5" />
+      <point x="1479.8017517887206" y="2847.0" />
+      <point x="1888.8472222222222" y="2847.0" />
+      <point x="-154.5" y="146.5" />
+    </edge>
+    <edge source="frontEnd.HomepageCompanyController" target="frontEnd.AdminManageUserController">
+      <point x="73.75" y="-311.5" />
+      <point x="2380.181201178183" y="5341.0" />
+      <point x="3830.931196581196" y="5341.0" />
+      <point x="107.0" y="344.5" />
+    </edge>
+    <edge source="frontEnd.AdminManageUserController" target="backEnd.DataHolder">
+      <point x="-26.75" y="-344.5" />
+      <point x="3697.181196581196" y="3988.0" />
+      <point x="3646.931196581196" y="3988.0" />
+      <point x="3646.931196581196" y="2817.0" />
+      <point x="3030.1514392734216" y="2817.0" />
+      <point x="3030.1514392734216" y="2124.0" />
+      <point x="1391.704365079365" y="2124.0" />
+      <point x="34.85714285714289" y="37.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="backEnd.ServiceManager">
+      <point x="-81.17647058823559" y="-520.5" />
+      <point x="2134.5872427459917" y="3858.0" />
+      <point x="2451.1805555555557" y="3858.0" />
+      <point x="59.75" y="103.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="entites.Area">
+      <point x="54.285714285714675" y="-476.5" />
+      <point x="4639.57437083634" y="3938.0" />
+      <point x="4692.453815628815" y="3938.0" />
+      <point x="4692.453815628815" y="2034.0" />
+      <point x="3997.56452991453" y="2034.0" />
+      <point x="36.90000000000009" y="146.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="backEnd.ServiceManager">
+      <point x="62.5" y="-355.5" />
+      <point x="1504.8017517887206" y="2867.0" />
+      <point x="2331.6805555555557" y="2867.0" />
+      <point x="-59.75" y="103.5" />
+    </edge>
+    <edge source="frontEnd.CreatAdminAccountController" target="backEnd.AdminManager">
+      <point x="-101.33333333333303" y="-267.5" />
+      <point x="665.6388888888891" y="3958.0" />
+      <point x="530.8275454395143" y="3958.0" />
+      <point x="530.8275454395143" y="3017.0" />
+      <point x="344.4569948289768" y="3017.0" />
+      <point x="344.4569948289768" y="2314.0" />
+      <point x="194.5" y="2314.0" />
+      <point x="59.5" y="92.5" />
+    </edge>
+    <edge source="backEnd.ServiceManager" target="backEnd.DBHandler">
+      <point x="79.66666666666652" y="-103.5" />
+      <point x="2471.0972222222217" y="2174.0" />
+      <point x="2476.0138888888887" y="2174.0" />
+      <point x="2476.0138888888887" y="931.0" />
+      <point x="2890.9097222222217" y="931.0" />
+      <point x="-24.8125" y="124.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="entites.Province">
+      <point x="10.857142857143117" y="-476.5" />
+      <point x="4596.145799407768" y="3918.0" />
+      <point x="4670.453815628815" y="3918.0" />
+      <point x="4670.453815628815" y="2054.0" />
+      <point x="3441.9145299145302" y="2054.0" />
+      <point x="60.41666666666697" y="113.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="frontEnd.AdvertisementMenuController">
+      <point x="64.22222222222217" y="-267.5" />
+      <point x="965.5825205236943" y="5291.0" />
+      <point x="2129.513713334227" y="5291.0" />
+      <point x="-86.25" y="520.5" />
+    </edge>
+    <edge source="frontEnd.AdminManageUserController" target="entites.Advertisement">
+      <point x="26.75" y="-344.5" />
+      <point x="3750.681196581196" y="3848.0" />
+      <point x="4073.288656550625" y="3848.0" />
+      <point x="4073.288656550625" y="2104.0" />
+      <point x="1977.704365079365" y="2104.0" />
+      <point x="150.8571428571429" y="476.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="entites.Service">
+      <point x="-60.88235294117658" y="-520.5" />
+      <point x="2154.8813603930503" y="3868.0" />
+      <point x="2521.4305555555557" y="3868.0" />
+      <point x="2521.4305555555557" y="2164.0" />
+      <point x="2397.5138888888887" y="2164.0" />
+      <point x="68.0" y="113.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="backEnd.ProvinceManager">
+      <point x="-119.42857142857156" y="-476.5" />
+      <point x="4465.8600851220535" y="3818.0" />
+      <point x="3811.976458432266" y="3818.0" />
+      <point x="3811.976458432266" y="2807.0" />
+      <point x="3461.251439273421" y="2807.0" />
+      <point x="49.59999999999991" y="92.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="entites.City">
+      <point x="-52.15384615384619" y="-366.5" />
+      <point x="3135.077331268505" y="3928.0" />
+      <point x="2849.4305555555557" y="3928.0" />
+      <point x="2849.4305555555557" y="2907.0" />
+      <point x="3232.6514392734216" y="2907.0" />
+      <point x="3232.6514392734216" y="2184.0" />
+      <point x="3096.4978632478633" y="2184.0" />
+      <point x="0.0" y="146.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="backEnd.MessageManager">
+      <point x="162.35294117647072" y="-520.5" />
+      <point x="2378.116654510698" y="3988.0" />
+      <point x="3394.431196581196" y="3988.0" />
+      <point x="-84.0" y="69.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="backEnd.MailManager">
+      <point x="-96.33333333333348" y="-267.5" />
+      <point x="805.0269649681386" y="5351.0" />
+      <point x="281.0" y="5351.0" />
+      <point x="281.0" y="3027.0" />
+      <point x="355.4569948289768" y="3027.0" />
+      <point x="355.4569948289768" y="2094.0" />
+      <point x="632.6296287728478" y="2094.0" />
+      <point x="-97.66666666666652" y="114.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="backEnd.ProvinceManager">
+      <point x="26.076923076922867" y="-366.5" />
+      <point x="3213.3081004992746" y="3898.0" />
+      <point x="3136.8888888888887" y="3898.0" />
+      <point x="3136.8888888888887" y="2957.0" />
+      <point x="3411.6514392734216" y="2957.0" />
+      <point x="0.0" y="92.5" />
+    </edge>
+    <edge source="backEnd.MailManager" target="entites.Message">
+      <point x="-73.25" y="-114.5" />
+      <point x="657.0462954395143" y="881.0" />
+      <point x="949.9722222222222" y="881.0" />
+      <point x="36.25" y="245.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="backEnd.UserManager">
+      <point x="-94.76923076923049" y="-586.5" />
+      <point x="4893.430140067108" y="3908.0" />
+      <point x="4932.828815628815" y="3908.0" />
+      <point x="84.375" y="103.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="backEnd.CityManager">
+      <point x="137.5" y="-355.5" />
+      <point x="1579.8017517887206" y="2987.0" />
+      <point x="3589.9514392734213" y="2987.0" />
+      <point x="-89.19999999999982" y="103.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="entites.City">
+      <point x="-32.57142857142844" y="-476.5" />
+      <point x="4552.717227979197" y="3898.0" />
+      <point x="4637.453815628815" y="3898.0" />
+      <point x="4637.453815628815" y="2074.0" />
+      <point x="3140.1342268842263" y="2074.0" />
+      <point x="43.63636363636351" y="146.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="backEnd.CityManager">
+      <point x="-71.07692307692287" y="-586.5" />
+      <point x="4917.122447759417" y="3918.0" />
+      <point x="5027.843238705738" y="3918.0" />
+      <point x="5027.843238705738" y="2767.0" />
+      <point x="3768.351439273421" y="2767.0" />
+      <point x="89.19999999999982" y="103.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="entites.Province">
+      <point x="0.0" y="-366.5" />
+      <point x="3187.2311774223517" y="3908.0" />
+      <point x="2996.8888888888887" y="3908.0" />
+      <point x="2996.8888888888887" y="2927.0" />
+      <point x="3277.1514392734216" y="2927.0" />
+      <point x="3277.1514392734216" y="2254.0" />
+      <point x="3369.4145299145293" y="2254.0" />
+      <point x="-12.083333333333485" y="113.5" />
+    </edge>
+    <edge source="frontEnd.AdminManageUserController" target="backEnd.UserManager">
+      <point x="133.75" y="-344.5" />
+      <point x="3857.681196581196" y="3978.0" />
+      <point x="4764.078815628815" y="3978.0" />
+      <point x="-84.375" y="103.5" />
+    </edge>
+    <edge source="frontEnd.CreatAdminAccountController" target="backEnd.MessageManager">
+      <point x="101.33333333333337" y="-267.5" />
+      <point x="868.3055555555557" y="3978.0" />
+      <point x="3352.431196581196" y="3978.0" />
+      <point x="-126.0" y="69.5" />
+    </edge>
+    <edge source="frontEnd.HomepageCompanyController" target="frontEnd.SearchAdvertisementController">
+      <point x="-24.583333333333258" y="-311.5" />
+      <point x="2281.8478678448496" y="5211.0" />
+      <point x="1753.7761437908496" y="5211.0" />
+      <point x="1753.7761437908496" y="3958.0" />
+      <point x="1558.9684184553873" y="3958.0" />
+      <point x="116.66666666666674" y="355.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="frontEnd.AdminManageUserController">
+      <point x="96.33333333333337" y="-267.5" />
+      <point x="997.6936316348056" y="5321.0" />
+      <point x="3616.931196581196" y="5321.0" />
+      <point x="-107.0" y="344.5" />
+    </edge>
+    <edge source="frontEnd.AdminManageUserController" target="backEnd.AdvertisementManager">
+      <point x="-80.25" y="-344.5" />
+      <point x="3643.681196581196" y="3998.0" />
+      <point x="3635.931196581196" y="3998.0" />
+      <point x="3635.931196581196" y="2827.0" />
+      <point x="2197.847222222222" y="2827.0" />
+      <point x="154.5" y="146.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="entites.User">
+      <point x="119.42857142857156" y="-476.5" />
+      <point x="4704.717227979197" y="3968.0" />
+      <point x="4725.453815628815" y="3968.0" />
+      <point x="4725.453815628815" y="971.0" />
+      <point x="4821.342704517704" y="971.0" />
+      <point x="-27.111111111111313" y="410.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="entites.Advertisement">
+      <point x="-137.5" y="-355.5" />
+      <point x="1304.8017517887206" y="3047.0" />
+      <point x="1293.3017517887206" y="3047.0" />
+      <point x="1293.3017517887206" y="2154.0" />
+      <point x="1726.2757936507937" y="2154.0" />
+      <point x="-100.57142857142844" y="476.5" />
+    </edge>
+    <edge source="backEnd.CityManager" target="entites.City">
+      <point x="-55.75" y="-103.5" />
+      <point x="3623.401439273421" y="2174.0" />
+      <point x="3118.3160450660453" y="2174.0" />
+      <point x="21.818181818181984" y="146.5" />
+    </edge>
+    <edge source="frontEnd.ViewMessageController" target="frontEnd.SearchAdvertisementController">
+      <point x="80.25" y="-267.5" />
+      <point x="1385.5972222222222" y="3958.0" />
+      <point x="1442.3017517887206" y="3958.0" />
+      <point x="0.0" y="355.5" />
+    </edge>
+    <edge source="frontEnd.HomepageAdminController" target="frontEnd.Scaler">
+      <point x="-155.0" y="-322.5" />
+      <point x="1368.1102983014723" y="5261.0" />
+      <point x="522.9722222222222" y="5261.0" />
+      <point x="24.0" y="91.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="backEnd.AdminManager">
+      <point x="-120.0" y="-256.5" />
+      <point x="1388.9728678448498" y="6076.0" />
+      <point x="75.5" y="6076.0" />
+      <point x="-59.5" y="92.5" />
+    </edge>
+    <edge source="frontEnd.CreatAccountController" target="entites.City">
+      <point x="0.0" y="-586.5" />
+      <point x="4988.199370836339" y="3948.0" />
+      <point x="5060.843238705738" y="3948.0" />
+      <point x="5060.843238705738" y="2004.0" />
+      <point x="3205.5887723387723" y="2004.0" />
+      <point x="109.09090909090901" y="146.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="backEnd.CityManager">
+      <point x="-97.71428571428532" y="-476.5" />
+      <point x="4487.57437083634" y="3868.0" />
+      <point x="4604.453815628815" y="3868.0" />
+      <point x="4604.453815628815" y="2797.0" />
+      <point x="3723.751439273421" y="2797.0" />
+      <point x="44.59999999999991" y="103.5" />
+    </edge>
+    <edge source="frontEnd.ManageLocationController" target="entites.Tables.LocationTable">
+      <point x="-130.38461538461524" y="-366.5" />
+      <point x="3056.8465620377365" y="3958.0" />
+      <point x="2740.4305555555557" y="3958.0" />
+      <point x="0.0" y="124.5" />
+    </edge>
+    <edge source="backEnd.MailManager" target="backEnd.DBHandler">
+      <point x="73.25" y="-114.5" />
+      <point x="803.5462954395143" y="911.0" />
+      <point x="2791.6597222222217" y="911.0" />
+      <point x="-124.0625" y="124.5" />
+    </edge>
+    <edge source="backEnd.UserManager" target="entites.User">
+      <point x="75.0" y="-103.5" />
+      <point x="4923.453815628815" y="3047.0" />
+      <point x="4859.453815628815" y="3047.0" />
+      <point x="4859.453815628815" y="971.0" />
+      <point x="4875.564926739927" y="971.0" />
+      <point x="27.111111111111313" y="410.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="backEnd.DataHolder">
+      <point x="-54.285714285714675" y="-476.5" />
+      <point x="4531.00294226491" y="3888.0" />
+      <point x="4626.453815628815" y="3888.0" />
+      <point x="4626.453815628815" y="2084.0" />
+      <point x="1409.1329365079364" y="2084.0" />
+      <point x="52.28571428571422" y="37.5" />
+    </edge>
+    <edge source="frontEnd.AdvertisementMenuController" target="entites.Advertisement">
+      <point x="-142.05882352941217" y="-520.5" />
+      <point x="2073.704889804815" y="3938.0" />
+      <point x="1815.8472222222222" y="3938.0" />
+      <point x="1815.8472222222222" y="2154.0" />
+      <point x="1776.561507936508" y="2154.0" />
+      <point x="-50.28571428571422" y="476.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="backEnd.DataHolder">
+      <point x="-64.22222222222217" y="-267.5" />
+      <point x="837.1380760792499" y="5341.0" />
+      <point x="303.0" y="5341.0" />
+      <point x="303.0" y="3047.0" />
+      <point x="906.8017517887206" y="3047.0" />
+      <point x="906.8017517887206" y="2114.0" />
+      <point x="1321.9900793650793" y="2114.0" />
+      <point x="-34.85714285714289" y="37.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="frontEnd.HomepageAdminController">
+      <point x="0.0" y="-256.5" />
+      <point x="1508.9728678448498" y="6086.0" />
+      <point x="1523.1102983014723" y="6086.0" />
+      <point x="0.0" y="322.5" />
+    </edge>
+    <edge source="frontEnd.ManageAccountController" target="backEnd.AreaManager">
+      <point x="-76.0" y="-476.5" />
+      <point x="4509.288656550625" y="3878.0" />
+      <point x="4615.453815628815" y="3878.0" />
+      <point x="4615.453815628815" y="2787.0" />
+      <point x="4465.239510755684" y="2787.0" />
+      <point x="45.19999999999982" y="103.5" />
+    </edge>
+    <edge source="frontEnd.AdminManageUserController" target="backEnd.MessageManager">
+      <point x="-133.75" y="-344.5" />
+      <point x="3590.181196581196" y="3998.0" />
+      <point x="3478.431196581196" y="3998.0" />
+      <point x="0.0" y="69.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="backEnd.AreaManager">
+      <point x="162.5" y="-355.5" />
+      <point x="1604.8017517887206" y="3027.0" />
+      <point x="4329.639510755685" y="3027.0" />
+      <point x="-90.40000000000009" y="103.5" />
+    </edge>
+    <edge source="backEnd.AreaManager" target="entites.Area">
+      <point x="-56.5" y="-103.5" />
+      <point x="4363.539510755685" y="2094.0" />
+      <point x="3972.96452991453" y="2094.0" />
+      <point x="12.300000000000182" y="146.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="entites.Service">
+      <point x="-112.5" y="-355.5" />
+      <point x="1329.8017517887206" y="2787.0" />
+      <point x="1433.8472222222222" y="2787.0" />
+      <point x="1433.8472222222222" y="2164.0" />
+      <point x="2216.180555555555" y="2164.0" />
+      <point x="-113.33333333333348" y="113.5" />
+    </edge>
+    <edge source="frontEnd.HomepagePersonalController" target="entites.Message">
+      <point x="-128.44444444444434" y="-267.5" />
+      <point x="772.9158538570277" y="5361.0" />
+      <point x="264.5" y="5361.0" />
+      <point x="264.5" y="861.0" />
+      <point x="804.9722222222222" y="861.0" />
+      <point x="-108.75" y="245.5" />
+    </edge>
+    <edge source="frontEnd.LoginController" target="frontEnd.HomepageCompanyController">
+      <point x="30.0" y="-256.5" />
+      <point x="1538.9728678448498" y="6046.0" />
+      <point x="2306.431201178183" y="6046.0" />
+      <point x="0.0" y="311.5" />
+    </edge>
+    <edge source="frontEnd.HomepageCompanyController" target="frontEnd.ManageAccountController">
+      <point x="122.91666666666652" y="-311.5" />
+      <point x="2429.347867844849" y="5361.0" />
+      <point x="4661.288656550625" y="5361.0" />
+      <point x="76.0" y="476.5" />
+    </edge>
+    <edge source="backEnd.UserManager" target="backEnd.DBHandler">
+      <point x="-75.0" y="-103.5" />
+      <point x="4773.453815628815" y="3047.0" />
+      <point x="4837.453815628815" y="3047.0" />
+      <point x="4837.453815628815" y="901.0" />
+      <point x="3089.4097222222217" y="901.0" />
+      <point x="173.6875" y="124.5" />
+    </edge>
+    <edge source="frontEnd.HomepageCompanyController" target="frontEnd.Scaler">
+      <point x="-122.91666666666652" y="-311.5" />
+      <point x="2183.514534511516" y="5231.0" />
+      <point x="570.9722222222222" y="5231.0" />
+      <point x="72.0" y="91.5" />
+    </edge>
+    <edge source="frontEnd.SearchAdvertisementController" target="frontEnd.ApplyAdvertisementController">
+      <point x="-162.5" y="-355.5" />
+      <point x="1279.8017517887206" y="3047.0" />
+      <point x="1081.8017517887206" y="3047.0" />
+      <point x="0.0" y="201.5" />
+    </edge>
+    <edge source="frontEnd.HomepageAdminController" target="frontEnd.ViewMessageController">
+      <point x="-31.0" y="-322.5" />
+      <point x="1492.1102983014723" y="5241.0" />
+      <point x="1305.3472222222222" y="5241.0" />
+      <point x="0.0" y="267.5" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="0.4" x="1942.25" y="1050.0" />
+  <SelectedNodes>
+    <node>frontEnd.HomepageAdminController</node>
+    <node>frontEnd.HomepagePersonalController</node>
+    <node>entites.City</node>
+    <node>frontEnd.ApplyAdvertisementController</node>
+    <node>frontEnd.Scaler</node>
+    <node>backEnd.AdminManager</node>
+    <node>entites.Tables.LocationTable</node>
+    <node>frontEnd.ManageAccountController</node>
+    <node>backEnd.AreaManager</node>
+    <node>entites.Admin</node>
+    <node>frontEnd.AdminManageUserController</node>
+    <node>frontEnd.HomepageCompanyController</node>
+    <node>entites.Service</node>
+    <node>backEnd.MessageManager</node>
+    <node>backEnd.ProvinceManager</node>
+    <node>backEnd.DataHolder</node>
+    <node>frontEnd.AdvertisementMenuController</node>
+    <node>entites.Advertisement</node>
+    <node>entites.Area</node>
+    <node>frontEnd.CreatAdminAccountController</node>
+    <node>entites.Province</node>
+    <node>backEnd.AdvertisementManager</node>
+    <node>frontEnd.LoginController</node>
+    <node>entites.User</node>
+    <node>backEnd.ServiceManager</node>
+    <node>backEnd.DriveQuickstart</node>
+    <node>backEnd.UserManager</node>
+    <node>frontEnd.ManageLocationController</node>
+    <node>frontEnd.SearchAdvertisementController</node>
+    <node>backEnd.DBHandler</node>
+    <node>entites.Message</node>
+    <node>frontEnd.ViewMessageController</node>
+    <node>backEnd.CityManager</node>
+    <node>frontEnd.CreatAccountController</node>
+    <node>Main</node>
+    <node>backEnd.MailManager</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
