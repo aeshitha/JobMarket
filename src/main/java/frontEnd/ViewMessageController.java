@@ -3,6 +3,7 @@ package frontEnd;
 import backEnd.AdvertisementManager;
 import backEnd.DataHolder;
 import backEnd.MailManager;
+import backEnd.MessageManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import entites.Advertisement;
@@ -104,7 +105,13 @@ public class ViewMessageController implements Initializable {
         lView_Message.getItems().clear();
         new Thread(() -> {
             try {
-                List<Message> messages = MailManager.getUnReadedMessages(DataHolder.user.getId());
+                List<Message> messages;
+                if (null!=DataHolder.user) {
+                    messages = MailManager.getUnReadedMessages(DataHolder.user.getId());
+                }
+                else{
+                    messages = MailManager.getUnReadedMessages("admin");
+                }
                 System.out.println(messages.size() + " unreaded messages");
                 if (messages.size()>0){
                     Platform.runLater(() -> {
@@ -127,7 +134,13 @@ public class ViewMessageController implements Initializable {
         lView_Message.getItems().clear();
         new Thread(() -> {
             try {
-                List<Message> messages = MailManager.getMessages(DataHolder.user.getId());
+                List<Message> messages;
+                if (null!=DataHolder.user) {
+                    messages = MailManager.getMessages(DataHolder.user.getId());
+                }
+                else{
+                    messages = MailManager.getMessages("admin");
+                }
                 System.out.println(messages.size() + "messages");
                 if (messages.size()>0){
                     Platform.runLater(() -> {
@@ -198,31 +211,78 @@ public class ViewMessageController implements Initializable {
             lbl11 = new Label("Mail : "+ a.getEmail());
             lbl11.setLayoutX(10);
             lbl11.setLayoutY(160);
-
-            p.focusedProperty().addListener((observableValue, aBoolean, t1) -> {
-                System.out.println("focus : " + t1);
-                if (t1){
-                    if(!m.isViewed()){
-                        m.setViewed(true);
-                        try {
-                            MailManager.updateMessage(m);
-                        } catch (ExecutionException | InterruptedException | IOException e) {
-                            e.printStackTrace();
-                        }
+            if (null!=DataHolder.admin){
+                Button b2 = new Button();
+                b2.setText("Delete Current Advertisement");
+                b2.setLayoutX(375);
+                b2.setLayoutY(0);
+                b2.setOnAction(actionEvent -> {
+                    try {
+                        AdvertisementManager.deleteAdvertisement(m.getAddId());
+                        m.setAddId("null");
+                        MailManager.updateMessage(m);
+                    } catch (IOException | InterruptedException | ExecutionException e) {
+                        e.printStackTrace();
                     }
-                    p.getChildren().add(b);
-                    p.getChildren().add(lbl2);
-                    p.getChildren().addAll(lbl3, lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lbl11);
-                }
-                else if(!b.isFocused()){
-                    p.getChildren().remove(b);
-                    p.getChildren().remove(lbl2);
-                    p.getChildren().removeAll(lbl3, lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lbl11);
+                });
+
+                p.focusedProperty().addListener((observableValue, aBoolean, t1) -> {
+                    System.out.println("focus : " + t1);
+                    if (t1){
+                        if(!m.isViewed()){
+                            m.setViewed(true);
+                            try {
+                                MailManager.updateMessage(m);
+                            } catch (ExecutionException | InterruptedException | IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        p.getChildren().add(b);
+                        p.getChildren().add(b2);
+                        p.getChildren().add(lbl2);
+                        p.getChildren().addAll(lbl3, lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lbl11);
+                    }
+                    else if(!b.isFocused()){
+                        p.getChildren().remove(b);
+                        p.getChildren().remove(b2);
+                        p.getChildren().remove(lbl2);
+                        p.getChildren().removeAll(lbl3, lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lbl11);
 
 
 
-                }
-            });
+                    }
+                });
+
+
+            }
+            else{
+                p.focusedProperty().addListener((observableValue, aBoolean, t1) -> {
+                    System.out.println("focus : " + t1);
+                    if (t1){
+                        if(!m.isViewed()){
+                            m.setViewed(true);
+                            try {
+                                MailManager.updateMessage(m);
+                            } catch (ExecutionException | InterruptedException | IOException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                        p.getChildren().add(b);
+                        p.getChildren().add(lbl2);
+                        p.getChildren().addAll(lbl3, lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lbl11);
+                    }
+                    else if(!b.isFocused()){
+                        p.getChildren().remove(b);
+                        p.getChildren().remove(lbl2);
+                        p.getChildren().removeAll(lbl3, lbl4,lbl5,lbl6,lbl7,lbl8,lbl9,lbl10,lbl11);
+
+
+
+                    }
+                });
+            }
+
+
 
         }
         else{

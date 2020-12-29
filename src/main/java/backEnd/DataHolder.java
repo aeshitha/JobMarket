@@ -4,7 +4,7 @@ import entites.Admin;
 import entites.User;
 
 public class DataHolder {
-    public static User user;
-    public static Admin admin;
+    public static User user =null;
+    public static Admin admin = null;
 
 }
