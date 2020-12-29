@@ -18,7 +18,9 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import org.apache.tools.ant.launch.Launcher;
 
 import java.io.IOException;
 import java.net.URL;
@@ -30,6 +32,7 @@ public class LoginController implements Initializable {
 
     public static Stage stage;
     public RadioButton rb_admin;
+    public AnchorPane pane;
     String windowName = "Login Menu";
     public Label lblMain;
     public JFXTextField txtUserName;
@@ -348,6 +351,7 @@ public class LoginController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        Scaler.scale(pane,false);
         lblMain.setText(windowName);
         txtUserName.requestFocus();
     }

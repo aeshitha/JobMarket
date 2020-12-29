@@ -4,7 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.*?>
-<AnchorPane xmlns:fx="http://javafx.com/fxml/1" maxWidth="1920.0" prefHeight="900.0" prefWidth="900.0"
+<AnchorPane fx:id="pane" xmlns:fx="http://javafx.com/fxml/1" maxWidth="1920.0" prefHeight="900.0" prefWidth="900.0"
             style="-fx-background-color: green;" xmlns="http://javafx.com/javafx/11.0.1"
             fx:controller="frontEnd.ViewMessageController">
     <children>

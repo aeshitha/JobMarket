@@ -14,6 +14,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -23,7 +24,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
 public class HomepagePersonalController implements Initializable {
-
+    public AnchorPane pane;
     public static Stage stage;
     @FXML
     private Label lblMain;
@@ -181,6 +182,7 @@ public class HomepagePersonalController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Scaler.scale(pane,true);
         new Thread(() -> {
             try {
                 List<Message> messages = MailManager.getUnReadedMessages(DataHolder.user.getId());
