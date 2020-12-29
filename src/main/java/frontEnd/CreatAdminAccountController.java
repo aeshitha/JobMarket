@@ -6,6 +6,7 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import entites.Admin;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -13,9 +14,11 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
-public class CreatAdminAccountController {
+public class CreatAdminAccountController implements Initializable {
 
     public static Stage stage;
     String windowName = "Creat Admin Account";
@@ -139,4 +142,9 @@ public class CreatAdminAccountController {
         txt_id.requestFocus();
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        lblMain.setText(windowName);
+        txt_id.requestFocus();
+    }
 }

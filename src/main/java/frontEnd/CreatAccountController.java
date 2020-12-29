@@ -339,7 +339,7 @@ public class CreatAccountController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         lblMain.setText(windowName);
-
+        rbTypeC.requestFocus();
 
         try {
 

@@ -69,6 +69,9 @@ public class AdvertisementMenuController implements Initializable {
 
     @FXML
     private JFXButton btn_cancel;
+    List<Province> provinces;
+    List<City> cities;
+    List<Area> areas;
 
     @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
@@ -217,8 +220,9 @@ public class AdvertisementMenuController implements Initializable {
         txt_contactNumber.setText(DataHolder.user.getTellNo().toString());
         txt_emailAddress.setText(DataHolder.user.getEmail());
         try {
-            List<Province> provinces = ProvinceManager.getProvinces();
-            for (Province p:provinces) {
+
+            provinces = ProvinceManager.getProvinces();
+            for (Province p : provinces) {
                 cmb_province.getItems().add(p.getProvince());
             }
         } catch (ExecutionException | IOException | InterruptedException e) {
@@ -228,8 +232,9 @@ public class AdvertisementMenuController implements Initializable {
         cmb_province.setOnAction(actionEvent -> {
             try {
                 cmb_city.getSelectionModel().clearSelection();
-                List<City> cities = CityManager.getCitys(cmb_province.getSelectionModel().getSelectedItem());
-                for (City c:cities) {
+
+                cities = CityManager.getCitys(provinces.get(cmb_province.getSelectionModel().getSelectedIndex()).getId());
+                for (City c : cities) {
                     cmb_city.getItems().add(c.getCity());
                 }
             } catch (ExecutionException | IOException | InterruptedException e) {
@@ -240,8 +245,9 @@ public class AdvertisementMenuController implements Initializable {
         cmb_city.setOnAction(actionEvent -> {
             try {
                 cmb_area.getSelectionModel().clearSelection();
-                List<Area> areas = AreaManager.getAreas(cmb_city.getSelectionModel().getSelectedItem());
-                for (Area a:areas) {
+
+                areas = AreaManager.getAreas(cities.get(cmb_city.getSelectionModel().getSelectedIndex()).getId());
+                for (Area a : areas) {
                     cmb_area.getItems().add(a.getArea());
                 }
             } catch (ExecutionException | IOException | InterruptedException e) {
