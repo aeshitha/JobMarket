@@ -55,6 +55,7 @@ public class HomepageCompanyController implements Initializable {
             AdvertisementMenuController.stage = new Stage();
             Parent root = FXMLLoader.load(AdvertisementMenuController.class.getResource("AdvertisementMenu.fxml"));
             AdvertisementMenuController.stage.setScene(new Scene(root));
+            AdvertisementMenuController.stage.setAlwaysOnTop(true);
             AdvertisementMenuController.stage.show();
 
         }
@@ -67,6 +68,7 @@ public class HomepageCompanyController implements Initializable {
         AdvertisementMenuController.stage = new Stage();
         Parent root = FXMLLoader.load(AdvertisementMenuController.class.getResource("AdvertisementMenu.fxml"));
         AdvertisementMenuController.stage.setScene(new Scene(root));
+        AdvertisementMenuController.stage.setAlwaysOnTop(true);
         AdvertisementMenuController.stage.show();
 
     }
@@ -78,6 +80,7 @@ public class HomepageCompanyController implements Initializable {
             ManageAccountController.stage = new Stage();
             Parent root = FXMLLoader.load(ManageAccountController.class.getResource("ManageAccount.fxml"));
             ManageAccountController.stage.setScene(new Scene(root));
+            ManageAccountController.stage.setAlwaysOnTop(true);
             ManageAccountController.stage.show();
         }
 
@@ -89,6 +92,7 @@ public class HomepageCompanyController implements Initializable {
         ManageAccountController.stage = new Stage();
         Parent root = FXMLLoader.load(ManageAccountController.class.getResource("ManageAccount.fxml"));
         ManageAccountController.stage.setScene(new Scene(root));
+        ManageAccountController.stage.setAlwaysOnTop(true);
         ManageAccountController.stage.show();
 
     }
@@ -125,6 +129,7 @@ public class HomepageCompanyController implements Initializable {
             AdminManageUserController.stage = new Stage();
             Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUer.fxml"));
             AdminManageUserController.stage.setScene(new Scene(root));
+            AdminManageUserController.stage.setAlwaysOnTop(true);
             AdminManageUserController.stage.show();
         }
 
@@ -137,6 +142,7 @@ public class HomepageCompanyController implements Initializable {
         AdminManageUserController.stage = new Stage();
         Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUer.fxml"));
         AdminManageUserController.stage.setScene(new Scene(root));
+        AdminManageUserController.stage.setAlwaysOnTop(true);
         AdminManageUserController.stage.show();
 
     }
@@ -149,6 +155,7 @@ public class HomepageCompanyController implements Initializable {
             ViewMessageController.stage = new Stage();
             Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
             ViewMessageController.stage.setScene(new Scene(root));
+            ViewMessageController.stage.setAlwaysOnTop(true);
             ViewMessageController.stage.show();
         }
 
@@ -161,6 +168,7 @@ public class HomepageCompanyController implements Initializable {
         ViewMessageController.stage = new Stage();
         Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
         ViewMessageController.stage.setScene(new Scene(root));
+        ViewMessageController.stage.setAlwaysOnTop(true);
         ViewMessageController.stage.show();
 
     }
@@ -172,6 +180,7 @@ public class HomepageCompanyController implements Initializable {
             SearchAdvertisementController.stage = new Stage();
             Parent root = FXMLLoader.load(SearchAdvertisementController.class.getResource("SearchAdvertisement.fxml"));
             SearchAdvertisementController.stage.setScene(new Scene(root));
+            SearchAdvertisementController.stage.setAlwaysOnTop(true);
             SearchAdvertisementController.stage.show();
         }
 
@@ -183,6 +192,7 @@ public class HomepageCompanyController implements Initializable {
         SearchAdvertisementController.stage = new Stage();
         Parent root = FXMLLoader.load(SearchAdvertisementController.class.getResource("SearchAdvertisement.fxml"));
         SearchAdvertisementController.stage.setScene(new Scene(root));
+        SearchAdvertisementController.stage.setAlwaysOnTop(true);
         SearchAdvertisementController.stage.show();
 
     }
