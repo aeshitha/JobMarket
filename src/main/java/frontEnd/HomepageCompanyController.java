@@ -116,10 +116,11 @@ public class HomepageCompanyController {
     void btnMaAdOnKeyReleased(KeyEvent event) throws IOException {
 
         if (event.getCode().equals(KeyCode.ENTER)) {
-            SelectAdvertisementController.stage = new Stage();
-            Parent root = FXMLLoader.load(SelectAdvertisementController.class.getResource("SelectAdvertisement.fxml"));
-            SelectAdvertisementController.stage.setScene(new Scene(root));
-            SelectAdvertisementController.stage.show();
+            AdminManageUserController.function = "add";
+            AdminManageUserController.stage = new Stage();
+            Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUer.fxml"));
+            AdminManageUserController.stage.setScene(new Scene(root));
+            AdminManageUserController.stage.show();
         }
 
     }
@@ -127,10 +128,11 @@ public class HomepageCompanyController {
     @FXML
     void btnMaAdOnMouseClicked(MouseEvent event) throws IOException {
 
-        SelectAdvertisementController.stage = new Stage();
-        Parent root = FXMLLoader.load(SelectAdvertisementController.class.getResource("SelectAdvertisement.fxml"));
-        SelectAdvertisementController.stage.setScene(new Scene(root));
-        SelectAdvertisementController.stage.show();
+        AdminManageUserController.function = "add";
+        AdminManageUserController.stage = new Stage();
+        Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUer.fxml"));
+        AdminManageUserController.stage.setScene(new Scene(root));
+        AdminManageUserController.stage.show();
 
     }
 
