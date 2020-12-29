@@ -62,12 +62,15 @@ public class ViewMessageController implements Initializable {
 
     @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            stage.close();
+        }
 
     }
 
     @FXML
     void btn_cancel_onMouseClicked(MouseEvent event) {
-
+        stage.close();
     }
 
     @FXML

@@ -9,6 +9,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
@@ -57,6 +58,9 @@ public class ApplyAdvertisementController implements Initializable {
 
     @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            stage.close();
+        }
 
     }
 

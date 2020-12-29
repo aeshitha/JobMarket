@@ -20,7 +20,6 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import org.apache.tools.ant.launch.Launcher;
 
 import java.io.IOException;
 import java.net.URL;
@@ -296,7 +295,9 @@ public class LoginController implements Initializable {
 
 
     public void btnExiteOnKeyRelease(KeyEvent keyEvent) {
-        stage.close();
+        if (keyEvent.getCode().equals(KeyCode.ENTER)) {
+            stage.close();
+        }
     }
 
     public void btnExiteOnMouseClicked(MouseEvent mouseEvent) {

@@ -1,11 +1,13 @@
 package frontEnd;
 
-import backEnd.*;
+import backEnd.AdvertisementManager;
+import backEnd.DataHolder;
+import backEnd.MessageManager;
+import backEnd.UserManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import entites.Advertisement;
-import entites.Message;
 import entites.User;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -58,13 +60,13 @@ public class AdminManageUserController implements Initializable {
     @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
-
+            stage.close();
         }
     }
 
     @FXML
     void btn_cancel_onMouseClicked(MouseEvent event) {
-
+        stage.close();
     }
 
     @FXML
