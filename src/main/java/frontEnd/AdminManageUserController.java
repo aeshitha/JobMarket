@@ -266,16 +266,29 @@ public class AdminManageUserController implements Initializable {
         Label lbl4 = new Label("Tell No : " + u.getTellNo());
         lbl4.setLayoutX(10);
         lbl4.setLayoutY(45);
-        Label lbl5 = new Label("Date of Birth : " + u.getDob().getDate());
-        lbl5.setLayoutX(10);
-        lbl5.setLayoutY(60);
-        Label lbl6 = new Label("Location " + u.getProvince() + ", "  +u.getCity()+ ", "  +u.getArea());
-        lbl6.setLayoutX(10);
-        lbl6.setLayoutY(75);
-        Label lbl7 = new Label("Description : " + u.getDescription());
-        lbl7.setLayoutX(10);
-        lbl7.setLayoutY(90);
-        p.getChildren().addAll(lbl,lbl2,lbl3,lbl4,lbl5,lbl6,lbl7,b);
+        Label lbl5;
+        if(u.getType().equals("personal")) {
+            lbl5 = new Label("Date of Birth : " + u.getDob().getDate());
+            lbl5.setLayoutX(10);
+            lbl5.setLayoutY(60);
+            Label lbl6 = new Label("Location " + u.getProvince() + ", "  +u.getCity()+ ", "  +u.getArea());
+            lbl6.setLayoutX(10);
+            lbl6.setLayoutY(75);
+            Label lbl7 = new Label("Description : " + u.getDescription());
+            lbl7.setLayoutX(10);
+            lbl7.setLayoutY(90);
+            p.getChildren().addAll(lbl,lbl2,lbl3,lbl4,lbl5,lbl6,lbl7,b);
+        }
+        else{
+            Label lbl6 = new Label("Location " + u.getProvince() + ", "  +u.getCity()+ ", "  +u.getArea());
+            lbl6.setLayoutX(10);
+            lbl6.setLayoutY(60);
+            Label lbl7 = new Label("Description : " + u.getDescription());
+            lbl7.setLayoutX(10);
+            lbl7.setLayoutY(75);
+            p.getChildren().addAll(lbl,lbl2,lbl3,lbl4,lbl6,lbl7,b);
+        }
+
         lView_Message.getItems().add(p);
         lView_Message.refresh();
 
