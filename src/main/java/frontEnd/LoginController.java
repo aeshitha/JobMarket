@@ -118,6 +118,8 @@ public class LoginController implements Initializable {
                     HomepageAdminController.stage = new Stage();
                     Parent root = FXMLLoader.load(HomepageAdminController.class.getResource("Homepage-Admin.fxml"));
                     HomepageAdminController.stage.setScene(new Scene(root));
+                    HomepageAdminController.stage.setMaximized(true);
+                    HomepageAdminController.stage.setResizable(false);
                     HomepageAdminController.stage.show();
                     stage.close();
 
@@ -141,12 +143,16 @@ public class LoginController implements Initializable {
                         HomepagePersonalController.stage = new Stage();
                         Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenue.fxml"));
                         HomepagePersonalController.stage.setScene(new Scene(root));
+                        HomepagePersonalController.stage.setMaximized(true);
+                        HomepagePersonalController.stage.setResizable(false);
                         HomepagePersonalController.stage.show();
                         stage.close();
                     } else {
                         HomepageCompanyController.stage = new Stage();
                         Parent root = FXMLLoader.load(HomepageCompanyController.class.getResource("HompageCompany.fxml"));
                         HomepageCompanyController.stage.setScene(new Scene(root));
+                        HomepageCompanyController.stage.setMaximized(true);
+                        HomepageCompanyController.stage.setResizable(false);
                         HomepageCompanyController.stage.show();
                         stage.close();
                     }
@@ -176,6 +182,8 @@ public class LoginController implements Initializable {
                     HomepageAdminController.stage = new Stage();
                     Parent root = FXMLLoader.load(HomepageAdminController.class.getResource("Homepage-Admin.fxml"));
                     HomepageAdminController.stage.setScene(new Scene(root));
+                    HomepageAdminController.stage.setMaximized(true);
+                    HomepageAdminController.stage.setResizable(false);
                     HomepageAdminController.stage.show();
                     stage.close();
 
@@ -199,12 +207,16 @@ public class LoginController implements Initializable {
                         HomepagePersonalController.stage = new Stage();
                         Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenue.fxml"));
                         HomepagePersonalController.stage.setScene(new Scene(root));
+                        HomepagePersonalController.stage.setMaximized(true);
+                        HomepagePersonalController.stage.setResizable(false);
                         HomepagePersonalController.stage.show();
                         stage.close();
                     } else {
                         HomepageCompanyController.stage = new Stage();
                         Parent root = FXMLLoader.load(HomepageCompanyController.class.getResource("HompageCompany.fxml"));
                         HomepageCompanyController.stage.setScene(new Scene(root));
+                        HomepageCompanyController.stage.setMaximized(true);
+                        HomepageCompanyController.stage.setResizable(false);
                         HomepageCompanyController.stage.show();
                         stage.close();
                     }
@@ -233,6 +245,8 @@ public class LoginController implements Initializable {
                 HomepageAdminController.stage = new Stage();
                 Parent root = FXMLLoader.load(HomepageAdminController.class.getResource("Homepage-Admin.fxml"));
                 HomepageAdminController.stage.setScene(new Scene(root));
+                HomepageAdminController.stage.setMaximized(true);
+                HomepageAdminController.stage.setResizable(false);
                 HomepageAdminController.stage.show();
                 stage.close();
 
@@ -256,12 +270,16 @@ public class LoginController implements Initializable {
                     HomepagePersonalController.stage = new Stage();
                     Parent root = FXMLLoader.load(HomepagePersonalController.class.getResource("PersonalAccountMenue.fxml"));
                     HomepagePersonalController.stage.setScene(new Scene(root));
+                    HomepagePersonalController.stage.setMaximized(true);
+                    HomepagePersonalController.stage.setResizable(false);
                     HomepagePersonalController.stage.show();
                     stage.close();
                 } else {
                     HomepageCompanyController.stage = new Stage();
                     Parent root = FXMLLoader.load(HomepageCompanyController.class.getResource("HompageCompany.fxml"));
                     HomepageCompanyController.stage.setScene(new Scene(root));
+                    HomepageCompanyController.stage.setMaximized(true);
+                    HomepageCompanyController.stage.setResizable(false);
                     HomepageCompanyController.stage.show();
                     stage.close();
                 }
