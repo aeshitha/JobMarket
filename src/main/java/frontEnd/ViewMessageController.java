@@ -3,7 +3,6 @@ package frontEnd;
 import backEnd.AdvertisementManager;
 import backEnd.DataHolder;
 import backEnd.MailManager;
-import backEnd.MessageManager;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import entites.Advertisement;
@@ -13,6 +12,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -48,12 +48,15 @@ public class ViewMessageController implements Initializable {
 
     @FXML
     void btn_allMe_onKeyReleased(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            loadAll();
+        }
 
     }
 
     @FXML
     void btn_allMe_onMouseClicked(MouseEvent event) {
-
+        loadAll();
     }
 
     @FXML
@@ -78,12 +81,14 @@ public class ViewMessageController implements Initializable {
 
     @FXML
     void btn_unreadMe_onKeyReleased(KeyEvent event) {
-
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            loadUnreaded();
+        }
     }
 
     @FXML
     void btn_unreadMe_onMouseClicked(MouseEvent event) {
-
+        loadUnreaded();
     }
 
     @FXML

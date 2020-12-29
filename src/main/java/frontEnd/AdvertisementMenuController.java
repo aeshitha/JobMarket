@@ -22,6 +22,7 @@ import java.util.concurrent.ExecutionException;
 
 public class AdvertisementMenuController implements Initializable {
 
+    String windowName = "Creat Advertisement";
     public static Stage stage;
     public JFXButton btn_add;
     @FXML
@@ -123,9 +124,7 @@ public class AdvertisementMenuController implements Initializable {
 
     @FXML
     void cBox_negotiable_onKeyReleased(KeyEvent event) {
-        if (event.getCode().equals(KeyCode.ENTER)) {
 
-        }
 
     }
 
@@ -201,10 +200,13 @@ public class AdvertisementMenuController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+
+        lblMain.setText(windowName);
+        cmb_advertisementType.requestFocus();
         cmb_advertisementType.getItems().addAll(AdvertisementManager.types);
         try {
             List<Service> services = ServiceManager.getServices();
-            for (Service service:services) {
+            for (Service service : services) {
                 cmb_service.getItems().add(service.getService());
             }
 

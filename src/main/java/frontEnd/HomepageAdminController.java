@@ -98,13 +98,12 @@ public class HomepageAdminController {
 
     @FXML
     void btnMaUsAcOnKeyReleased(KeyEvent event) throws IOException {
-
         if (event.getCode().equals(KeyCode.ENTER)) {
 
-            AdminManageUserController.stage = new Stage();
-            Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdminManageUser.fxml"));
-            AdminManageUserController.stage.setScene(new Scene(root));
-            AdminManageUserController.stage.show();
+            CreatAdminAccountController.stage = new Stage();
+            Parent root = FXMLLoader.load(CreatAdminAccountController.class.getResource("CreatAdminAccount.fxml"));
+            CreatAdminAccountController.stage.setScene(new Scene(root));
+            CreatAdminAccountController.stage.show();
 
         }
 
@@ -113,10 +112,10 @@ public class HomepageAdminController {
     @FXML
     void btnMaUsAcOnMouseClicked(MouseEvent event) throws IOException {
 
-        AdminManageUserController.stage = new Stage();
-        Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdminManageUser.fxml"));
-        AdminManageUserController.stage.setScene(new Scene(root));
-        AdminManageUserController.stage.show();
+        CreatAdminAccountController.stage = new Stage();
+        Parent root = FXMLLoader.load(CreatAdminAccountController.class.getResource("CreatAdminAccount.fxml"));
+        CreatAdminAccountController.stage.setScene(new Scene(root));
+        CreatAdminAccountController.stage.show();
 
     }
 

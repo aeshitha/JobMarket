@@ -24,14 +24,14 @@ public class AdvertisementManager {
         return true;
     }
 
-    public static boolean deleteProfile(String profile) throws ExecutionException, InterruptedException, IOException {
+    public static boolean deleteAdvertisement(String profile) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         DocumentReference ref = db.collection("advertisements").document(profile);
         DBHandler.deleteDocument(ref);
         return true;
     }
 
-    public static boolean updateProfile(Advertisement advertisement) throws ExecutionException, InterruptedException, IOException {
+    public static boolean updateAdvertisement(Advertisement advertisement) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         List<String> ids = getAdvertisementIds(db);
         if (!ids.contains(advertisement.getId())) {
@@ -41,6 +41,7 @@ public class AdvertisementManager {
         DBHandler.saveData(advertisement.toMap(), ref);
         return true;
     }
+
     public static Advertisement getAdvertisement(String advertisementId) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
