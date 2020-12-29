@@ -1,5 +1,6 @@
 package frontEnd;
 
+import javafx.application.Platform;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Node;
 import javafx.scene.layout.Pane;
@@ -26,8 +27,11 @@ public class Scaler {
             }
         }
         if (!(node instanceof Pane)) {
-            node.setLayoutX(node.getLayoutX() * ratioX);
-            node.setLayoutY(node.getLayoutY() * ratioY);
+            Platform.runLater(() -> {
+                node.setLayoutX(node.getLayoutX() * ratioX);
+                node.setLayoutY(node.getLayoutY() * ratioY);
+            });
+
         }
         node.getTransforms().add(scale);
     }

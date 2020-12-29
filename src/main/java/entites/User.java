@@ -146,7 +146,14 @@ public class User {
 
 
     public static User docToUser(DocumentSnapshot doc) throws NullPointerException {
-        User user = new User(doc.getId(), doc.getString("type"), doc.getString("name"), doc.getString("email"), doc.getLong("tellNo"), doc.getDate("dob"), doc.getString("province"), doc.getString("city"),doc.getString("area"),doc.getString("password"),doc.getString("description"));
+        Date dob = null;
+
+        try{
+            dob = doc.getDate("dob");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        User user = new User(doc.getId(), doc.getString("type"), doc.getString("name"), doc.getString("email"), doc.getLong("tellNo"), dob, doc.getString("province"), doc.getString("city"),doc.getString("area"),doc.getString("password"),doc.getString("description"));
 
         if (null == user.getName()) {
             throw new NullPointerException();

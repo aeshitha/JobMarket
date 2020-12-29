@@ -139,7 +139,7 @@ public class HomepagePersonalController implements Initializable {
 
         AdminManageUserController.function = "add";
         AdminManageUserController.stage = new Stage();
-        Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUer.fxml"));
+        Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
         AdminManageUserController.stage.setScene(new Scene(root));
         AdminManageUserController.stage.setAlwaysOnTop(true);
         AdminManageUserController.stage.initStyle(StageStyle.UNDECORATED);

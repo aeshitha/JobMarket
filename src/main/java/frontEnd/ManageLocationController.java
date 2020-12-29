@@ -266,10 +266,7 @@ public class ManageLocationController implements Initializable {
             } catch (NullPointerException e) {
                 txt_cityName.requestFocus();
             }
-
-
         }
-
     }
 
     @FXML
