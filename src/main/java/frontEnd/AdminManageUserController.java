@@ -55,7 +55,9 @@ public class AdminManageUserController implements Initializable {
 
     @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
 
+        }
     }
 
     @FXML
