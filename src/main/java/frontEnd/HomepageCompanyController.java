@@ -10,6 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -17,7 +18,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class HomepageCompanyController implements Initializable {
-
+    public AnchorPane pane;
 
     String windowName = "Company Menu";
     public static Stage stage;
@@ -187,8 +188,8 @@ public class HomepageCompanyController implements Initializable {
     }
 
     @Override
-    public void initialize(URL location, ResourceBundle resources) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        Scaler.scale(pane,true);
         lblMain.setText(windowName);
-
     }
 }
