@@ -55,22 +55,22 @@ public class HomepageAdminController {
     @FXML
     void btnMaAdOnKeyReleased(KeyEvent event) throws IOException {
         if (event.getCode().equals(KeyCode.ENTER)) {
-
-            SelectAdvertisementController.stage = new Stage();
-            Parent root = FXMLLoader.load(SelectAdvertisementController.class.getResource("SelectAdvertisement.fxml"));
-            SelectAdvertisementController.stage.setScene(new Scene(root));
-            SelectAdvertisementController.stage.show();
+            AdminManageUserController.function = "add";
+            AdminManageUserController.stage = new Stage();
+            Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
+            AdminManageUserController.stage.setScene(new Scene(root));
+            AdminManageUserController.stage.show();
 
         }
     }
 
     @FXML
     void btnMaAdOnMouseClicked(MouseEvent event) throws IOException {
-
-        SelectAdvertisementController.stage = new Stage();
-        Parent root = FXMLLoader.load(SelectAdvertisementController.class.getResource("SelectAdvertisement.fxml"));
-        SelectAdvertisementController.stage.setScene(new Scene(root));
-        SelectAdvertisementController.stage.show();
+        AdminManageUserController.function = "add";
+        AdminManageUserController.stage = new Stage();
+        Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
+        AdminManageUserController.stage.setScene(new Scene(root));
+        AdminManageUserController.stage.show();
 
     }
 
@@ -99,11 +99,11 @@ public class HomepageAdminController {
     @FXML
     void btnMaUsAcOnKeyReleased(KeyEvent event) throws IOException {
         if (event.getCode().equals(KeyCode.ENTER)) {
-
-            CreatAdminAccountController.stage = new Stage();
-            Parent root = FXMLLoader.load(CreatAdminAccountController.class.getResource("CreatAdminAccount.fxml"));
-            CreatAdminAccountController.stage.setScene(new Scene(root));
-            CreatAdminAccountController.stage.show();
+            AdminManageUserController.function = "user";
+            AdminManageUserController.stage = new Stage();
+            Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
+            AdminManageUserController.stage.setScene(new Scene(root));
+            AdminManageUserController.stage.show();
 
         }
 
@@ -111,11 +111,12 @@ public class HomepageAdminController {
 
     @FXML
     void btnMaUsAcOnMouseClicked(MouseEvent event) throws IOException {
+        AdminManageUserController.function = "user";
+        AdminManageUserController.stage = new Stage();
+        Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
+        AdminManageUserController.stage.setScene(new Scene(root));
+        AdminManageUserController.stage.show();
 
-        CreatAdminAccountController.stage = new Stage();
-        Parent root = FXMLLoader.load(CreatAdminAccountController.class.getResource("CreatAdminAccount.fxml"));
-        CreatAdminAccountController.stage.setScene(new Scene(root));
-        CreatAdminAccountController.stage.show();
 
     }
 

@@ -23,7 +23,7 @@
         </JFXButton>
         <JFXListView fx:id="lView_Message" layoutX="8.0" layoutY="157.0" onKeyReleased="#lView_Message_onKeyReleased"
                      onMouseClicked="#lView_Message_onMouseClicked" prefHeight="656.0" prefWidth="880.0"/>
-        <Text layoutX="20.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserId"
+        <Text fx:id="txt_lblname" layoutX="20.0" layoutY="112.0" strokeType="OUTSIDE" strokeWidth="0.0" text="UserId"
               wrappingWidth="166.13671875">
             <font>
                 <Font size="20.0"/>

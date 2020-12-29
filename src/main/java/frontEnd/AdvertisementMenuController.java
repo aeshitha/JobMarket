@@ -124,13 +124,14 @@ public class AdvertisementMenuController implements Initializable {
 
     @FXML
     void cBox_negotiable_onKeyReleased(KeyEvent event) {
-
-
+        if (event.getCode().equals(KeyCode.ENTER)) {
+            cmb_province.requestFocus();
+        }
     }
 
     @FXML
     void cBox_negotiable_onMouseClicked(MouseEvent event) {
-
+        cmb_province.requestFocus();
     }
 
     @FXML
