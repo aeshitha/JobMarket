@@ -5,13 +5,9 @@ import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
 import entites.Admin;
-import entites.Advertisement;
-import javafx.scene.control.Label;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
@@ -115,7 +111,7 @@ public class AdminManager {
 
 
 
-    public static boolean addAdvertisement(Admin admin) throws IOException, InterruptedException, ExecutionException {
+    public static boolean addAdmin(Admin admin) throws IOException, InterruptedException, ExecutionException {
         Firestore db = DBHandler.makeConnection();
         List<String> ids = getAdminIds(db);
         if (ids.contains(admin.getId())) {

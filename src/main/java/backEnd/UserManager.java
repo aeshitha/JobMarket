@@ -5,7 +5,6 @@ import com.google.cloud.firestore.CollectionReference;
 import com.google.cloud.firestore.DocumentReference;
 import com.google.cloud.firestore.DocumentSnapshot;
 import com.google.cloud.firestore.Firestore;
-
 import entites.User;
 
 import java.io.IOException;
@@ -44,6 +43,7 @@ public class UserManager {
         DBHandler.saveData(user.toMap(), ref);
         return true;
     }
+
     public static User getUser(String userId) throws ExecutionException, InterruptedException, IOException {
         Firestore db = DBHandler.makeConnection();
         System.out.println(db);
@@ -54,8 +54,25 @@ public class UserManager {
         List<Integer> l = new ArrayList<>();
 
 
-        user = new User(userId, doc.getString("type"), doc.getString("name"), doc.getString("email"), doc.getLong("tellNo"), doc.getDate("dob"), doc.getString("province"), doc.getString("city"),doc.getString("area"),doc.getString("password"),doc.getString("description"));
-        if(user.getName()==null) throw new NullPointerException();
+        user = new User(userId, doc.getString("type"), doc.getString("name"), doc.getString("email"), doc.getLong("tellNo"), doc.getDate("dob"), doc.getString("province"), doc.getString("city"), doc.getString("area"), doc.getString("password"), doc.getString("description"));
+        if (user.getName() == null) throw new NullPointerException();
+
+        return user;
+    }
+
+
+    public static User getUserCo(String userId) throws ExecutionException, InterruptedException, IOException {
+        Firestore db = DBHandler.makeConnection();
+        System.out.println(db);
+        DocumentReference ref = db.collection("users").document(userId);
+        User user;
+
+        DocumentSnapshot doc = DBHandler.getDocument(ref);
+        List<Integer> l = new ArrayList<>();
+
+
+        user = new User(userId, doc.getString("type"), doc.getString("name"), doc.getString("email"), doc.getLong("tellNo"), null, doc.getString("province"), doc.getString("city"), doc.getString("area"), doc.getString("password"), doc.getString("description"));
+        if (user.getName() == null) throw new NullPointerException();
 
         return user;
     }

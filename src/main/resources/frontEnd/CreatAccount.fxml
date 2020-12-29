@@ -16,20 +16,20 @@
       <RadioButton fx:id="rbTypeP" layoutX="536.0" layoutY="101.0" mnemonicParsing="false"
                    onKeyReleased="#rbTypePOnKeyRelease" prefHeight="35.0" prefWidth="195.0"
                    style="-fx-text-fill: black;" text="Personal account">
-         <font>
-            <Font size="20.0"/>
-         </font>
-         <toggleGroup>
-            <ToggleGroup fx:id="accountType"/>
-         </toggleGroup>
+          <font>
+              <Font size="20.0"/>
+          </font>
+          <toggleGroup>
+              <ToggleGroup fx:id="accountType"/>
+          </toggleGroup>
       </RadioButton>
-      <RadioButton fx:id="rbTypeC" layoutX="312.0" layoutY="101.0" mnemonicParsing="false"
-                   onKeyReleased="#rbTypeCOnKeyRelease" prefHeight="35.0" prefWidth="195.0"
-                   style="-fx-text-fill: black;" text="Company" toggleGroup="$accountType">
-         <font>
-            <Font size="20.0"/>
-         </font>
-      </RadioButton>
+       <RadioButton fx:id="rbTypeC" layoutX="312.0" layoutY="101.0" mnemonicParsing="false"
+                    onKeyReleased="#rbTypeCOnKeyRelease" prefHeight="35.0" prefWidth="195.0"
+                    style="-fx-text-fill: black;" text="Company" toggleGroup="$accountType">
+           <font>
+               <Font size="20.0"/>
+           </font>
+       </RadioButton>
       <Text layoutX="25.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Acount Type" wrappingWidth="179.13671875">
          <font>
             <Font size="20.0" />
@@ -75,29 +75,39 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text layoutX="193.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City" wrappingWidth="104.13671875">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <Text layoutX="193.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area" wrappingWidth="104.13671875">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
-      <JFXComboBox fx:id="cb_province" layoutX="312.0" layoutY="340.0" onKeyReleased="#cb_province_OnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;" />
-      <JFXComboBox fx:id="cb_city" layoutX="312.0" layoutY="390.0" onKeyReleased="#cb_city_OnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;" />
-      <JFXComboBox fx:id="cb_area" layoutX="312.0" layoutY="439.0" onKeyReleased="#cb_area_OnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;" />
-      <JFXTextField fx:id="txt_password" layoutX="312.0" layoutY="539.0" onKeyReleased="#txt_Password_OnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;">
-         <font>
-            <Font size="18.0" />
-         </font>
-      </JFXTextField>
-      <Text layoutX="25.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password" wrappingWidth="179.13671875">
-         <font>
-            <Font size="20.0" />
-         </font>
-      </Text>
+       <Text layoutX="193.0" layoutY="416.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City"
+             wrappingWidth="104.13671875">
+           <font>
+               <Font size="20.0"/>
+           </font>
+       </Text>
+       <Text layoutX="193.0" layoutY="465.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Area"
+             wrappingWidth="104.13671875">
+           <font>
+               <Font size="20.0"/>
+           </font>
+       </Text>
+       <JFXComboBox fx:id="cb_province" layoutX="312.0" layoutY="340.0" onKeyReleased="#cb_province_OnKeyRelease"
+                    onMouseClicked="#cb_province_OnMouseClicked" prefHeight="39.0" prefWidth="419.0"
+                    style="-fx-background-color: white;"/>
+       <JFXComboBox fx:id="cb_city" layoutX="312.0" layoutY="390.0" onKeyReleased="#cb_city_OnKeyRelease"
+                    onMouseClicked="#cb_city_OnMouseClicked" prefHeight="39.0" prefWidth="419.0"
+                    style="-fx-background-color: white;"/>
+       <JFXComboBox fx:id="cb_area" layoutX="312.0" layoutY="439.0" onKeyReleased="#cb_area_OnKeyRelease"
+                    onMouseClicked="#cb_area_OnMouseClicked" prefHeight="39.0" prefWidth="419.0"
+                    style="-fx-background-color: white;"/>
+       <JFXTextField fx:id="txt_password" layoutX="312.0" layoutY="539.0" onKeyReleased="#txt_Password_OnKeyRelease"
+                     prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;">
+           <font>
+               <Font size="18.0"/>
+           </font>
+       </JFXTextField>
+       <Text layoutX="25.0" layoutY="563.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password"
+             wrappingWidth="179.13671875">
+           <font>
+               <Font size="20.0"/>
+           </font>
+       </Text>
       <JFXTextField fx:id="txt_rePassword" layoutX="312.0" layoutY="588.0" onKeyReleased="#txt_rePassword_OnKeyRelease" prefHeight="39.0" prefWidth="419.0" style="-fx-background-color: white;">
          <font>
             <Font size="18.0" />

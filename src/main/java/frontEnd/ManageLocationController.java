@@ -239,21 +239,6 @@ public class ManageLocationController implements Initializable {
     @FXML
     void txt_areId_onMouseClicked(MouseEvent event) {
 
-        try {
-            Area area = AreaManager.getArea(txt_areId.getText());
-            txt_areaName.setText(area.getArea());
-            City city = CityManager.getCity(area.getCityId());
-            txt_cityId.setText(city.getId());
-            txt_cityName.setText(city.getCity());
-            Province province = ProvinceManager.getProvince(city.getProvinceId());
-            txt_provinceId.setText(province.getId());
-            txt_provinceName.setText(province.getProvince());
-            txt_areaName.requestFocus();
-
-        } catch (NullPointerException | ExecutionException | InterruptedException | IOException e) {
-            txt_areaName.requestFocus();
-        }
-
     }
 
     @FXML
@@ -265,7 +250,7 @@ public class ManageLocationController implements Initializable {
 
     @FXML
     void txt_areaName_onMouseClicked(MouseEvent event) {
-        txt_cityId.requestFocus();
+
     }
 
     @FXML
@@ -290,16 +275,6 @@ public class ManageLocationController implements Initializable {
     @FXML
     void txt_cityId_onMouseClicked(MouseEvent event) {
 
-        try {
-            City city = CityManager.getCity(txt_cityId.getId());
-            txt_cityName.setText(city.getCity());
-            txt_cityName.requestFocus();
-            Province province = ProvinceManager.getProvince(city.getProvinceId());
-            txt_provinceId.setText(province.getId());
-            txt_provinceName.setText(province.getProvince());
-        } catch (NullPointerException | ExecutionException | InterruptedException | IOException e) {
-            txt_cityName.requestFocus();
-        }
     }
 
     @FXML
@@ -311,7 +286,7 @@ public class ManageLocationController implements Initializable {
 
     @FXML
     void txt_cityName_onMouseClicked(MouseEvent event) {
-        txt_provinceId.requestFocus();
+
     }
 
     @FXML
@@ -334,13 +309,6 @@ public class ManageLocationController implements Initializable {
     @FXML
     void txt_provinceId_onMouseClicked(MouseEvent event) {
 
-        try {
-            Province province = ProvinceManager.getProvince(txt_provinceId.getText());
-            txt_provinceName.setText(province.getProvince());
-            txt_provinceName.requestFocus();
-        } catch (NullPointerException | ExecutionException | InterruptedException | IOException e) {
-            txt_provinceName.requestFocus();
-        }
 
     }
 
@@ -348,14 +316,14 @@ public class ManageLocationController implements Initializable {
     void txt_provinceName_onKeyReleased(KeyEvent event) {
 
         if (event.getCode().equals(KeyCode.ENTER)) {
-            txt_areId.requestFocus();
+            btn_add.requestFocus();
         }
 
     }
 
     @FXML
     void txt_provinceName_onMouseClicked(MouseEvent event) {
-        txt_areId.requestFocus();
+
     }
 
     @Override

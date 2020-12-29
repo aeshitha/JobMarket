@@ -6,7 +6,6 @@ import com.jfoenix.controls.JFXCheckBox;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextField;
 import entites.*;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -119,10 +118,14 @@ public class AdvertisementMenuController implements Initializable {
     @FXML
     void btn_submit_onMouseClicked(MouseEvent event){
         addAdvertisement();
+        refreshUi();
     }
 
     @FXML
     void cBox_negotiable_onKeyReleased(KeyEvent event) {
+        if (event.getCode().equals(KeyCode.ENTER)) {
+
+        }
 
     }
 

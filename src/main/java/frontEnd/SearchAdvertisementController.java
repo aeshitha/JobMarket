@@ -5,8 +5,6 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXListView;
 import entites.*;
-import javafx.application.Platform;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -30,8 +28,13 @@ import java.util.concurrent.ExecutionException;
 
 public class SearchAdvertisementController implements Initializable {
 
+    String windowName = "Search Advertisement";
     public static Stage stage;
     public JFXButton btn_search;
+
+    List<Service> services;
+    List<Province> provinces;
+    List<City> cities;
 
     @FXML
     private Label lblMain;
@@ -66,13 +69,13 @@ public class SearchAdvertisementController implements Initializable {
     @FXML
     void btn_cancel_onKeyReleased(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)){
-//            stage.close();
+            stage.close();
         }
     }
 
     @FXML
     void btn_cancel_onMouseClicked(MouseEvent event) {
-
+        stage.close();
     }
 
     @FXML
@@ -107,13 +110,14 @@ public class SearchAdvertisementController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        lblMain.setText(windowName);
         cmb_advertisementType.getItems().addAll(AdvertisementManager.types);
         try {
-            List<Service> services = ServiceManager.getServices();
+            services = ServiceManager.getServices();
             for (Service service:services) {
                 cmb_service.getItems().add(service.getService());
             }
-            List<Province> provinces = ProvinceManager.getProvinces();
+            provinces = ProvinceManager.getProvinces();
             for (Province p:provinces) {
                 cmb_province.getItems().add(p.getProvince());
             }
@@ -121,13 +125,19 @@ public class SearchAdvertisementController implements Initializable {
             e.printStackTrace();
         }
         cmb_province.setOnAction(actionEvent -> {
+            System.out.println("out side the try");
             try {
+                System.out.println("inside the try");
                 cmb_city.getSelectionModel().clearSelection();
-                List<City> cities = CityManager.getCitys(cmb_province.getSelectionModel().getSelectedItem());
-                for (City c:cities) {
+
+                cities = CityManager.getCitys(provinces.get(cmb_province.getSelectionModel().getSelectedIndex()).getId());
+                for (City c : cities) {
                     cmb_city.getItems().add(c.getCity());
+                    System.out.println("inside the loop");
+                    ;
                 }
             } catch (ExecutionException | IOException | InterruptedException e) {
+                System.out.println("in the catch");
                 e.printStackTrace();
             }
         });
@@ -135,7 +145,7 @@ public class SearchAdvertisementController implements Initializable {
         cmb_city.setOnAction(actionEvent -> {
             try {
                 cmb_area.getSelectionModel().clearSelection();
-                List<Area> areas = AreaManager.getAreas(cmb_city.getSelectionModel().getSelectedItem());
+                List<Area> areas = AreaManager.getAreas(cities.get(cmb_city.getSelectionModel().getSelectedIndex()).getId());
                 for (Area a:areas) {
                     cmb_area.getItems().add(a.getArea());
                 }
@@ -155,6 +165,7 @@ public class SearchAdvertisementController implements Initializable {
     }
 
     private void search() throws InterruptedException, ExecutionException, IOException {
+
         List<Advertisement> advertisements = new ArrayList<>();
         if (!(null==cmb_area.getSelectionModel().getSelectedItem() || cmb_area.getSelectionModel().getSelectedItem().equals(""))){
             System.out.println("case 1");

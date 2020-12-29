@@ -1,13 +1,16 @@
 package frontEnd;
 
-import backEnd.MessageManager;
-import backEnd.UserManager;
+import backEnd.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXTextArea;
 import com.jfoenix.controls.JFXTextField;
+import entites.Area;
+import entites.City;
+import entites.Province;
 import entites.User;
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
@@ -17,13 +20,19 @@ import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URL;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
+import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
-public class CreatAccountController {
+public class CreatAccountController implements Initializable {
 
+    List<Province> provinces;
+    List<Area> areas;
+    List<City> cities;
     public static Stage stage;
     private String windowName = "Creat Account";
     @FXML
@@ -48,13 +57,13 @@ public class CreatAccountController {
     private JFXTextField txt_tenNo;
 
     @FXML
-    private JFXComboBox<?> cb_province;
+    private JFXComboBox<String> cb_province;
 
     @FXML
-    private JFXComboBox<?> cb_city;
+    private JFXComboBox<String> cb_city;
 
     @FXML
-    private JFXComboBox<?> cb_area;
+    private JFXComboBox<String> cb_area;
 
     @FXML
     private JFXTextField txt_password;
@@ -121,18 +130,22 @@ public class CreatAccountController {
                 txt_id.clear();
                 txt_id.requestFocus();
             } catch (NullPointerException e) {
-                System.out.println(e);
                 if (txt_password.getText().equals(txt_rePassword.getText())) {
                     if (rbTypeC.isSelected()) {
-                        Date dob = new Date(Integer.parseInt(txt_year.getText()), Integer.parseInt(txt_Mounth.getText()), Integer.parseInt(txt_Day.getText()));
-                        UserManager.addUser(new User(txt_id.getText(), "company", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
+                        UserManager.addUser(new User(txt_id.getText(), "company", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), null, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
                         MessageManager.giveSuccessMessage(lblMain, "Company AccountCreated Successfully", windowName);
+                        refreshUI();
                     } else if (rbTypeP.isSelected()) {
-                        System.out.println(cb_province.getSelectionModel().getSelectedItem());
-                        Date dob = new Date(Integer.parseInt(txt_year.getText()), Integer.parseInt(txt_Mounth.getText()), Integer.parseInt(txt_Day.getText()));
-                        UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, "gemba", "gemba", "gemba"/*cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString()*/, txt_password.getText(), txt_discription.getText()));
+//                    System.out.println(cb_province.getSelectionModel().getSelectedItem());
+                        Date dob = null;
+                        try {
+                            dob = new SimpleDateFormat("dd/MM/yyyy").parse(txt_Day.getText() + "/" + txt_Mounth.getText() + "/" + txt_year.getText());
+                        } catch (ParseException ex) {
+                            ex.printStackTrace();
+                        }
+                        UserManager.addUser(new User(txt_id.getText(), "personal", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
                         MessageManager.giveSuccessMessage(lblMain, "Personal AccountCreated Successfully", windowName);
-
+                        refreshUI();
                     } else {
                         MessageManager.giveAWarning(lblMain, "Select Account Type", windowName);
                         rbTypeC.requestFocus();
@@ -158,13 +171,7 @@ public class CreatAccountController {
         } catch (NullPointerException e) {
             if (txt_password.getText().equals(txt_rePassword.getText())) {
                 if (rbTypeC.isSelected()) {
-                    Date dob = null;
-                    try {
-                        dob = new SimpleDateFormat("dd/MM/yyyy").parse(txt_Day.getText() + "/" + txt_Mounth.getText() + "/" + txt_year.getText());
-                    } catch (ParseException ex) {
-                        ex.printStackTrace();
-                    }
-                    UserManager.addUser(new User(txt_id.getText(), "company", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), dob, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
+                    UserManager.addUser(new User(txt_id.getText(), "company", txt_name.getText(), txt_email.getText(), Long.parseLong(txt_tenNo.getText()), null, cb_province.getSelectionModel().getSelectedItem().toString(), cb_city.getSelectionModel().getSelectedItem().toString(), cb_area.getSelectionModel().getSelectedItem().toString(), txt_password.getText(), txt_discription.getText()));
                     MessageManager.giveSuccessMessage(lblMain, "Company AccountCreated Successfully", windowName);
                     refreshUI();
                 } else if (rbTypeP.isSelected()) {
@@ -209,6 +216,17 @@ public class CreatAccountController {
     void cb_province_OnKeyRelease(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
             cb_city.requestFocus();
+            cb_province.setOnAction(actionEvent -> {
+                try {
+                    cb_city.getSelectionModel().clearSelection();
+                    List<City> cities = CityManager.getCitys(cb_province.getSelectionModel().getSelectedItem());
+                    for (City c : cities) {
+                        cb_city.getItems().add(c.getCity());
+                    }
+                } catch (ExecutionException | IOException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+            });
         }
     }
 
@@ -216,6 +234,9 @@ public class CreatAccountController {
     void rbTypeCOnKeyRelease(KeyEvent event) {
         if (event.getCode().equals(KeyCode.ENTER)) {
             txt_name.requestFocus();
+            txt_Day.setDisable(true);
+            txt_year.setDisable(true);
+            txt_Mounth.setDisable(true);
         }
     }
 
@@ -313,5 +334,56 @@ public class CreatAccountController {
         txt_rePassword.clear();
         txt_discription.clear();
         rbTypeC.requestFocus();
+    }
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        lblMain.setText(windowName);
+
+
+        try {
+
+            provinces = ProvinceManager.getProvinces();
+            for (Province p : provinces) {
+                cb_province.getItems().add(p.getProvince());
+            }
+        } catch (ExecutionException | InterruptedException | IOException e) {
+            e.printStackTrace();
+        }
+        cb_province.setOnAction(actionEvent -> {
+            try {
+                cb_city.getSelectionModel().clearSelection();
+
+                cities = CityManager.getCitys(provinces.get(cb_province.getSelectionModel().getSelectedIndex()).getId());
+                for (City c : cities) {
+                    cb_city.getItems().add(c.getCity());
+                }
+            } catch (ExecutionException | IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+
+        cb_city.setOnAction(actionEvent -> {
+            try {
+                cb_area.getSelectionModel().clearSelection();
+
+                areas = AreaManager.getAreas(cities.get(cb_city.getSelectionModel().getSelectedIndex()).getId());
+                for (Area a : areas) {
+                    cb_area.getItems().add(a.getArea());
+                }
+            } catch (ExecutionException | IOException | InterruptedException e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public void cb_area_OnMouseClicked(MouseEvent mouseEvent) {
+    }
+
+    public void cb_city_OnMouseClicked(MouseEvent mouseEvent) {
+    }
+
+    public void cb_province_OnMouseClicked(MouseEvent mouseEvent) {
+
     }
 }

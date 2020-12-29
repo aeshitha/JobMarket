@@ -38,6 +38,7 @@ public class ApplyAdvertisementController implements Initializable {
     @FXML
     void btn_apply_onKeyReleased(KeyEvent event) {
 
+
     }
 
     @FXML

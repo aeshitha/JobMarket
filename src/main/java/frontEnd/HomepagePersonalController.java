@@ -55,7 +55,6 @@ public class HomepagePersonalController implements Initializable {
             Parent root = FXMLLoader.load(AdvertisementMenuController.class.getResource("AdvertisementMenu.fxml"));
             AdvertisementMenuController.stage.setScene(new Scene(root));
             AdvertisementMenuController.stage.show();
-            stage.close();
 
         }
 
@@ -69,7 +68,7 @@ public class HomepagePersonalController implements Initializable {
         Parent root = FXMLLoader.load(AdvertisementMenuController.class.getResource("AdvertisementMenu.fxml"));
         AdvertisementMenuController.stage.setScene(new Scene(root));
         AdvertisementMenuController.stage.show();
-        stage.close();
+
 
     }
 
@@ -81,7 +80,7 @@ public class HomepagePersonalController implements Initializable {
             Parent root = FXMLLoader.load(ManageAccountController.class.getResource("ManageAccount.fxml"));
             ManageAccountController.stage.setScene(new Scene(root));
             ManageAccountController.stage.show();
-            stage.close();
+
         }
 
     }
@@ -93,7 +92,7 @@ public class HomepagePersonalController implements Initializable {
         Parent root = FXMLLoader.load(ManageAccountController.class.getResource("ManageAccount.fxml"));
         ManageAccountController.stage.setScene(new Scene(root));
         ManageAccountController.stage.show();
-        stage.close();
+
 
     }
 
@@ -118,7 +117,7 @@ public class HomepagePersonalController implements Initializable {
             Parent root = FXMLLoader.load(SelectAdvertisementController.class.getResource("SelectAdvertisement.fxml"));
             SelectAdvertisementController.stage.setScene(new Scene(root));
             SelectAdvertisementController.stage.show();
-            stage.close();
+
         }
 
     }
@@ -130,7 +129,7 @@ public class HomepagePersonalController implements Initializable {
         Parent root = FXMLLoader.load(SelectAdvertisementController.class.getResource("SelectAdvertisement.fxml"));
         SelectAdvertisementController.stage.setScene(new Scene(root));
         SelectAdvertisementController.stage.show();
-        stage.close();
+
 
     }
 
@@ -141,7 +140,7 @@ public class HomepagePersonalController implements Initializable {
             Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
             ViewMessageController.stage.setScene(new Scene(root));
             ViewMessageController.stage.show();
-            stage.close();
+
         }
     }
 
@@ -152,7 +151,7 @@ public class HomepagePersonalController implements Initializable {
         Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
         ViewMessageController.stage.setScene(new Scene(root));
         ViewMessageController.stage.show();
-        stage.close();
+
 
     }
 
@@ -164,7 +163,7 @@ public class HomepagePersonalController implements Initializable {
             Parent root = FXMLLoader.load(SearchAdvertisementController.class.getResource("SearchAdvertisement.fxml"));
             SearchAdvertisementController.stage.setScene(new Scene(root));
             SearchAdvertisementController.stage.show();
-            stage.close();
+
         }
     }
 
@@ -175,7 +174,7 @@ public class HomepagePersonalController implements Initializable {
         Parent root = FXMLLoader.load(SearchAdvertisementController.class.getResource("SearchAdvertisement.fxml"));
         SearchAdvertisementController.stage.setScene(new Scene(root));
         SearchAdvertisementController.stage.show();
-        stage.close();
+
 
     }
 
