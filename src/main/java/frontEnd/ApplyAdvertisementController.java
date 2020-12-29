@@ -21,6 +21,7 @@ import java.util.concurrent.ExecutionException;
 public class ApplyAdvertisementController implements Initializable {
     public static String messageTo;
     public static String addId;
+    public static String windowName = "Send Message";
 
     public static Stage stage;
     @FXML
@@ -78,6 +79,7 @@ public class ApplyAdvertisementController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblMain.setText(windowName);
         if (messageTo.equals("admin")){
             Platform.runLater(() -> {
                 lblMain.setText("Message to ADMIN");

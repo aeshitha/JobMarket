@@ -112,6 +112,18 @@ public class AdvertisementManager {
         return advertisement;
     }
 
+    public static List<Advertisement> getAdvertisements(String userId) throws ExecutionException, InterruptedException, IOException {
+        Firestore db = DBHandler.makeConnection();
+        Query q = db.collection("advertisements").whereEqualTo("userID",userId);
+        List<DocumentSnapshot> docs = DBHandler.getCollection(q);
+        List<Advertisement> advertisement = new ArrayList<>();
+        for (int i = 0; i < docs.size(); i++) {
+            DocumentSnapshot doc = docs.get(i);
+            advertisement.add(Advertisement.docToAdvertisement(doc));
+        }
+        return advertisement;
+    }
+
 
 
 

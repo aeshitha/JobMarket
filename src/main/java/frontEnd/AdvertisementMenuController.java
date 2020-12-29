@@ -112,8 +112,11 @@ public class AdvertisementMenuController implements Initializable {
                     txt_chargesPer.getText(),cBox_negotiable.isSelected(),cmb_province.getSelectionModel().getSelectedItem(),
                     cmb_city.getSelectionModel().getSelectedItem(),cmb_area.getSelectionModel().getSelectedItem(),
                     txt_description.getText(),DataHolder.user.getId()
+
             );
             AdvertisementManager.addAdvertisement(a);
+            MessageManager.giveSuccessMessage(lblMain,"Advertisement Added",windowName);
+
         } catch (IOException | InterruptedException | ExecutionException e) {
             e.printStackTrace();
         }
@@ -279,5 +282,6 @@ public class AdvertisementMenuController implements Initializable {
     private void add_service() throws InterruptedException, ExecutionException, IOException {
         ServiceManager.addService(new Service(ServiceManager.getNextServiceId(),cmb_service.getEditor().getText()));
         cmb_service.getItems().add(cmb_service.getEditor().getText());
+        MessageManager.giveSuccessMessage(lblMain,"Service Added",windowName);
     }
 }

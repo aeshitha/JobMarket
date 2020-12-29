@@ -1,11 +1,11 @@
 package frontEnd;
 
-import backEnd.AdvertisementManager;
-import backEnd.UserManager;
+import backEnd.*;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXListView;
 import com.jfoenix.controls.JFXTextField;
 import entites.Advertisement;
+import entites.Message;
 import entites.User;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -17,6 +17,7 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class AdminManageUserController implements Initializable {
 
     String windowName = "Manage User Menu";
     public static Stage stage;
+    public Text txt_lblname;
 
     @FXML
     private Label lblMain;
@@ -119,13 +121,16 @@ public class AdminManageUserController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        lblMain.setText(windowName);
         if (function.equals("user")){
+            txt_lblname.setText("User Id : ");
             loadUsers();
         }
         else{
+            windowName = "Manage Advertisement Menu";
+            txt_lblname.setText("Advertisement Id : ");
             loadAdds();
         }
+        lblMain.setText(windowName);
     }
 
     private void search(){
@@ -135,15 +140,22 @@ public class AdminManageUserController implements Initializable {
                 User u = UserManager.getUser(txt_userId.getText());
                 addToListUser(u);
             } catch (ExecutionException | InterruptedException | IOException e) {
-                e.printStackTrace();
+                MessageManager.giveAWarning(lblMain,"User not found", windowName);
             }
         }
         if (function.equals("add")){
             try {
                 Advertisement a = AdvertisementManager.getAdvertisement(txt_userId.getText());
-                addToListAdd(a);
+                if(null==DataHolder.admin){
+                    if (a.getUserId().equals(DataHolder.user.getId())){
+                        addToListAdd(a);
+                    }
+                }
+                else{
+                    addToListAdd(a);
+                }
             } catch (ExecutionException | InterruptedException | IOException e) {
-                e.printStackTrace();
+                MessageManager.giveAWarning(lblMain,"Add not found", windowName);
             }
         }
     }
@@ -177,7 +189,13 @@ public class AdminManageUserController implements Initializable {
         new Thread(() -> {
             try {
                 List<Advertisement> adds;
-                adds = AdvertisementManager.getAdvertisements();
+                if (null==DataHolder.admin) {
+                    adds = AdvertisementManager.getAdvertisements(DataHolder.user.getId());
+                }
+                else{
+                    adds = AdvertisementManager.getAdvertisements();
+                }
+
                 if (adds.size()>0){
                     Platform.runLater(() -> {
                         for (Advertisement a: adds) {
@@ -227,6 +245,7 @@ public class AdminManageUserController implements Initializable {
                 AdvertisementManager.deleteAdvertisement(a.getId());
                 lView_Message.getItems().remove(p);
                 lView_Message.refresh();
+                MessageManager.giveSuccessMessage(lblMain,"Advertisement Deleted",windowName);
             } catch (IOException | InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }
@@ -256,6 +275,7 @@ public class AdminManageUserController implements Initializable {
                 UserManager.deleteUser(u.getId());
                 lView_Message.getItems().remove(p);
                 lView_Message.refresh();
+                MessageManager.giveSuccessMessage(lblMain,"User Deleted",windowName);
             } catch (IOException | InterruptedException | ExecutionException e) {
                 e.printStackTrace();
             }

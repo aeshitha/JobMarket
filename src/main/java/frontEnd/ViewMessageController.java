@@ -26,6 +26,7 @@ import java.util.ResourceBundle;
 import java.util.concurrent.ExecutionException;
 
 public class ViewMessageController implements Initializable {
+    String windowName = "Messages";
 
     public static Stage stage;
     @FXML
@@ -103,6 +104,7 @@ public class ViewMessageController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblMain.setText(windowName);
         loadUnreaded();
     }
 
