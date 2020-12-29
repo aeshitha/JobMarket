@@ -11,7 +11,10 @@ import entites.City;
 import entites.Province;
 import entites.Tables.LocationTable;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
@@ -192,6 +195,10 @@ public class ManageLocationController implements Initializable {
     void btn_cancle_onKeyReleased(KeyEvent event) throws IOException {
 
         if (event.getCode().equals(KeyCode.ENTER)) {
+            HomepageAdminController.stage = new Stage();
+            Parent root = FXMLLoader.load(HomepageAdminController.class.getResource("Homepage-Admin.fxml"));
+            HomepageAdminController.stage.setScene(new Scene(root));
+            HomepageAdminController.stage.show();
             stage.close();
         }
     }
@@ -199,6 +206,10 @@ public class ManageLocationController implements Initializable {
     @FXML
     void btn_cancle_onMouseClicked(MouseEvent event) throws IOException {
 
+        HomepageAdminController.stage = new Stage();
+        Parent root = FXMLLoader.load(HomepageAdminController.class.getResource("Homepage-Admin.fxml"));
+        HomepageAdminController.stage.setScene(new Scene(root));
+        HomepageAdminController.stage.show();
         stage.close();
 
     }
