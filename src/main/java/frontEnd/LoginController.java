@@ -20,6 +20,8 @@ import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import org.apache.tools.ant.launch.Launcher;
 
 import java.io.IOException;
 import java.net.URL;
@@ -122,6 +124,7 @@ public class LoginController implements Initializable {
                     HomepageAdminController.stage.setScene(new Scene(root));
                     HomepageAdminController.stage.setMaximized(true);
                     HomepageAdminController.stage.setResizable(false);
+                    HomepageAdminController.stage.initStyle(StageStyle.UNDECORATED);
                     HomepageAdminController.stage.show();
                     stage.close();
 
@@ -147,6 +150,7 @@ public class LoginController implements Initializable {
                         HomepagePersonalController.stage.setScene(new Scene(root));
                         HomepagePersonalController.stage.setMaximized(true);
                         HomepagePersonalController.stage.setResizable(false);
+                        HomepagePersonalController.stage.initStyle(StageStyle.UNDECORATED);
                         HomepagePersonalController.stage.show();
                         stage.close();
                     } else {
@@ -155,6 +159,7 @@ public class LoginController implements Initializable {
                         HomepageCompanyController.stage.setScene(new Scene(root));
                         HomepageCompanyController.stage.setMaximized(true);
                         HomepageCompanyController.stage.setResizable(false);
+                        HomepageCompanyController.stage.initStyle(StageStyle.UNDECORATED);
                         HomepageCompanyController.stage.show();
                         stage.close();
                     }
@@ -186,6 +191,7 @@ public class LoginController implements Initializable {
                     HomepageAdminController.stage.setScene(new Scene(root));
                     HomepageAdminController.stage.setMaximized(true);
                     HomepageAdminController.stage.setResizable(false);
+                    HomepageAdminController.stage.initStyle(StageStyle.UNDECORATED);
                     HomepageAdminController.stage.show();
                     stage.close();
 
@@ -211,6 +217,7 @@ public class LoginController implements Initializable {
                         HomepagePersonalController.stage.setScene(new Scene(root));
                         HomepagePersonalController.stage.setMaximized(true);
                         HomepagePersonalController.stage.setResizable(false);
+                        HomepagePersonalController.stage.initStyle(StageStyle.UNDECORATED);
                         HomepagePersonalController.stage.show();
                         stage.close();
                     } else {
@@ -219,6 +226,7 @@ public class LoginController implements Initializable {
                         HomepageCompanyController.stage.setScene(new Scene(root));
                         HomepageCompanyController.stage.setMaximized(true);
                         HomepageCompanyController.stage.setResizable(false);
+                        HomepageCompanyController.stage.initStyle(StageStyle.UNDECORATED);
                         HomepageCompanyController.stage.show();
                         stage.close();
                     }
@@ -249,6 +257,7 @@ public class LoginController implements Initializable {
                 HomepageAdminController.stage.setScene(new Scene(root));
                 HomepageAdminController.stage.setMaximized(true);
                 HomepageAdminController.stage.setResizable(false);
+                HomepageAdminController.stage.initStyle(StageStyle.UNDECORATED);
                 HomepageAdminController.stage.show();
                 stage.close();
 
@@ -274,6 +283,7 @@ public class LoginController implements Initializable {
                     HomepagePersonalController.stage.setScene(new Scene(root));
                     HomepagePersonalController.stage.setMaximized(true);
                     HomepagePersonalController.stage.setResizable(false);
+                    HomepagePersonalController.stage.initStyle(StageStyle.UNDECORATED);
                     HomepagePersonalController.stage.show();
                     stage.close();
                 } else {
@@ -282,6 +292,7 @@ public class LoginController implements Initializable {
                     HomepageCompanyController.stage.setScene(new Scene(root));
                     HomepageCompanyController.stage.setMaximized(true);
                     HomepageCompanyController.stage.setResizable(false);
+                    HomepageCompanyController.stage.initStyle(StageStyle.UNDECORATED);
                     HomepageCompanyController.stage.show();
                     stage.close();
                 }
