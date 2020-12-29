@@ -64,6 +64,7 @@ public class HomepageAdminController implements Initializable {
             AdminManageUserController.stage = new Stage();
             Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
             AdminManageUserController.stage.setScene(new Scene(root));
+            AdminManageUserController.stage.setAlwaysOnTop(true);
             AdminManageUserController.stage.show();
 
         }
@@ -75,6 +76,7 @@ public class HomepageAdminController implements Initializable {
         AdminManageUserController.stage = new Stage();
         Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
         AdminManageUserController.stage.setScene(new Scene(root));
+        AdminManageUserController.stage.setAlwaysOnTop(true);
         AdminManageUserController.stage.show();
 
     }
@@ -86,6 +88,7 @@ public class HomepageAdminController implements Initializable {
             ManageLocationController.stage = new Stage();
             Parent root = FXMLLoader.load(ManageLocationController.class.getResource("ManageLocation.fxml"));
             ManageLocationController.stage.setScene(new Scene(root));
+            ManageLocationController.stage.setAlwaysOnTop(true);
             ManageLocationController.stage.show();
         }
 
@@ -97,6 +100,7 @@ public class HomepageAdminController implements Initializable {
         ManageLocationController.stage = new Stage();
         Parent root = FXMLLoader.load(ManageLocationController.class.getResource("ManageLocation.fxml"));
         ManageLocationController.stage.setScene(new Scene(root));
+        ManageLocationController.stage.setAlwaysOnTop(true);
         ManageLocationController.stage.show();
 
     }
@@ -108,6 +112,7 @@ public class HomepageAdminController implements Initializable {
             AdminManageUserController.stage = new Stage();
             Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
             AdminManageUserController.stage.setScene(new Scene(root));
+            AdminManageUserController.stage.setAlwaysOnTop(true);
             AdminManageUserController.stage.show();
 
         }
@@ -120,6 +125,7 @@ public class HomepageAdminController implements Initializable {
         AdminManageUserController.stage = new Stage();
         Parent root = FXMLLoader.load(AdminManageUserController.class.getResource("AdimManageUser.fxml"));
         AdminManageUserController.stage.setScene(new Scene(root));
+        AdminManageUserController.stage.setAlwaysOnTop(true);
         AdminManageUserController.stage.show();
 
 
@@ -144,6 +150,7 @@ public class HomepageAdminController implements Initializable {
             CreatAdminAccountController.stage = new Stage();
             Parent root = FXMLLoader.load(CreatAdminAccountController.class.getResource("CreatAdminAccount.fxml"));
             CreatAdminAccountController.stage.setScene(new Scene(root));
+            CreatAdminAccountController.stage.setAlwaysOnTop(true);
             CreatAdminAccountController.stage.show();
 
         }
@@ -154,6 +161,7 @@ public class HomepageAdminController implements Initializable {
         CreatAdminAccountController.stage = new Stage();
         Parent root = FXMLLoader.load(CreatAdminAccountController.class.getResource("CreatAdminAccount.fxml"));
         CreatAdminAccountController.stage.setScene(new Scene(root));
+        CreatAdminAccountController.stage.setAlwaysOnTop(true);
         CreatAdminAccountController.stage.show();
 
     }
@@ -163,6 +171,7 @@ public class HomepageAdminController implements Initializable {
             ViewMessageController.stage = new Stage();
             Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
             ViewMessageController.stage.setScene(new Scene(root));
+            ViewMessageController.stage.setAlwaysOnTop(true);
             ViewMessageController.stage.show();
 
         }
@@ -172,6 +181,7 @@ public class HomepageAdminController implements Initializable {
         ViewMessageController.stage = new Stage();
         Parent root = FXMLLoader.load(ViewMessageController.class.getResource("ViewMessage.fxml"));
         ViewMessageController.stage.setScene(new Scene(root));
+        ViewMessageController.stage.setAlwaysOnTop(true);
         ViewMessageController.stage.show();
     }
 
